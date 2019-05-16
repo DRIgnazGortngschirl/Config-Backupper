@@ -68,6 +68,7 @@ echo "Devices List's where created"
 
 # Phase 3 move all modules to ./Modules directory
 mv --verbose ./Fortinet.sh ./Modules/Backup/Fortinet.sh
+mv --verbose ./Fortinet-Special.sh ./Modules/Backup/Fortinet-Special.sh
 mv --verbose ./DELL.sh ./Modules/Backup/DELL.sh 
 mv --verbose ./HP.sh ./Modules/Backup/HP.sh
 mv --verbose ./Cisco.sh ./Modules/Backup/Cisco.sh
@@ -100,6 +101,7 @@ echo "Main Launcher where created"
 # Phase 5 make the files executable
 chmod --verbose 700 ./Main-Launcher.sh
 chmod --verbose 700 ./Modules/Backup/Fortinet.sh
+chmod --verbose 700 ./Modules/Backup/Fortinet-Special.sh
 chmod --verbose 700 ./Modules/Backup/DELL.sh
 chmod --verbose 700 ./Modules/Backup/HP.sh
 chmod --verbose 700 ./Modules/Backup/Cisco.sh
