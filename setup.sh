@@ -83,12 +83,14 @@ echo "[i] : Modules where moved"
 
 # Phase 4 create the main lanucher for all modules
 installpath=`find / -name "*Config-Backupper" 2>/dev/null`
+echo 'date=`date +%d%m%y`'  >> ./Main-Launcher.sh
+echo " " >> ./Main-Launcher.sh
 echo "cd $installpath" >> ./Main-Launcher.sh
 echo " " >> ./Main-Launcher.sh
-echo './Modules/Backup/Fortinet.sh' >> ./Main-Launcher.sh
-echo './Modules/Backup/DELL.sh' >> ./Main-Launcher.sh
-echo './Modules/Backup/HP.sh' >> ./Main-Launcher.sh
-echo './Modules/Backup/Cisco.sh' >> ./Main-Launcher.sh
+echo './Modules/Backup/Fortinet.sh &>> ./Log/Fortinet/log$date.txt' >> ./Main-Launcher.sh
+echo './Modules/Backup/DELL.sh &>> ./Log/DELL/log$date.txt' >> ./Main-Launcher.sh
+echo './Modules/Backup/HP.sh &>> ./Log/HP/log$date.txt' >> ./Main-Launcher.sh
+echo './Modules/Backup/Cisco.sh &>> ./Log/Cisco/log$date.txt' >> ./Main-Launcher.sh
 echo " " >> ./Main-Launcher.sh
 echo './Modules/Archiv/Checker.sh' >> ./Main-Launcher.sh
 echo './Modules/Archiv/ArchivStats.sh' >> ./Main-Launcher.sh
