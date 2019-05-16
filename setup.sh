@@ -68,8 +68,8 @@ echo "Devices List's where created"
 
 # Phase 3 move all modules to ./Modules directory
 mv --verbose ./Fortinet.sh ./Modules/Backup/Fortinet.sh
-mv --verbose ./Dell.sh ./Modules/Backup/Dell.sh 
-mv --verbose ./Hp.sh ./Modules/Backup/Hp.sh
+mv --verbose ./DELL.sh ./Modules/Backup/Dell.sh 
+mv --verbose ./HP.sh ./Modules/Backup/Hp.sh
 mv --verbose ./Backup-Script-Cisco.sh ./Modules/Backup/Cisco.sh
 mv --verbose ./Checker.sh ./Modules/Checker/Checker.sh
 mv --verbose ./Fastdebug.sh ./Modules/Debug/Fastdebug.sh
