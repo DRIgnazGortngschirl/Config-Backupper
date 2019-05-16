@@ -71,10 +71,12 @@ mv --verbose ./Fortinet.sh ./Modules/Backup/Fortinet.sh
 mv --verbose ./DELL.sh ./Modules/Backup/DELL.sh 
 mv --verbose ./HP.sh ./Modules/Backup/HP.sh
 mv --verbose ./Cisco.sh ./Modules/Backup/Cisco.sh
-mv --verbose ./Checker.sh ./Modules/Checker/Checker.sh
+mv --verbose ./Checker.sh ./Modules/Archiv/Checker.sh
 mv --verbose ./Fastdebug.sh ./Modules/Debug/Fastdebug.sh
 mv --verbose ./OldConfigsMover.sh ./Modules/Archiv/OldConfigsMover.sh
 mv --verbose ./ArchivStats.sh ./Modules/Archiv/ArchivStats.sh
+mv --verbose ./BackupConfigsCleanUp.sh ./Modules/Clean/BackupConfigsCleanUp.sh
+mv --verbose ./LogCleanUp.sh ./Modules/Clean/LogCleanUp.sh
 echo "Modules where moved"
 
 # Phase 4 create the main lanucher for all modules
