@@ -12,5 +12,6 @@ if [[ $REPLY =~ ^[Y]$ ]]
                 echo "I will DELETE now ALL Backuped Configs."
                 sleep 3
                 find ./Archiv -maxdepth 2 -type f -exec rm -fv {} \;
+                rm ./Archiv -fv
         fi
 fi
