@@ -8,7 +8,7 @@ mkdir --verbose -p ./Devices/{Fortinet,HP,Cisco,DELL}
 mkdir --verbose -p ./Modules/{Archiv,Backup,Checker,Clean,Debug}
 mkdir --verbose ./SSH-Keys
 mkdir --verbose -p ./Log/{Fortinet,HP,Cisco,DELL,BackupCheck}
-echo "Directories where created"
+echo "[i] : Directories where created"
 
 # Phase 2 create all device list's
 echo "Devices List's"
@@ -64,7 +64,7 @@ echo '# 1.1.1.1 --> CloudFlare' >> ./Devices/DELL/DELL-Devices.txt
 echo '# #8.8.8.8 --> Uncommented line' >> ./Devices/DELL/DELL-Devices.txt
 echo '# Use a "#" in front of a line to uncomment a line (This will be ignored from the BackupScript)' >> ./Devices/DELL/DELL-Devices.txt
 echo "└── DELL Done"
-echo "Devices List's where created"
+echo "[i] : Devices List's where created"
 
 # Phase 3 move all modules to ./Modules directory
 mv --verbose ./Fortinet.sh ./Modules/Backup/Fortinet.sh
@@ -78,7 +78,7 @@ mv --verbose ./OldConfigsMover.sh ./Modules/Archiv/OldConfigsMover.sh
 mv --verbose ./ArchivStats.sh ./Modules/Archiv/ArchivStats.sh
 mv --verbose ./BackupConfigsCleanUp.sh ./Modules/Clean/BackupConfigsCleanUp.sh
 mv --verbose ./LogCleanUp.sh ./Modules/Clean/LogCleanUp.sh
-echo "Modules where moved"
+echo "[i] : Modules where moved"
 
 # Phase 4 create the main lanucher for all modules
 installpath=`find / -name "*Config-Backupper" 2>/dev/null`
@@ -95,7 +95,7 @@ read achivetime
 echo "--------------------------------------------------------------------------------"
 echo "find ./Archiv -mtime +$achivetime -exec gzip {} +" >> ./Modules/Archiv/OldConfigsMover.sh
 echo "du -sh ./Archiv >> ./Log/BackupCheck/log$date.txt" >> ./Modules/Archiv/ArchivStats.sh
-echo "Main Launcher where created"
+echo "[i] : Main Launcher where created"
 
 # Phase 5 make the files executable
 chmod --verbose 700 ./Main-Launcher.sh
@@ -110,7 +110,7 @@ chmod --verbose 700 ./Modules/Clean/BackupConfigsCleanUp.sh
 chmod --verbose 700 ./Modules/Clean/LogCleanUp.sh
 chmod --verbose 700 ./Modules/Archiv/ArchivStats.sh
 chmod --verbose 700 ./Modules/Archiv/OldConfigsMover.sh
-echo "Modules & Lanucher where modified"
+echo "[i] : Modules & Lanucher where modified"
 
 # Phase 6 create SSH Key
 echo "----------------------------------------"
@@ -130,4 +130,7 @@ echo "-----BEGIN PUBLIC KEY-----"
 echo "$(cat ./SSH-Keys/Backup-SSH-Key.pub)" | awk '{print $2,$3}'
 echo "-----END PUBLIC KEY-----"
 echo " "
-echo "IT'S DONE !"
+echo "[i] : IT'S DONE !"
+
+# Phase 8 remove setup.sh 
+rm setup.sh
