@@ -19,12 +19,7 @@ date=`date +%d%m%y`
 
 echo "Started Backup of Config's"  &>> Log/log$date.txt
 
-for device in `cat ./Devices/Cisco-Devices.txt| egrep -v "^\s*(#|$)"` # Will have a look in the file "cisco-devices.txt" for all Cisco devices
+for device in `cat ./Devices/Cisco/Cisco-Devices.txt| egrep -v "^\s*(#|$)"` # Will have a look in the file "cisco-devices.txt" for all Cisco devices
 do
-    ssh-keyscan -H $device1 >> ~/.ssh/known_hosts
-    sshpass -p $passwd1 ssh $user1@$device1 'terminal pager 0'
-    sshpass -p $passwd1 ssh $user1@$device1 'show run' > BackupConfigCicso
-    name=`grep -m1 'hostname' BackupConfigCicso | sed 's|["?]||g' | sed 's/\<hostname\>//g' | sed 's/ //g' | tr -dc '[:print:]'`  # Will not work
-    mkdir Archiv/$name >> /dev/null
-    mv BackupConfigCicso ./Archive/$name-$(date +"%H:%M-%d.%m.%Y").conf
+
 done
