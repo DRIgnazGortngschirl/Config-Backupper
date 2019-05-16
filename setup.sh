@@ -5,7 +5,7 @@
 # Phase 1 create all directorys
 mkdir --verbose ./Archiv
 mkdir --verbose -p ./Devices/{Fortinet,HP,Cisco,DELL}
-mkdir --verbose -p ./Modules/{Archiv,Backup,Clean,Debug}
+mkdir --verbose -p ./Modules/{Archiv,Backup,Checker,Clean,Debug}
 mkdir --verbose ./SSH-Keys
 mkdir --verbose -p ./Log/{Fortinet,HP,Cisco,DELL,BackupCheck}
 echo "Directories where created"
@@ -68,9 +68,9 @@ echo "Devices List's where created"
 
 # Phase 3 move all modules to ./Modules directory
 mv --verbose ./Fortinet.sh ./Modules/Backup/Fortinet.sh
-mv --verbose ./DELL.sh ./Modules/Backup/Dell.sh 
-mv --verbose ./HP.sh ./Modules/Backup/Hp.sh
-mv --verbose ./Backup-Script-Cisco.sh ./Modules/Backup/Cisco.sh
+mv --verbose ./DELL.sh ./Modules/Backup/DELL.sh 
+mv --verbose ./HP.sh ./Modules/Backup/HP.sh
+mv --verbose ./Cisco.sh ./Modules/Backup/Cisco.sh
 mv --verbose ./Checker.sh ./Modules/Checker/Checker.sh
 mv --verbose ./Fastdebug.sh ./Modules/Debug/Fastdebug.sh
 mv --verbose ./OldConfigsMover.sh ./Modules/Archiv/OldConfigsMover.sh
