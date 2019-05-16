@@ -15,7 +15,6 @@
 # 2. Add SSH Key for Authentification for the user
 
 user=backup
-date=`date +%d%m%y`
 
 echo "Started Backup of Config's"
 
