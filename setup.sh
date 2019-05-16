@@ -78,7 +78,7 @@ mv --verbose ./ArchivStats.sh ./Modules/Archiv/ArchivStats.sh
 echo "Modules where moved"
 
 # Phase 4 create the main lanucher for all modules
-installpath=`find / -name "*Automatic-config-backup-of-firewalls-and-switches"`
+installpath=`find / -name "*Automatic-config-backup-of-firewalls-and-switches" 2>/dev/null`
 echo "date=`date +%d%m%y`" >> ./Main-Launcher.sh
 echo "cd $installpath" >> ./Main-Launcher.sh
 echo './Modules/Backup/Fortinet.sh' >> ./Main-Launcher.sh
