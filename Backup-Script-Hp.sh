@@ -17,13 +17,9 @@
 user=backup
 date=`date +%d%m%y`
 
-echo "Started Backup of Config's" &>> Log/log$date.txt
+echo "Started Backup of Config's" &>> ./Log/log$date.txt
 
-for device in `cat ./Devices/HP-Devices.txt | egrep -v "^\s*(#|$)"` # Will have a look in the file "hp-devices.txt" for all HP devices
+for device in `cat ./Devices/HP/HP-Devices.txt | egrep -v "^\s*(#|$)"` # Will have a look in the file "hp-devices.txt" for all HP devices
 do
-    ssh-keyscan -H $device >> ~/.ssh/known_hosts
-    sshpass -p $passwd1 ssh $user1@$device2 'show run' > BackupConfigHP
-    name=`grep -m1 'sysname' BackupConfigHP | sed 's|["?]||g' | sed 's/\<sysname\>//g' | sed 's/ //g' | tr -dc '[:print:]'`  # Will not work
-    mkdir Archiv/$name >> /dev/null
-    mv BackupConfigHP ./Archiv/$name-$(date +"%H:%M-%d.%m.%Y").conf
+
 done
