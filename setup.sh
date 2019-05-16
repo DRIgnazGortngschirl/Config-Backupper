@@ -3,6 +3,7 @@
 # SETUP
 
 # Phase 1 create all directorys
+echo "[i] : Setup stared"
 mkdir --verbose ./Archiv
 mkdir --verbose -p ./Devices/{Fortinet,HP,Cisco,DELL}
 mkdir --verbose -p ./Modules/{Archiv,Backup,Checker,Clean,Debug}
@@ -11,7 +12,7 @@ mkdir --verbose -p ./Log/{Fortinet,HP,Cisco,DELL,BackupCheck}
 echo "[i] : Directories where created"
 
 # Phase 2 create all device list's
-echo "Devices List's"
+echo "[i] : Devices List's"
 echo '# ______ ____  _____ _______ _____ _   _ ______ _______    _____             _' >> ./Devices/Fortinet/Fortinet-Devices.txt
 echo '#|  ____/ __ \|  __ \__   __|_   _| \ | |  ____|__   __|  |  __ \           (_)' >> ./Devices/Fortinet/Fortinet-Devices.txt
 echo '#| |__ | |  | | |__) | | |    | | |  \| | |__     | |     | |  | | _____   ___  ___ ___  ___' >> ./Devices/Fortinet/Fortinet-Devices.txt
@@ -125,7 +126,6 @@ read rsakeylenth
 ssh-keygen -t rsa -b $rsakeylenth -f ./SSH-Keys/Backup-SSH-Key
 
 # Phase 7 show the new created Public SSH-Key
-clear
 echo "-----BEGIN PUBLIC KEY-----"
 echo "$(cat ./SSH-Keys/Backup-SSH-Key.pub)" | awk '{print $2,$3}'
 echo "-----END PUBLIC KEY-----"
