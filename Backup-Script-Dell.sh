@@ -17,14 +17,9 @@
 user=backup
 date=`date +%d%m%y`
 
-echo "Started Backup of Config's" &>> Log/log$date.txt
+echo "Started Backup of Config's" &>> ./Log/log$date.txt
 
-for device in `cat ./Devices/DELL-Devices.txt | egrep -v "^\s*(#|$)"`  # Will have a look in the file "DELL-Devices.txt" for all DELL devices
+for device in `cat ./Devices/DELL/DELL-Devices.txt | egrep -v "^\s*(#|$)"`  # Will have a look in the file "DELL-Devices.txt" for all DELL devices
 do
-    echo -e "Host found in hostfile \e[35m$device\e[39m"
-    ssh-keyscan -H $device >> ~/.ssh/known_hosts
-    sshpass -p $passwd1 ssh $user1@$device1 'show running-config' > BackupConfigDELL
-    name=`grep -m1 'hostname' BackupConfigDELL | sed 's|["?]||g' | sed 's/\<hostname\>//g' | sed 's/ //g' | tr -dc '[:print:]'`  # Will not work
-    mkdir Archiv/$name >> /dev/null
-    mv BackupConfigDELL ./Archiv/$name-$(date +"%H:%M-%d.%m.%Y").conf
+
 done
