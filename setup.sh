@@ -81,8 +81,7 @@ mv --verbose ./LogCleanUp.sh ./Modules/Clean/LogCleanUp.sh
 echo "Modules where moved"
 
 # Phase 4 create the main lanucher for all modules
-installpath=`find / -name "*Automatic-config-backup-of-firewalls-and-switches" 2>/dev/null`
-echo "date=`date +%d%m%y`" >> ./Main-Launcher.sh
+installpath=`find / -name "*Config-Backupper" 2>/dev/null`
 echo "cd $installpath" >> ./Main-Launcher.sh
 echo './Modules/Backup/Fortinet.sh' >> ./Main-Launcher.sh
 echo './Modules/Backup/DELL.sh' >> ./Main-Launcher.sh
