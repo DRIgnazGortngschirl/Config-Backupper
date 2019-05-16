@@ -4,10 +4,10 @@
 
 # Phase 1 create all directorys
 mkdir --verbose ./Archiv
-mkdir --verbose ./Devices
-mkdir --verbose ./Modules
+mkdir --verbose ./Devices{Fortinet,HP,Cisco,DELL}
+mkdir --verbose ./Modules/{Archiv,Backup,Clean,Debug}
 mkdir --verbose ./SSH-Keys
-mkdir --verbose -p Log/{Fortinet,HP,Cisco,DELL,BackupCheck}
+mkdir --verbose -p ./Log/{Fortinet,HP,Cisco,DELL,BackupCheck}
 echo "Directories where created"
 
 # Phase 2 create all device list's
@@ -67,46 +67,46 @@ echo "└── DELL Done"
 echo "Devices List's where created"
 
 # Phase 3 move all modules to ./Modules directory
-mv --verbose ./Backup-Script-Fortinet.sh ./Modules/Backup-Script-Fortinet.sh
-mv --verbose ./Backup-Script-Dell.sh ./Modules/Backup-Script-Dell.sh 
-mv --verbose ./Backup-Script-Hp.sh ./Modules/Backup-Script-Hp.sh
-mv --verbose ./Backup-Script-Cisco.sh ./Modules/Backup-Script-Cisco.sh
-mv --verbose ./Checker.sh ./Modules/Checker.sh
-mv --verbose ./Fastdebug.sh ./Modules/Fastdebug.sh
-mv --verbose ./OldConfigsMover.sh ./Modules/OldConfigsMover.sh
-mv --verbose ./ArchivStats.sh ./Modules/ArchivStats.sh
+mv --verbose ./Backup-Script-Fortinet.sh ./Modules/Backup/Fortinet.sh
+mv --verbose ./Backup-Script-Dell.sh ./Modules/Backup/Dell.sh 
+mv --verbose ./Backup-Script-Hp.sh ./Modules/Backup/Hp.sh
+mv --verbose ./Backup-Script-Cisco.sh ./Modules/Backup/Cisco.sh
+mv --verbose ./Checker.sh ./Modules/Checker/Checker.sh
+mv --verbose ./Fastdebug.sh ./Modules/Debug/Fastdebug.sh
+mv --verbose ./OldConfigsMover.sh ./Modules/Archiv/OldConfigsMover.sh
+mv --verbose ./ArchivStats.sh ./Modules/Archiv/ArchivStats.sh
 echo "Modules where moved"
 
 # Phase 4 create the main lanucher for all modules
-path=`find / -name "*Automatic-config-backup-of-firewalls-and-switches" 2>/dev/null`
-echo "date=`date +%d%m%y`" >> ./Backup-Script-Module-Launcher.sh
-echo "cd $path" >> ./Backup-Script-Module-Launcher.sh
-echo './Modules/Backup-Script-Fortinet.sh' >> ./Backup-Script-Module-Launcher.sh
-echo './Modules/Backup-Script-Dell.sh' >> ./Backup-Script-Module-Launcher.sh
-echo './Modules/Backup-Script-Hp.sh' >> ./Backup-Script-Module-Launcher.sh
-echo './Modules/Backup-Script-Cisco.sh' >> ./Backup-Script-Module-Launcher.sh
-echo './Modules/Checker.sh' >> ./Backup-Script-Module-Launcher.sh
-echo './Modules/ArchivStats.sh' >> ./Backup-Script-Module-Launcher.sh
+installpath=`find / -name "*Automatic-config-backup-of-firewalls-and-switches"`
+echo "date=`date +%d%m%y`" >> ./Main-Launcher.sh
+echo "cd $installpath" >> ./Main-Launcher.sh
+echo './Modules/Backup/Fortinet.sh' >> ./Main-Launcher.sh
+echo './Modules/Backup/DELL.sh' >> ./Main-Launcher.sh
+echo './Modules/Backup/HP.sh' >> ./Main-Launcher.sh
+echo './Modules/Backup/Cisco.sh' >> ./Main-Launcher.sh
+echo './Modules/Archiv/Checker.sh' >> ./Main-Launcher.sh
+echo './Modules/Archiv/ArchivStats.sh' >> ./Main-Launcher.sh
 echo "--------------------------------------------------------------------------------"
 echo "Set days after a config gets commpressed (.gz format) [2,5x-3,5x SMALLER]" 
 read achivetime
 echo "--------------------------------------------------------------------------------"
-echo "find ./Archiv -mtime +$achivetime -exec gzip {} +" >> ./Modules/OldConfigsMover.sh
-echo "du -sh ./Archiv/ >> ./Log/BackupCheck/log$date.txt" >> ./Modules/ArchivStats.sh
+echo "find ./Archiv -mtime +$achivetime -exec gzip {} +" >> ./Modules/Archiv/OldConfigsMover.sh
+echo "du -sh ./Archiv/ >> ./Log/BackupCheck/log$date.txt" >> ./Modules/Archiv/ArchivStats.sh
 echo "Main Launcher where created"
 
 # Phase 5 make the files executable
-chmod --verbose 700 ./Backup-Script-Module-Launcher.sh
-chmod --verbose 700 ./Modules/Backup-Script-Fortinet.sh
-chmod --verbose 700 ./Modules/Backup-Script-Dell.sh
-chmod --verbose 700 ./Modules/Backup-Script-Hp.sh
-chmod --verbose 700 ./Modules/Backup-Script-Cisco.sh
-chmod --verbose 700 ./Modules/Checker.sh
-chmod --verbose 700 ./Modules/Fastdebug.sh
-chmod --verbose 700 ./CleanUp/BackupConfigsCleanUp.sh
-chmod --verbose 700 ./CleanUp/LogCleanUp.sh
-chmod --verbose 700 ./Modules/ArchivStats.sh
-chmod --verbose 700 ./Modules/OldConfigsMover.sh
+chmod --verbose 700 ./Main-Launcher.sh
+chmod --verbose 700 ./Modules/Backup/Fortinet.sh
+chmod --verbose 700 ./Modules/Backup/DELL.sh
+chmod --verbose 700 ./Modules/Backup/HP.sh
+chmod --verbose 700 ./Modules/Backup/Cisco.sh
+chmod --verbose 700 ./Modules/Archiv/Checker.sh
+chmod --verbose 700 ./Modules/Debug/Fastdebug.sh
+chmod --verbose 700 ./Modules/Clean/BackupConfigsCleanUp.sh
+chmod --verbose 700 ./Modules/Clean/LogCleanUp.sh
+chmod --verbose 700 ./Modules/Archiv/ArchivStats.sh
+chmod --verbose 700 ./Modules/Archiv/OldConfigsMover.sh
 echo "Modules & Lanucher where modified"
 
 # Phase 6 create SSH Key
