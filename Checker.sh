@@ -1,9 +1,9 @@
 #!/bin/bash
 date=`date +%d%m%y`
-fortinethostfilecount=`egrep -v "^\s*(#|$)" ./Devices/Fortinet-Devices.txt | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" | wc -l`
-hphostfilecount=`egrep -v "^\s*(#|$)" ./Devices/HP-Devices.txt | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" | wc -l`
-ciscohostfilecount=`egrep -v "^\s*(#|$)" ./Devices/Cisco-Devices.txt | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" | wc -l`
-dellhostfilecount=`egrep -v "^\s*(#|$)" ./Devices/DELL-Devices.txt | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" | wc -l`
+fortinethostfilecount=`egrep -v "^\s*(#|$)" ./Devices/Fortinet/Fortinet-Devices.txt | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" | wc -l`
+hphostfilecount=`egrep -v "^\s*(#|$)" ./Devices/HP/HP-Devices.txt | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" | wc -l`
+ciscohostfilecount=`egrep -v "^\s*(#|$)" ./Devices/Cisco/Cisco-Devices.txt | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" | wc -l`
+dellhostfilecount=`egrep -v "^\s*(#|$)" ./Devices/DELL/DELL-Devices.txt | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" | wc -l`
 dirsinachriv=`find ./Archiv -maxdepth 1 -type d | wc -l`
 configsinachive=`find ./Archiv -maxdepth 2 -type f -mtime -1 | wc -l`
 
