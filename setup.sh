@@ -69,7 +69,7 @@ echo "[i] : Devices List's where created"
 # Phase 3 move all modules to ./Modules directory
 mv --verbose ./Fortinet.sh ./Modules/Backup/Fortinet.sh
 mv --verbose ./Fortinet-Special.sh ./Modules/Backup/Fortinet-Special.sh
-mv --verbose ./DELL.sh ./Modules/Backup/DELL.sh 
+mv --verbose ./DELL.sh ./Modules/Backup/DELL.sh
 mv --verbose ./HP.sh ./Modules/Backup/HP.sh
 mv --verbose ./Cisco.sh ./Modules/Backup/Cisco.sh
 mv --verbose ./Checker.sh ./Modules/Archiv/Checker.sh
@@ -90,7 +90,7 @@ echo './Modules/Backup/Cisco.sh' >> ./Main-Launcher.sh
 echo './Modules/Archiv/Checker.sh' >> ./Main-Launcher.sh
 echo './Modules/Archiv/ArchivStats.sh' >> ./Main-Launcher.sh
 echo "--------------------------------------------------------------------------------"
-echo "Set days after a config gets commpressed (.gz format) [2,5x-3,5x SMALLER]" 
+echo "Set days after a config gets commpressed (.gz format) [2,5x-3,5x SMALLER]"
 read achivetime
 echo "--------------------------------------------------------------------------------"
 echo "find ./Archiv -mtime +$achivetime -exec gzip {} +" >> ./Modules/Archiv/OldConfigsMover.sh
@@ -132,5 +132,5 @@ echo "-----END PUBLIC KEY-----"
 echo " "
 echo "[i] : IT'S DONE !"
 
-# Phase 8 remove setup.sh 
+# Phase 8 remove setup.sh
 rm setup.sh
