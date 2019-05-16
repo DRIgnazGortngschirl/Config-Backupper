@@ -4,7 +4,7 @@
 
 # Phase 1 create all directorys
 mkdir --verbose ./Archiv
-mkdir --verbose ./Devices{Fortinet,HP,Cisco,DELL}
+mkdir --verbose ./Devices/{Fortinet,HP,Cisco,DELL}
 mkdir --verbose ./Modules/{Archiv,Backup,Clean,Debug}
 mkdir --verbose ./SSH-Keys
 mkdir --verbose -p ./Log/{Fortinet,HP,Cisco,DELL,BackupCheck}
@@ -67,9 +67,9 @@ echo "└── DELL Done"
 echo "Devices List's where created"
 
 # Phase 3 move all modules to ./Modules directory
-mv --verbose ./Backup-Script-Fortinet.sh ./Modules/Backup/Fortinet.sh
-mv --verbose ./Backup-Script-Dell.sh ./Modules/Backup/Dell.sh 
-mv --verbose ./Backup-Script-Hp.sh ./Modules/Backup/Hp.sh
+mv --verbose ./Fortinet.sh ./Modules/Backup/Fortinet.sh
+mv --verbose ./Dell.sh ./Modules/Backup/Dell.sh 
+mv --verbose ./Hp.sh ./Modules/Backup/Hp.sh
 mv --verbose ./Backup-Script-Cisco.sh ./Modules/Backup/Cisco.sh
 mv --verbose ./Checker.sh ./Modules/Checker/Checker.sh
 mv --verbose ./Fastdebug.sh ./Modules/Debug/Fastdebug.sh
@@ -92,7 +92,7 @@ echo "Set days after a config gets commpressed (.gz format) [2,5x-3,5x SMALLER]"
 read achivetime
 echo "--------------------------------------------------------------------------------"
 echo "find ./Archiv -mtime +$achivetime -exec gzip {} +" >> ./Modules/Archiv/OldConfigsMover.sh
-echo "du -sh ./Archiv/ >> ./Log/BackupCheck/log$date.txt" >> ./Modules/Archiv/ArchivStats.sh
+echo "du -sh ./Archiv >> ./Log/BackupCheck/log$date.txt" >> ./Modules/Archiv/ArchivStats.sh
 echo "Main Launcher where created"
 
 # Phase 5 make the files executable
