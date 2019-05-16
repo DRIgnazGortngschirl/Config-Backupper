@@ -8,16 +8,16 @@ dirsinachriv=`find ./Archiv -maxdepth 1 -type d | wc -l`
 configsinachive=`find ./Archiv -maxdepth 2 -type f -mtime -1 | wc -l`
 
 total=`expr $fortinethostfilecount + $hphostfilecount + $ciscohostfilecount + $dellhostfilecount`
-echo "------------------------------------------------" &>> ./Log/BackupCheck/log$date.txt
-echo "Fortinet .. : $fortinethostfilecount Hosts in Host File" &>> ./Log/BackupCheck/log$date.txt
-echo "HP ........ : $hphostfilecount Hosts in Host File" &>> ./Log/BackupCheck/log$date.txt
-echo "Cisco ..... : $ciscohostfilecount Hosts in Host File" &>> ./Log/BackupCheck/log$date.txt
-echo "DELL ...... : $dellhostfilecount Hosts in Host File" &>> ./Log/BackupCheck/log$date.txt
-echo "------------------------------------------------" &>> ./Log/BackupCheck/log$date.txt
-echo "Lines in Host file .......... : $total" &>> ./Log/BackupCheck/log$date.txt
-echo "Directorys in Archiv ........ : $dirsinachriv" &>> ./Log/BackupCheck/log$date.txt
-echo "Current Configs in Achive ... : $configsinachive" &>> ./Log/BackupCheck/log$date.txt
-echo "------------------------------------------------" &>> ./Log/BackupCheck/log$date.txt
-echo "These numbers should match!!!" &>> ./Log/BackupCheck/log$date.txt
-echo "Otherwise you didn't got all configs listed in the host files" &>> ./Log/BackupCheck/log$date.txt
-echo "Start Fastdebug.sh to see more infos where those errors are" &>> ./Log/BackupCheck/log$date.txt
+echo "------------------------------------------------"
+echo "Fortinet .. : $fortinethostfilecount Hosts in Host File"
+echo "HP ........ : $hphostfilecount Hosts in Host File"
+echo "Cisco ..... : $ciscohostfilecount Hosts in Host File"
+echo "DELL ...... : $dellhostfilecount Hosts in Host File"
+echo "------------------------------------------------"
+echo "Lines in Host file .......... : $total"
+echo "Directorys in Archiv ........ : $dirsinachriv"
+echo "Current Configs in Achive ... : $configsinachive"
+echo "------------------------------------------------"
+echo "These numbers should match!!!"
+echo "Otherwise you didn't got all configs listed in the host files"
+echo "Start Fastdebug.sh to see more infos where those errors are"
