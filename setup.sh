@@ -12,57 +12,57 @@ echo "Directories where created"
 
 # Phase 2 create all device list's
 echo "Devices List's"
-echo '# ______ ____  _____ _______ _____ _   _ ______ _______    _____             _' >> ./Devices/Fortinet-Devices.txt
-echo '#|  ____/ __ \|  __ \__   __|_   _| \ | |  ____|__   __|  |  __ \           (_)' >> ./Devices/Fortinet-Devices.txt
-echo '#| |__ | |  | | |__) | | |    | | |  \| | |__     | |     | |  | | _____   ___  ___ ___  ___' >> ./Devices/Fortinet-Devices.txt
-echo '#|  __|| |  | |  _  /  | |    | | | . ` |  __|    | |     | |  | |/ _ \ \ / / |/ __/ _ \/ __|' >> ./Devices/Fortinet-Devices.txt
-echo '#| |   | |__| | | \ \  | |   _| |_| |\  | |____   | |     | |__| |  __/\ V /| | (_|  __/\__ \' >> ./Devices/Fortinet-Devices.txt
-echo '#|_|    \____/|_|  \_\ |_|  |_____|_| \_|______|  |_|     |_____/ \___| \_/ |_|\___\___||___/' >> ./Devices/Fortinet-Devices.txt
-echo '# Layout Syntax' >> ./Devices/Fortinet-Devices.txt
-echo '# ###############################' >> ./Devices/Fortinet-Devices.txt
-echo '# <IP or Domain> --> <Hostname>' >> ./Devices/Fortinet-Devices.txt
-echo '# 1.1.1.1 --> CloudFlare' >> ./Devices/Fortinet-Devices.txt
-echo '# #8.8.8.8 --> Uncommented line' >> ./Devices/Fortinet-Devices.txt
-echo '# Use a "#" in front of a line to uncomment a line (This will be ignored from the BackupScript)' >> ./Devices/Fortinet-Devices.txt
+echo '# ______ ____  _____ _______ _____ _   _ ______ _______    _____             _' >> ./Devices/Fortinet/Fortinet-Devices.txt
+echo '#|  ____/ __ \|  __ \__   __|_   _| \ | |  ____|__   __|  |  __ \           (_)' >> ./Devices/Fortinet/Fortinet-Devices.txt
+echo '#| |__ | |  | | |__) | | |    | | |  \| | |__     | |     | |  | | _____   ___  ___ ___  ___' >> ./Devices/Fortinet/Fortinet-Devices.txt
+echo '#|  __|| |  | |  _  /  | |    | | | . ` |  __|    | |     | |  | |/ _ \ \ / / |/ __/ _ \/ __|' >> ./Devices/Fortinet/Fortinet-Devices.txt
+echo '#| |   | |__| | | \ \  | |   _| |_| |\  | |____   | |     | |__| |  __/\ V /| | (_|  __/\__ \' >> ./Devices/Fortinet/Fortinet-Devices.txt
+echo '#|_|    \____/|_|  \_\ |_|  |_____|_| \_|______|  |_|     |_____/ \___| \_/ |_|\___\___||___/' >> ./Devices/Fortinet/Fortinet-Devices.txt
+echo '# Layout Syntax' >> ./Devices/Fortinet/Fortinet-Devices.txt
+echo '# ###############################' >> ./Devices/Fortinet/Fortinet-Devices.txt
+echo '# <IP or Domain> --> <Hostname>' >> ./Devices/Fortinet/Fortinet-Devices.txt
+echo '# 1.1.1.1 --> CloudFlare' >> ./Devices/Fortinet/Fortinet-Devices.txt
+echo '# #8.8.8.8 --> Uncommented line' >> ./Devices/Fortinet/Fortinet-Devices.txt
+echo '# Use a "#" in front of a line to uncomment a line (This will be ignored from the BackupScript)' >> ./Devices/Fortinet/Fortinet-Devices.txt
 echo "├── Fortinet Done"
-echo '# _    _ _____     _____             _' >> ./Devices/HP-Devices.txt
-echo '#| |  | |  __ \   |  __ \           (_)' >> ./Devices/HP-Devices.txt
-echo '#| |__| | |__) |  | |  | | _____   ___  ___ ___  ___' >> ./Devices/HP-Devices.txt
-echo '#|  __  |  ___/   | |  | |/ _ \ \ / / |/ __/ _ \/ __|' >> ./Devices/HP-Devices.txt
-echo '#| |  | | |       | |__| |  __/\ V /| | (_|  __/\__ \' >> ./Devices/HP-Devices.txt
-echo '#|_|  |_|_|       |_____/ \___| \_/ |_|\___\___||___/' >> ./Devices/HP-Devices.txt
-echo '# Layout Syntax' >> ./Devices/Fortinet-Devices.txt
-echo '# ###############################' >> ./Devices/HP-Devices.txt
-echo '# <IP or Domain> --> <Hostname>' >> ./Devices/HP-Devices.txt
-echo '# 1.1.1.1 --> CloudFlare' >> ./Devices/HP-Devices.txt
-echo '# #8.8.8.8 --> Uncommented line' >> ./Devices/HP-Devices.txt
-echo '# Use a "#" in front of a line to uncomment a line (This will be ignored from the BackupScript)' >> ./Devices/HP-Devices.txt
+echo '# _    _ _____     _____             _' >> ./Devices/HP/HP-Devices.txt
+echo '#| |  | |  __ \   |  __ \           (_)' >> ./Devices/HP/HP-Devices.txt
+echo '#| |__| | |__) |  | |  | | _____   ___  ___ ___  ___' >> ./Devices/HP/HP-Devices.txt
+echo '#|  __  |  ___/   | |  | |/ _ \ \ / / |/ __/ _ \/ __|' >> ./Devices/HP/HP-Devices.txt
+echo '#| |  | | |       | |__| |  __/\ V /| | (_|  __/\__ \' >> ./Devices/HP/HP-Devices.txt
+echo '#|_|  |_|_|       |_____/ \___| \_/ |_|\___\___||___/' >> ./Devices/HP/HP-Devices.txt
+echo '# Layout Syntax' >> ./Devices/Fortinet/Fortinet-Devices.txt
+echo '# ###############################' >> ./Devices/HP/HP-Devices.txt
+echo '# <IP or Domain> --> <Hostname>' >> ./Devices/HP/HP-Devices.txt
+echo '# 1.1.1.1 --> CloudFlare' >> ./Devices/HP/HP-Devices.txt
+echo '# #8.8.8.8 --> Uncommented line' >> ./Devices/HP/HP-Devices.txt
+echo '# Use a "#" in front of a line to uncomment a line (This will be ignored from the BackupScript)' >> ./Devices/HP/HP-Devices.txt
 echo "├── HP Done"
-echo '#   _____ _____  _____  _____ ____     _____             _ ' >> ./Devices/Cisco-Devices.txt
-echo '#  / ____|_   _|/ ____|/ ____/ __ \   |  __ \           (_)' >> ./Devices/Cisco-Devices.txt
-echo '# | |      | | | (___ | |   | |  | |  | |  | | _____   ___  ___ ___  ___ ' >> ./Devices/Cisco-Devices.txt
-echo '# | |      | |  \___ \| |   | |  | |  | |  | |/ _ \ \ / / |/ __/ _ \/ __|' >> ./Devices/Cisco-Devices.txt
-echo '# | |____ _| |_ ____) | |___| |__| |  | |__| |  __/\ V /| | (_|  __/\__ \' >> ./Devices/Cisco-Devices.txt
-echo '#  \_____|_____|_____/ \_____\____/   |_____/ \___| \_/ |_|\___\___||___/' >> ./Devices/Cisco-Devices.txt
-echo '# Layout Syntax' >> ./Devices/Cisco-Devices.txt
-echo '# ###############################' >> ./Devices/Cisco-Devices.txt
-echo '# <IP or Domain> --> <Hostname>' >> ./Devices/Cisco-Devices.txt
-echo '# 1.1.1.1 --> CloudFlare' >> ./Devices/Cisco-Devices.txt
-echo '# #8.8.8.8 --> Uncommented line' >> ./Devices/Cisco-Devices.txt
-echo '# Use a "#" in front of a line to uncomment a line (This will be ignored from the BackupScript)' >> ./Devices/Cisco-Devices.txt
+echo '#   _____ _____  _____  _____ ____     _____             _ ' >> ./Devices/Cisco/Cisco-Devices.txt
+echo '#  / ____|_   _|/ ____|/ ____/ __ \   |  __ \           (_)' >> ./Devices/Cisco/Cisco-Devices.txt
+echo '# | |      | | | (___ | |   | |  | |  | |  | | _____   ___  ___ ___  ___ ' >> ./Devices/Cisco/Cisco-Devices.txt
+echo '# | |      | |  \___ \| |   | |  | |  | |  | |/ _ \ \ / / |/ __/ _ \/ __|' >> ./Devices/Cisco/Cisco-Devices.txt
+echo '# | |____ _| |_ ____) | |___| |__| |  | |__| |  __/\ V /| | (_|  __/\__ \' >> ./Devices/Cisco/Cisco-Devices.txt
+echo '#  \_____|_____|_____/ \_____\____/   |_____/ \___| \_/ |_|\___\___||___/' >> ./Devices/Cisco/Cisco-Devices.txt
+echo '# Layout Syntax' >> ./Devices/Cisco/Cisco-Devices.txt
+echo '# ###############################' >> ./Devices/Cisco/Cisco-Devices.txt
+echo '# <IP or Domain> --> <Hostname>' >> ./Devices/Cisco/Cisco-Devices.txt
+echo '# 1.1.1.1 --> CloudFlare' >> ./Devices/Cisco/Cisco-Devices.txt
+echo '# #8.8.8.8 --> Uncommented line' >> ./Devices/Cisco/Cisco-Devices.txt
+echo '# Use a "#" in front of a line to uncomment a line (This will be ignored from the BackupScript)' >> ./Devices/Cisco/Cisco-Devices.txt
 echo "├── Cisco Done"
-echo '#  _____  ______ _      _         _____             _' >> ./Devices/DELL-Devices.txt
-echo '# |  __ \|  ____| |    | |       |  __ \           (_)' >> ./Devices/DELL-Devices.txt
-echo '# | |  | | |__  | |    | |       | |  | | _____   ___  ___ ___  ___ ' >> ./Devices/DELL-Devices.txt
-echo '# | |  | |  __| | |    | |       | |  | |/ _ \ \ / / |/ __/ _ \/ __|' >> ./Devices/DELL-Devices.txt
-echo '# | |__| | |____| |____| |____   | |__| |  __/\ V /| | (_|  __/\__ \' >> ./Devices/DELL-Devices.txt
-echo '# |_____/|______|______|______|  |_____/ \___| \_/ |_|\___\___||___/' >> ./Devices/DELL-Devices.txt
-echo '# Layout Syntax' >> ./Devices/DELL-Devices.txt
-echo '# ###############################' >> ./Devices/DELL-Devices.txt
-echo '# <IP or Domain> --> <Hostname>' >> ./Devices/DELL-Devices.txt
-echo '# 1.1.1.1 --> CloudFlare' >> ./Devices/DELL-Devices.txt
-echo '# #8.8.8.8 --> Uncommented line' >> ./Devices/DELL-Devices.txt
-echo '# Use a "#" in front of a line to uncomment a line (This will be ignored from the BackupScript)' >> ./Devices/DELL-Devices.txt
+echo '#  _____  ______ _      _         _____             _' >> ./Devices/DELL/DELL-Devices.txt
+echo '# |  __ \|  ____| |    | |       |  __ \           (_)' >> ./Devices/DELL/DELL-Devices.txt
+echo '# | |  | | |__  | |    | |       | |  | | _____   ___  ___ ___  ___ ' >> ./Devices/DELL/DELL-Devices.txt
+echo '# | |  | |  __| | |    | |       | |  | |/ _ \ \ / / |/ __/ _ \/ __|' >> ./Devices/DELL/DELL-Devices.txt
+echo '# | |__| | |____| |____| |____   | |__| |  __/\ V /| | (_|  __/\__ \' >> ./Devices/DELL/DELL-Devices.txt
+echo '# |_____/|______|______|______|  |_____/ \___| \_/ |_|\___\___||___/' >> ./Devices/DELL/DELL-Devices.txt
+echo '# Layout Syntax' >> ./Devices/DELL/DELL-Devices.txt
+echo '# ###############################' >> ./Devices/DELL/DELL-Devices.txt
+echo '# <IP or Domain> --> <Hostname>' >> ./Devices/DELL/DELL-Devices.txt
+echo '# 1.1.1.1 --> CloudFlare' >> ./Devices/DELL/DELL-Devices.txt
+echo '# #8.8.8.8 --> Uncommented line' >> ./Devices/DELL/DELL-Devices.txt
+echo '# Use a "#" in front of a line to uncomment a line (This will be ignored from the BackupScript)' >> ./Devices/DELL/DELL-Devices.txt
 echo "└── DELL Done"
 echo "Devices List's where created"
 
