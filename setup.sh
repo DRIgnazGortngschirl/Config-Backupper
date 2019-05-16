@@ -4,8 +4,8 @@
 
 # Phase 1 create all directorys
 mkdir --verbose ./Archiv
-mkdir --verbose ./Devices/{Fortinet,HP,Cisco,DELL}
-mkdir --verbose ./Modules/{Archiv,Backup,Clean,Debug}
+mkdir --verbose -p ./Devices/{Fortinet,HP,Cisco,DELL}
+mkdir --verbose -p ./Modules/{Archiv,Backup,Clean,Debug}
 mkdir --verbose ./SSH-Keys
 mkdir --verbose -p ./Log/{Fortinet,HP,Cisco,DELL,BackupCheck}
 echo "Directories where created"
