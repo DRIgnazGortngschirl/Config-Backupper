@@ -21,7 +21,7 @@ echo '#| |   | |__| | | \ \  | |   _| |_| |\  | |____   | |     | |__| |  __/\ V
 echo '#|_|    \____/|_|  \_\ |_|  |_____|_| \_|______|  |_|     |_____/ \___| \_/ |_|\___\___||___/' >> ./Devices/Fortinet/Fortinet-Devices.txt
 echo '# Layout Syntax' >> ./Devices/Fortinet/Fortinet-Devices.txt
 echo '# ###############################' >> ./Devices/Fortinet/Fortinet-Devices.txt
-echo '# <IP or Domain> --> <Hostname>' >> ./Devices/Fortinet/Fortinet-Devices.txt
+echo '# <IP> --> <Hostname>' >> ./Devices/Fortinet/Fortinet-Devices.txt
 echo '# 1.1.1.1 --> CloudFlare' >> ./Devices/Fortinet/Fortinet-Devices.txt
 echo '# #8.8.8.8 --> Uncommented line' >> ./Devices/Fortinet/Fortinet-Devices.txt
 echo '# Use a "#" in front of a line to uncomment a line (This will be ignored from the BackupScript)' >> ./Devices/Fortinet/Fortinet-Devices.txt
@@ -34,7 +34,7 @@ echo '#| |  | | |       | |__| |  __/\ V /| | (_|  __/\__ \' >> ./Devices/HP/HP-
 echo '#|_|  |_|_|       |_____/ \___| \_/ |_|\___\___||___/' >> ./Devices/HP/HP-Devices.txt
 echo '# Layout Syntax' >> ./Devices/Fortinet/Fortinet-Devices.txt
 echo '# ###############################' >> ./Devices/HP/HP-Devices.txt
-echo '# <IP or Domain> --> <Hostname>' >> ./Devices/HP/HP-Devices.txt
+echo '# <IP> --> <Hostname>' >> ./Devices/HP/HP-Devices.txt
 echo '# 1.1.1.1 --> CloudFlare' >> ./Devices/HP/HP-Devices.txt
 echo '# #8.8.8.8 --> Uncommented line' >> ./Devices/HP/HP-Devices.txt
 echo '# Use a "#" in front of a line to uncomment a line (This will be ignored from the BackupScript)' >> ./Devices/HP/HP-Devices.txt
@@ -47,7 +47,7 @@ echo '# | |____ _| |_ ____) | |___| |__| |  | |__| |  __/\ V /| | (_|  __/\__ \'
 echo '#  \_____|_____|_____/ \_____\____/   |_____/ \___| \_/ |_|\___\___||___/' >> ./Devices/Cisco/Cisco-Devices.txt
 echo '# Layout Syntax' >> ./Devices/Cisco/Cisco-Devices.txt
 echo '# ###############################' >> ./Devices/Cisco/Cisco-Devices.txt
-echo '# <IP or Domain> --> <Hostname>' >> ./Devices/Cisco/Cisco-Devices.txt
+echo '# <IP> --> <Hostname>' >> ./Devices/Cisco/Cisco-Devices.txt
 echo '# 1.1.1.1 --> CloudFlare' >> ./Devices/Cisco/Cisco-Devices.txt
 echo '# #8.8.8.8 --> Uncommented line' >> ./Devices/Cisco/Cisco-Devices.txt
 echo '# Use a "#" in front of a line to uncomment a line (This will be ignored from the BackupScript)' >> ./Devices/Cisco/Cisco-Devices.txt
@@ -60,7 +60,7 @@ echo '# | |__| | |____| |____| |____   | |__| |  __/\ V /| | (_|  __/\__ \' >> .
 echo '# |_____/|______|______|______|  |_____/ \___| \_/ |_|\___\___||___/' >> ./Devices/DELL/DELL-Devices.txt
 echo '# Layout Syntax' >> ./Devices/DELL/DELL-Devices.txt
 echo '# ###############################' >> ./Devices/DELL/DELL-Devices.txt
-echo '# <IP or Domain> --> <Hostname>' >> ./Devices/DELL/DELL-Devices.txt
+echo '# <IP> --> <Hostname>' >> ./Devices/DELL/DELL-Devices.txt
 echo '# 1.1.1.1 --> CloudFlare' >> ./Devices/DELL/DELL-Devices.txt
 echo '# #8.8.8.8 --> Uncommented line' >> ./Devices/DELL/DELL-Devices.txt
 echo '# Use a "#" in front of a line to uncomment a line (This will be ignored from the BackupScript)' >> ./Devices/DELL/DELL-Devices.txt
@@ -83,16 +83,19 @@ echo "[i] : Modules where moved"
 
 # Phase 4 create the main lanucher for all modules
 installpath=`find / -name "*Config-Backupper" 2>/dev/null`
+echo "Installation path : $installpath"
+echo "[i] : Found installation path"
+echo '#!/bin/bash'  >> ./Main-Launcher.sh
 echo 'date=`date +%d%m%y`'  >> ./Main-Launcher.sh
-echo " " >> ./Main-Launcher.sh
+echo "" >> ./Main-Launcher.sh
 echo "cd $installpath" >> ./Main-Launcher.sh
-echo " " >> ./Main-Launcher.sh
+echo "" >> ./Main-Launcher.sh
 echo './Modules/Backup/Fortinet.sh &>> ./Log/Fortinet/log$date.txt' >> ./Main-Launcher.sh
 echo './Modules/Backup/DELL.sh &>> ./Log/DELL/log$date.txt' >> ./Main-Launcher.sh
 echo './Modules/Backup/HP.sh &>> ./Log/HP/log$date.txt' >> ./Main-Launcher.sh
 echo './Modules/Backup/Cisco.sh &>> ./Log/Cisco/log$date.txt' >> ./Main-Launcher.sh
-echo " " >> ./Main-Launcher.sh
-echo './Modules/Archiv/Checker.sh >> ./Log/BackupCheck/log$date.txt'
+echo "" >> ./Main-Launcher.sh
+echo './Modules/Archiv/Checker.sh >> ./Log/BackupCheck/log$date.txt' >> ./Main-Launcher.sh
 echo './Modules/Archiv/ArchivStats.sh >> ./Log/BackupCheck/log$date.txt' >> ./Main-Launcher.sh
 echo "--------------------------------------------------------------------------------"
 echo "Set days after a config gets commpressed (.gz format) [2,5x-3,5x SMALLER]"
@@ -133,8 +136,15 @@ ssh-keygen -t rsa -b $rsakeylenth -f ./SSH-Keys/Backup-SSH-Key
 echo "-----BEGIN PUBLIC KEY-----"
 echo "$(cat ./SSH-Keys/Backup-SSH-Key.pub)" | awk '{print $2,$3}'
 echo "-----END PUBLIC KEY-----"
-echo " "
-echo "[i] : IT'S DONE !"
+echo ""
+
+# Phase 8 show e.g. for a crontab
+echo "--------------------------------------------------------------------------------"
+echo "Create a crontab to run the backup every day @ 2:00 enter this line in crontab"
+echo "0 2 * * * $installpath/Main-Launcher.sh"
+echo "--------------------------------------------------------------------------------"
 
 # Phase 8 remove setup.sh
 rm setup.sh
+echo "[i] : Removed ./setup.sh"
+echo "[i] : IT'S DONE !"
