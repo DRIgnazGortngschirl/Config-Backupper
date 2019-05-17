@@ -95,6 +95,7 @@ echo './Modules/Backup/DELL.sh &>> ./Log/DELL/log$date.txt' >> ./Main-Launcher.s
 echo './Modules/Backup/HP.sh &>> ./Log/HP/log$date.txt' >> ./Main-Launcher.sh
 echo './Modules/Backup/Cisco.sh &>> ./Log/Cisco/log$date.txt' >> ./Main-Launcher.sh
 echo "" >> ./Main-Launcher.sh
+echo '# ./Modules/Archiv/CustomerSorter.sh >> ./Log/BackupCheck/log$date.txt' >> ./Main-Launcher.sh
 echo './Modules/Archiv/Checker.sh >> ./Log/BackupCheck/log$date.txt' >> ./Main-Launcher.sh
 echo './Modules/Archiv/ArchivStats.sh >> ./Log/BackupCheck/log$date.txt' >> ./Main-Launcher.sh
 echo "--------------------------------------------------------------------------------"
