@@ -83,15 +83,16 @@ echo "[i] : Modules where moved"
 
 # Phase 4 create the main lanucher for all modules
 installpath=`find / -name "*Config-Backupper" 2>/dev/null`
+echo '#!/bin/bash'  >> ./Main-Launcher.sh
 echo 'date=`date +%d%m%y`'  >> ./Main-Launcher.sh
 echo " " >> ./Main-Launcher.sh
 echo "cd $installpath" >> ./Main-Launcher.sh
-echo " " >> ./Main-Launcher.sh
+echo "" >> ./Main-Launcher.sh
 echo './Modules/Backup/Fortinet.sh &>> ./Log/Fortinet/log$date.txt' >> ./Main-Launcher.sh
 echo './Modules/Backup/DELL.sh &>> ./Log/DELL/log$date.txt' >> ./Main-Launcher.sh
 echo './Modules/Backup/HP.sh &>> ./Log/HP/log$date.txt' >> ./Main-Launcher.sh
 echo './Modules/Backup/Cisco.sh &>> ./Log/Cisco/log$date.txt' >> ./Main-Launcher.sh
-echo " " >> ./Main-Launcher.sh
+echo "" >> ./Main-Launcher.sh
 echo './Modules/Archiv/Checker.sh >> ./Log/BackupCheck/log$date.txt'
 echo './Modules/Archiv/ArchivStats.sh >> ./Log/BackupCheck/log$date.txt' >> ./Main-Launcher.sh
 echo "--------------------------------------------------------------------------------"
@@ -133,7 +134,7 @@ ssh-keygen -t rsa -b $rsakeylenth -f ./SSH-Keys/Backup-SSH-Key
 echo "-----BEGIN PUBLIC KEY-----"
 echo "$(cat ./SSH-Keys/Backup-SSH-Key.pub)" | awk '{print $2,$3}'
 echo "-----END PUBLIC KEY-----"
-echo " "
+echo ""
 echo "[i] : IT'S DONE !"
 
 # Phase 8 remove setup.sh
