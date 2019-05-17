@@ -137,11 +137,14 @@ echo "-----BEGIN PUBLIC KEY-----"
 echo "$(cat ./SSH-Keys/Backup-SSH-Key.pub)" | awk '{print $2,$3}'
 echo "-----END PUBLIC KEY-----"
 echo ""
+
+# Phase 8 show e.g. for a crontab
 echo "--------------------------------------------------------------------------------"
 echo "Create a crontab to run the backup every day @ 2:00 enter this line in crontab"
-echo "10 2 * * * $installpath/Main-Launcher.sh"
-
-echo "[i] : IT'S DONE !"
+echo "0 2 * * * $installpath/Main-Launcher.sh"
+echo "--------------------------------------------------------------------------------"
 
 # Phase 8 remove setup.sh
 rm setup.sh
+echo "[i] : Removed ./setup.sh"
+echo "[i] : IT'S DONE !"
