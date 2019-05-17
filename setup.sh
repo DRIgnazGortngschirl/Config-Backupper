@@ -120,7 +120,7 @@ chmod --verbose 700 ./Modules/Clean/BackupConfigsCleanUp.sh
 chmod --verbose 700 ./Modules/Clean/LogCleanUp.sh
 chmod --verbose 700 ./Modules/Archiv/ArchivStats.sh
 chmod --verbose 700 ./Modules/Archiv/OldConfigsMover.sh
-chmod --verbose 700 ./Modules/Archiv/CustomerSorter
+chmod --verbose 700 ./Modules/Archiv/CustomerSorter.sh
 echo "[i] : Modules & Lanucher where modified"
 
 # Phase 6 create SSH Key
