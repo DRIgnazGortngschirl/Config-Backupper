@@ -83,9 +83,10 @@ echo "[i] : Modules where moved"
 
 # Phase 4 create the main lanucher for all modules
 installpath=`find / -name "*Config-Backupper" 2>/dev/null`
+echo "[i] : Found installation path"
 echo '#!/bin/bash'  >> ./Main-Launcher.sh
 echo 'date=`date +%d%m%y`'  >> ./Main-Launcher.sh
-echo " " >> ./Main-Launcher.sh
+echo "" >> ./Main-Launcher.sh
 echo "cd $installpath" >> ./Main-Launcher.sh
 echo "" >> ./Main-Launcher.sh
 echo './Modules/Backup/Fortinet.sh &>> ./Log/Fortinet/log$date.txt' >> ./Main-Launcher.sh
