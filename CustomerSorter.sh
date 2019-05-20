@@ -40,10 +40,10 @@
 #         └── its-hq-fw-01-ANYDATEANDTIME.conf
 # ------------------------------------------------------------------------
 
-find ./Archiv/ -maxdepth 2 -name <CUSTOMER-NAMING-SYNTAX>* -type d -exec mv -t  ./Archiv/<CUSTOMER> {} +
-find ./Archiv/ -maxdepth 2 -name <CUSTOMER-NAMING-SYNTAX>* -type d -exec mv -t  ./Archiv/<CUSTOMER> {} +
-find ./Archiv/ -maxdepth 2 -name <CUSTOMER-NAMING-SYNTAX>* -type d -exec mv -t  ./Archiv/<CUSTOMER> {} +
+find ./Archiv/ -maxdepth 2 -name <COMPANY-NAMING-SYNTAX>* -type f -exec mv -t  ./Archiv/<CUSTOMER> {} +
+find ./Archiv/ -maxdepth 2 -name <COMPANY-NAMING-SYNTAX>* -type f -exec mv -t  ./Archiv/<CUSTOMER> {} +
+find ./Archiv/ -maxdepth 2 -name <COMPANY-NAMING-SYNTAX>* -type f -exec mv -t  ./Archiv/<CUSTOMER> {} +
 # ...
 
 # Add a new lne to add more sorting.
-# find ./Archiv/ -name <CUSTOMER-NAMING-SYNTAX>* -type d -exec mv -t  ./Archiv/<CUSTOMER> {} +
+# find ./Archiv/ -name <COMPANY-NAMING-SYNTAX>* -type f -exec mv -t  ./Archiv/<CUSTOMER> {} +
