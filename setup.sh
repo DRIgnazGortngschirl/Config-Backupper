@@ -83,6 +83,7 @@ mv --verbose ./LogCleanUp.sh ./Modules/Clean/LogCleanUp.sh
 echo "[i] : Modules where moved"
 
 # Phase 4 create the main lanucher for all modules
+echo "[i] : Searchinf for installation path ... This can take a few moments"
 installpath=`find / -name "*Config-Backupper" 2>/dev/null`
 echo "Installation path : $installpath"
 echo "[i] : Found installation path"
