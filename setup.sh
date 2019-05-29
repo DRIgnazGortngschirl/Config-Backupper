@@ -21,10 +21,12 @@ echo '#| |   | |__| | | \ \  | |   _| |_| |\  | |____   | |     | |__| |  __/\ V
 echo '#|_|    \____/|_|  \_\ |_|  |_____|_| \_|______|  |_|     |_____/ \___| \_/ |_|\___\___||___/' >> ./Devices/Fortinet/Fortinet-Devices.txt
 echo '# Layout Syntax' >> ./Devices/Fortinet/Fortinet-Devices.txt
 echo '# ###############################' >> ./Devices/Fortinet/Fortinet-Devices.txt
-echo '# <IP> --> <Hostname>' >> ./Devices/Fortinet/Fortinet-Devices.txt
-echo '# 1.1.1.1 --> CloudFlare' >> ./Devices/Fortinet/Fortinet-Devices.txt
-echo '# #8.8.8.8 --> Uncommented line' >> ./Devices/Fortinet/Fortinet-Devices.txt
-echo '# Use a "#" in front of a line to uncomment a line (This will be ignored from the BackupScript)' >> ./Devices/Fortinet/Fortinet-Devices.txt
+echo '# <IP> --> <Hostname> ### Comment ###' >> ./Devices/Fortinet/Fortinet-Devices.txt
+echo '# 1.1.1.1 --> CloudFlare-DNS ### Backup CloudFlare ###' >> ./Devices/Fortinet/Fortinet-Devices.txt
+echo '# #8.8.8.8 --> Google-DNS ### Uncommented line ###' >> ./Devices/Fortinet/Fortinet-Devices.txt
+echo '# Use a "#" in front of a line to uncomment a line (This will get ignored from the backup script)' >> ./Devices/Fortinet/Fortinet-Devices.txt
+echo '# Hostname and Comment are optional' >> ./Devices/Fortinet/Fortinet-Devices.txt
+echo '# Hostname will be obtained from the backup file directly' >> ./Devices/Fortinet/Fortinet-Devices.txt
 echo "├── Fortinet Done"
 echo '# _    _ _____     _____             _' >> ./Devices/HP/HP-Devices.txt
 echo '#| |  | |  __ \   |  __ \           (_)' >> ./Devices/HP/HP-Devices.txt
@@ -34,10 +36,12 @@ echo '#| |  | | |       | |__| |  __/\ V /| | (_|  __/\__ \' >> ./Devices/HP/HP-
 echo '#|_|  |_|_|       |_____/ \___| \_/ |_|\___\___||___/' >> ./Devices/HP/HP-Devices.txt
 echo '# Layout Syntax' >> ./Devices/Fortinet/Fortinet-Devices.txt
 echo '# ###############################' >> ./Devices/HP/HP-Devices.txt
-echo '# <IP> --> <Hostname>' >> ./Devices/HP/HP-Devices.txt
-echo '# 1.1.1.1 --> CloudFlare' >> ./Devices/HP/HP-Devices.txt
-echo '# #8.8.8.8 --> Uncommented line' >> ./Devices/HP/HP-Devices.txt
-echo '# Use a "#" in front of a line to uncomment a line (This will be ignored from the BackupScript)' >> ./Devices/HP/HP-Devices.txt
+echo '# <IP> --> <Hostname> ### Comment ###' >> ./Devices/HP/HP-Devices.txt
+echo '# 1.1.1.1 --> CloudFlare-DNS ### Backup CloudFlare ###' >> ./Devices/HP/HP-Devices.txt
+echo '# #8.8.8.8 --> Google-DNS ### Uncommented line ###' >> ./Devices/HP/HP-Devices.txt
+echo '# Use a "#" in front of a line to uncomment a line (This will get ignored from the backup script)' >> ./Devices/HP/HP-Devices.txt
+echo '# Hostname and Comment are optional' >> ./Devices/HP/HP-Devices.txt
+echo '# Hostname will be obtained from the backup file directly' >> ./Devices/HP/HP-Devices.txt
 echo "├── HP Done"
 echo '#   _____ _____  _____  _____ ____     _____             _ ' >> ./Devices/Cisco/Cisco-Devices.txt
 echo '#  / ____|_   _|/ ____|/ ____/ __ \   |  __ \           (_)' >> ./Devices/Cisco/Cisco-Devices.txt
@@ -48,9 +52,11 @@ echo '#  \_____|_____|_____/ \_____\____/   |_____/ \___| \_/ |_|\___\___||___/'
 echo '# Layout Syntax' >> ./Devices/Cisco/Cisco-Devices.txt
 echo '# ###############################' >> ./Devices/Cisco/Cisco-Devices.txt
 echo '# <IP> --> <Hostname>' >> ./Devices/Cisco/Cisco-Devices.txt
-echo '# 1.1.1.1 --> CloudFlare' >> ./Devices/Cisco/Cisco-Devices.txt
-echo '# #8.8.8.8 --> Uncommented line' >> ./Devices/Cisco/Cisco-Devices.txt
-echo '# Use a "#" in front of a line to uncomment a line (This will be ignored from the BackupScript)' >> ./Devices/Cisco/Cisco-Devices.txt
+echo '# 1.1.1.1 --> CloudFlare-DNS ### Backup CloudFlare ###' >> ./Devices/Cisco/Cisco-Devices.txt
+echo '# #8.8.8.8 --> Google-DNS ### Uncommented line ###' >> ./Devices/Cisco/Cisco-Devices.txt
+echo '# Use a "#" in front of a line to uncomment a line (This will get ignored from the backup script)' >> ./Devices/Cisco/Cisco-Devices.txt
+echo '# Hostname and Comment are optional' >> ./Devices/Cisco/Cisco-Devices.txt
+echo '# Hostname will be obtained from the backup file directly' >> ./Devices/Cisco/Cisco-Devices.txt
 echo "├── Cisco Done"
 echo '#  _____  ______ _      _         _____             _' >> ./Devices/DELL/DELL-Devices.txt
 echo '# |  __ \|  ____| |    | |       |  __ \           (_)' >> ./Devices/DELL/DELL-Devices.txt
@@ -61,9 +67,11 @@ echo '# |_____/|______|______|______|  |_____/ \___| \_/ |_|\___\___||___/' >> .
 echo '# Layout Syntax' >> ./Devices/DELL/DELL-Devices.txt
 echo '# ###############################' >> ./Devices/DELL/DELL-Devices.txt
 echo '# <IP> --> <Hostname>' >> ./Devices/DELL/DELL-Devices.txt
-echo '# 1.1.1.1 --> CloudFlare' >> ./Devices/DELL/DELL-Devices.txt
-echo '# #8.8.8.8 --> Uncommented line' >> ./Devices/DELL/DELL-Devices.txt
-echo '# Use a "#" in front of a line to uncomment a line (This will be ignored from the BackupScript)' >> ./Devices/DELL/DELL-Devices.txt
+echo '# 1.1.1.1 --> CloudFlare-DNS ### Backup CloudFlare ###' >> ./Devices/DELL/DELL-Devices.txt
+echo '# #8.8.8.8 --> Google-DNS ### Uncommented line ###' >> ./Devices/DELL/DELL-Devices.txt
+echo '# Use a "#" in front of a line to uncomment a line (This will get ignored from the backup script)' >> ./Devices/DELL/DELL-Devices.txt
+echo '# Hostname and Comment are optional' >> ./Devices/DELL/DELL-Devices.txt
+echo '# Hostname will be obtained from the backup file directly' >> ./Devices/DELL/DELL-Devices.txt
 echo "└── DELL Done"
 echo "[i] : Devices List's where created"
 
