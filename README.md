@@ -70,4 +70,25 @@ he script uses a <YOU-CHOOSE-IT> bit long SSH Key for Authentication. That key m
 | 1  |  If you try to run the scrip more often than once a day the logs of the secound run will also be in the same log file  | Logging has not been designed for this  |
 | 2  |  |   |
 | 3 |   |   |
+
+# Facing Problems
+
+### General :
+
+| Problem     | Solution  |  Description | 
+| :------------- |:------------- | :----- |
+| ssh: connect to host <IP-ADDRESS> port 22: Connection timed out | Check if port 22 used for SSH  | If SSH do not use the port 22 (Default) you need to place the host inside the special module of the certain vendor (Problem caused by scp because it automaticaly uses port 22 if no other port is defined) |
+| 2  |  |   |
+| 3 |   |   |
+
+
+
+### Fortinet :
+
+| Problem     | Solution  |  Description | 
+| :------------- |:------------- | :----- |
+| Sink: 501-Permission Denied 501-Permission Denied | Check if enabled SCP on the Fortinet Device | If you don't enable SCP you can run into this problem. |
+| 2  |  |   |
+| 3 |   |   |
+
   
