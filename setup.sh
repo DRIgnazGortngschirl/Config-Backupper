@@ -101,7 +101,7 @@ echo '# ./Modules/Archiv/CustomerSorter.sh >> ./Log/BackupCheck/log$date.txt' >>
 echo './Modules/Archiv/Checker.sh >> ./Log/BackupCheck/log$date.txt' >> ./Main-Launcher.sh
 echo './Modules/Archiv/ArchivStats.sh >> ./Log/BackupCheck/log$date.txt' >> ./Main-Launcher.sh
 echo "--------------------------------------------------------------------------------"
-echo "Set days after a config gets commpressed (.gz format) [2,5x-3,5x SMALLER]"
+echo "Set days after a config gets commpressed (.gz format) [2,5x-3,5x SMALLER] (Numbers only):"
 read achivetime
 echo "--------------------------------------------------------------------------------"
 echo "find ./Archiv -mtime +$achivetime -exec gzip {} +" >> ./Modules/Archiv/OldConfigsMover.sh
@@ -132,7 +132,7 @@ echo "4096 bit - Will be fine"
 echo "8192 bit - Are you paranoid ?"
 echo "16384 bit - What are you transferring?"
 echo "----------------------------------------"
-echo "Enter bit lenth (only Numbers)"
+echo "Enter bit lenth (Numbers only):"
 read rsakeylenth
 ssh-keygen -t rsa -b $rsakeylenth -f ./SSH-Keys/Backup-SSH-Key
 
