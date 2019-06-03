@@ -93,7 +93,7 @@ The script uses a <YOU-CHOOSE-IT> bit long SSH Key for authentication. That key 
 
 | Problem     | Solution  |  Description | 
 | :------------- |:------------- | :----- |
-| Sink: 501-Permission Denied 501-Permission Denied | Check if enabled SCP on the Fortinet Device | If you don't enable SCP you can run into this problem. |
+| Sink: 501-Permission Denied 501-Permission Denied | Check if enabled SCP on the Fortinet Device | The script can connect but has problems with the rights to copy the config file. If you don't enable SCP you can run into this problem. |
 | 2  |  |   |
 | 3 |   |   |
 
