@@ -156,7 +156,9 @@ echo "Create a crontab to run the backup every day @ 2:00 enter this line in cro
 echo "0 2 * * * $installpath/Main-Launcher.sh"
 echo "--------------------------------------------------------------------------------"
 
-# Phase 9 remove setup.sh
-rm setup.sh
+# Phase 9 remove setup.sh & .git/
+rm -v .git -Rf
+echo "[i] : Removed ./.git"
+rm -v setup.sh
 echo "[i] : Removed ./setup.sh"
 echo "[i] : IT'S DONE !"
