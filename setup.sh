@@ -146,7 +146,7 @@ ssh-keygen -t rsa -b $rsakeylenth -f ./SSH-Keys/Backup-SSH-Key
 
 # Phase 7 show the new created Public SSH-Key
 echo "-----BEGIN PUBLIC KEY-----"
-echo "$(cat ./SSH-Keys/Backup-SSH-Key.pub)" | awk '{print $2,$3}'
+echo "$(cat ./SSH-Keys/Backup-SSH-Key.pub)
 echo "-----END PUBLIC KEY-----"
 echo ""
 
