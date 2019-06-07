@@ -8,7 +8,7 @@ mkdir --verbose ./Archiv
 mkdir --verbose -p ./Devices/{Fortinet,HP,Cisco,DELL}
 mkdir --verbose -p ./Modules/{Archiv,Backup,Clean,Debug}
 mkdir --verbose ./SSH-Keys
-mkdir --verbose -p ./Log/{Fortinet,HP,Cisco,DELL,BackupCheck}
+mkdir --verbose -p ./Log/{Archv,Backup,Cisco,DELL,Fortinet,HP,Log}
 echo "[i] : Directories where created"
 
 # Phase 2 create all device list's
@@ -98,16 +98,17 @@ echo "Installation path : $installpath"
 echo "[i] : Found installation path"
 echo '#!/bin/bash'  >> ./Main-Launcher.sh
 echo 'date=`date +%d%m%y`'  >> ./Main-Launcher.sh
-echo "" >> ./Main-Launcher.sh
+echo " " >> ./Main-Launcher.sh
 echo "cd $installpath" >> ./Main-Launcher.sh
-echo "" >> ./Main-Launcher.sh
+echo " " >> ./Main-Launcher.sh
 echo './Modules/Backup/Fortinet.sh &>> ./Log/Fortinet/log$date.txt' >> ./Main-Launcher.sh
 echo './Modules/Backup/DELL.sh &>> ./Log/DELL/log$date.txt' >> ./Main-Launcher.sh
 echo './Modules/Backup/HP.sh &>> ./Log/HP/log$date.txt' >> ./Main-Launcher.sh
 echo './Modules/Backup/Cisco.sh &>> ./Log/Cisco/log$date.txt' >> ./Main-Launcher.sh
-echo "" >> ./Main-Launcher.sh
-echo '# ./Modules/Archiv/CustomerSorter.sh >> ./Log/BackupCheck/log$date.txt' >> ./Main-Launcher.sh
+echo " " >> ./Main-Launcher.sh
 echo './Modules/Archiv/Checker.sh >> ./Log/BackupCheck/log$date.txt' >> ./Main-Launcher.sh
+echo './Modules/Archiv/OldConfigsArchiver.sh ./Log/Archiv/AchivCompress/log$date.txt' >> ./Main-Launcher.sh
+echo './Modules/Archiv/OldLogsArchiver.sh ./Log/Log/LogCompress/log$date.txt'  >> ./Main-Launcher.sh
 echo './Modules/Archiv/ArchivStats.sh >> ./Log/BackupCheck/log$date.txt' >> ./Main-Launcher.sh
 echo "--------------------------------------------------------------------------------"
 echo "Set days after a config gets commpressed (.gz format) [2,5x-3,5x SMALLER] (Numbers only):"
@@ -155,7 +156,7 @@ ssh-keygen -t rsa -b $rsakeylenth -f ./SSH-Keys/Backup-SSH-Key
 echo "-----BEGIN PUBLIC KEY-----"
 echo "$(cat ./SSH-Keys/Backup-SSH-Key.pub)
 echo "-----END PUBLIC KEY-----"
-echo ""
+echo " "
 
 # Phase 8 show e.g. for a crontab
 echo "--------------------------------------------------------------------------------"
