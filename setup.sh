@@ -86,7 +86,6 @@ mv --verbose ./Fastdebug.sh ./Modules/Debug/Fastdebug.sh
 mv --verbose ./OldConfigsAchiver.sh ./Modules/Archiv/OldConfigsAchiver.sh
 mv --verbose ./OldLogsAchiver.sh ./Modules/Archiv/OldLogsAchiver.sh
 mv --verbose ./ArchivStats.sh ./Modules/Archiv/ArchivStats.sh
-mv --verbose ./CustomerSorter.sh ./Modules/Archiv/CustomerSorter.sh
 mv --verbose ./BackupConfigsCleanUp.sh ./Modules/Clean/BackupConfigsCleanUp.sh
 mv --verbose ./LogCleanUp.sh ./Modules/Clean/LogCleanUp.sh
 echo "[i] : Modules where moved"
@@ -137,7 +136,6 @@ chmod --verbose 700 ./Modules/Clean/LogCleanUp.sh
 chmod --verbose 700 ./Modules/Archiv/ArchivStats.sh
 chmod --verbose 700 ./Modules/Archiv/OldConfigsAchiver.sh
 chmod --verbose 700 ./Modules/Archiv/OldLogsAchiver.sh
-chmod --verbose 700 ./Modules/Archiv/CustomerSorter.sh
 echo "[i] : Modules & Lanucher where modified"
 
 # Phase 6 create SSH Key
@@ -154,7 +152,7 @@ ssh-keygen -t rsa -b $rsakeylenth -f ./SSH-Keys/Backup-SSH-Key
 
 # Phase 7 show the new created Public SSH-Key
 echo "-----BEGIN PUBLIC KEY-----"
-echo "$(cat ./SSH-Keys/Backup-SSH-Key.pub)
+echo "$(cat ./SSH-Keys/Backup-SSH-Key.pub)"
 echo "-----END PUBLIC KEY-----"
 echo " "
 
