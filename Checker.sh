@@ -6,8 +6,11 @@ ciscohostfilecount=`egrep -v "^\s*(#|$)" ./Devices/Cisco/Cisco-Devices.txt | gre
 dellhostfilecount=`egrep -v "^\s*(#|$)" ./Devices/DELL/DELL-Devices.txt | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" | wc -l`
 dirsinachriv=`find ./Archiv -maxdepth 1 -type d | wc -l`
 configsinachive=`find ./Archiv -maxdepth 2 -type f -mtime -1 | wc -l`
+minus1=1 # Caused by also counting the ./Archiv as a folder 
 
 total=`expr $fortinethostfilecount + $hphostfilecount + $ciscohostfilecount + $dellhostfilecount`
+dirsinachriv=`expr $dirsinachriv - $minus1`
+
 echo "------------------------------------------------"
 echo "Fortinet .. : $fortinethostfilecount Hosts in Host File"
 echo "HP ........ : $hphostfilecount Hosts in Host File"
