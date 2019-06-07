@@ -83,7 +83,8 @@ mv --verbose ./HP.sh ./Modules/Backup/HP.sh
 mv --verbose ./Cisco.sh ./Modules/Backup/Cisco.sh
 mv --verbose ./Checker.sh ./Modules/Archiv/Checker.sh
 mv --verbose ./Fastdebug.sh ./Modules/Debug/Fastdebug.sh
-mv --verbose ./OldConfigsMover.sh ./Modules/Archiv/OldConfigsMover.sh
+mv --verbose ./OldConfigsAchiver.sh ./Modules/Archiv/OldConfigsAchiver.sh
+mv --verbose ./OldLogsAchiver.sh ./Modules/Archiv/OldLogsAchiver.sh
 mv --verbose ./ArchivStats.sh ./Modules/Archiv/ArchivStats.sh
 mv --verbose ./CustomerSorter.sh ./Modules/Archiv/CustomerSorter.sh
 mv --verbose ./BackupConfigsCleanUp.sh ./Modules/Clean/BackupConfigsCleanUp.sh
@@ -133,7 +134,8 @@ chmod --verbose 700 ./Modules/Debug/Fastdebug.sh
 chmod --verbose 700 ./Modules/Clean/BackupConfigsCleanUp.sh
 chmod --verbose 700 ./Modules/Clean/LogCleanUp.sh
 chmod --verbose 700 ./Modules/Archiv/ArchivStats.sh
-chmod --verbose 700 ./Modules/Archiv/OldConfigsMover.sh
+chmod --verbose 700 ./Modules/Archiv/OldConfigsAchiver.sh
+chmod --verbose 700 ./Modules/Archiv/OldLogsAchiver.sh
 chmod --verbose 700 ./Modules/Archiv/CustomerSorter.sh
 echo "[i] : Modules & Lanucher where modified"
 
