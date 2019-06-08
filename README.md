@@ -40,7 +40,7 @@ Again just enter.
 
 ## Server side
 
-In ```./Devices/<VENDOR>/<VENDOR>-Devices.txt``` you need to enter line by line all IP addresses. For more information have a look in any of these device .txt files.
+In ./Devices/<VENDOR>/<VENDOR>-Devices.txt you need to enter line by line all IP addresses. For more information have a look in any of these device .txt files.
 
 ## Client side (Network device)
 
