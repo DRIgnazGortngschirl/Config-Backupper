@@ -113,11 +113,11 @@ echo "--------------------------------------------------------------------------
 echo "Set days after a config gets commpressed (.gz format) [2,5x-3,5x SMALLER] (Numbers only):"
 read achivetimearchiv
 echo "--------------------------------------------------------------------------------"
-echo "find ./Archiv -mtime +$achivetimearchiv -exec gzip {} +" >> ./Modules/Archiv/OldConfigsArchiver.sh
+echo "find ./Archiv -vf -mtime +$achivetimearchiv -exec gzip -v {} +" >> ./Modules/Archiv/OldConfigsArchiver.sh
 echo "Set days after a logs gets commpressed (.gz format) [2,5x-3,5x SMALLER] (Numbers only):"
 read achivetimelogs
 echo "--------------------------------------------------------------------------------"
-echo "find ./Archiv -mtime +$achivetimelogs -exec gzip {} +" >> ./Modules/Archiv/OldLogsArchiver.sh
+echo "find ./Archiv -mtime +$achivetimelogs -exec gzip -v {} +" >> ./Modules/Archiv/OldLogsArchiver.sh
 
 echo "du -sh ./Archiv >> ./Log/BackupCheck/log$date.txt" >> ./Modules/Archiv/ArchivStats.sh
 echo "[i] : Main Launcher where created"
