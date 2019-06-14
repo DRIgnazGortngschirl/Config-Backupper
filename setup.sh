@@ -4,11 +4,11 @@
 
 # Phase 1 create all directorys
 echo "[i] : Setup stared"
-mkdir --verbose ./Archiv
+mkdir --verbose ./Archive
 mkdir --verbose -p ./Devices/{Fortinet,HP,Cisco,DELL}
 mkdir --verbose -p ./Modules/{Archiv,Backup,Clean,Debug}
 mkdir --verbose ./SSH-Keys
-mkdir --verbose -p ./Log/{Archv,Backup,Cisco,DELL,Fortinet,HP,Log}
+mkdir --verbose -p ./Log/{Backup,Cisco,DELL,Fortinet,HP,Log}
 echo "[i] : Directories where created"
 
 # Phase 2 create all device list's
@@ -83,9 +83,9 @@ mv --verbose ./HP.sh ./Modules/Backup/HP.sh
 mv --verbose ./Cisco.sh ./Modules/Backup/Cisco.sh
 mv --verbose ./Checker.sh ./Modules/Archiv/Checker.sh
 mv --verbose ./Fastdebug.sh ./Modules/Debug/Fastdebug.sh
-mv --verbose ./OldConfigsAchiver.sh ./Modules/Archiv/OldConfigsAchiver.sh
-mv --verbose ./OldLogsAchiver.sh ./Modules/Archiv/OldLogsAchiver.sh
-mv --verbose ./ArchivStats.sh ./Modules/Archiv/ArchivStats.sh
+mv --verbose ./OldConfigsArchiver.sh ./Modules/Archive/OldConfigsArchiver.sh
+mv --verbose ./OldLogsAchiver.sh ./Modules/Archive/OldLogsArchiver.sh
+mv --verbose ./ArchiveStats.sh ./Modules/Archive/ArchiveStats.sh
 mv --verbose ./BackupConfigsCleanUp.sh ./Modules/Clean/BackupConfigsCleanUp.sh
 mv --verbose ./LogCleanUp.sh ./Modules/Clean/LogCleanUp.sh
 echo "[i] : Modules where moved"
@@ -111,15 +111,15 @@ echo './Modules/Archiv/OldLogsArchiver.sh ./Log/Log/LogCompress/log$date.txt'  >
 echo './Modules/Archiv/ArchivStats.sh >> ./Log/BackupCheck/log$date.txt' >> ./Main-Launcher.sh
 echo "--------------------------------------------------------------------------------"
 echo "Set days after a config gets commpressed (.gz format) [2,5x-3,5x SMALLER] (Numbers only):"
-read achivetimearchiv
+read archivetimearchive
 echo "--------------------------------------------------------------------------------"
-echo "find ./Archiv -vf -mtime +$achivetimearchiv -exec gzip -v {} +" >> ./Modules/Archiv/OldConfigsArchiver.sh
+echo "find ./Archive -vf -mtime +$achivetimearchive -exec gzip -v {} +" >> ./Modules/Archive/OldConfigsArchiver.sh
 echo "Set days after a logs gets commpressed (.gz format) [2,5x-3,5x SMALLER] (Numbers only):"
-read achivetimelogs
+read archivetimelogs
 echo "--------------------------------------------------------------------------------"
-echo "find ./Archiv -mtime +$achivetimelogs -exec gzip -v {} +" >> ./Modules/Archiv/OldLogsArchiver.sh
+echo "find ./Archive -mtime +$archivetimelogs -exec gzip -v {} +" >> ./Modules/Archiv/OldLogsArchiver.sh
 
-echo "du -sh ./Archiv >> ./Log/BackupCheck/log$date.txt" >> ./Modules/Archiv/ArchivStats.sh
+echo "du -sh ./Archive >> ./Log/BackupCheck/log$date.txt" >> ./Modules/Archiv/ArchiveStats.sh
 echo "[i] : Main Launcher where created"
 
 # Phase 5 make the files executable
@@ -133,9 +133,9 @@ chmod --verbose 700 ./Modules/Archiv/Checker.sh
 chmod --verbose 700 ./Modules/Debug/Fastdebug.sh
 chmod --verbose 700 ./Modules/Clean/BackupConfigsCleanUp.sh
 chmod --verbose 700 ./Modules/Clean/LogCleanUp.sh
-chmod --verbose 700 ./Modules/Archiv/ArchivStats.sh
-chmod --verbose 700 ./Modules/Archiv/OldConfigsAchiver.sh
-chmod --verbose 700 ./Modules/Archiv/OldLogsAchiver.sh
+chmod --verbose 700 ./Modules/Archive/ArchiveStats.sh
+chmod --verbose 700 ./Modules/Archive/OldConfigsArchiver.sh
+chmod --verbose 700 ./Modules/Archive/OldLogsArchiver.sh
 echo "[i] : Modules & Lanucher where modified"
 
 # Phase 6 create SSH Key
