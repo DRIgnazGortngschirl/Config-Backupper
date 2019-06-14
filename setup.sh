@@ -84,7 +84,7 @@ mv --verbose ./Cisco.sh ./Modules/Backup/Cisco.sh
 mv --verbose ./Checker.sh ./Modules/Archiv/Checker.sh
 mv --verbose ./Fastdebug.sh ./Modules/Debug/Fastdebug.sh
 mv --verbose ./OldConfigsArchiver.sh ./Modules/Archive/OldConfigsArchiver.sh
-mv --verbose ./OldLogsAchiver.sh ./Modules/Archive/OldLogsArchiver.sh
+mv --verbose ./OldLogsArchiver.sh ./Modules/Archive/OldLogsArchiver.sh
 mv --verbose ./ArchiveStats.sh ./Modules/Archive/ArchiveStats.sh
 mv --verbose ./BackupConfigsCleanUp.sh ./Modules/Clean/BackupConfigsCleanUp.sh
 mv --verbose ./LogCleanUp.sh ./Modules/Clean/LogCleanUp.sh
