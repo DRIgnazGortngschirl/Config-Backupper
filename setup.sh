@@ -81,7 +81,7 @@ mv --verbose ./Fortinet-Special.sh ./Modules/Backup/Fortinet-Special.sh
 mv --verbose ./DELL.sh ./Modules/Backup/DELL.sh
 mv --verbose ./HP.sh ./Modules/Backup/HP.sh
 mv --verbose ./Cisco.sh ./Modules/Backup/Cisco.sh
-mv --verbose ./Checker.sh ./Modules/Archiv/Checker.sh
+mv --verbose ./Checker.sh ./Modules/Archive/Checker.sh
 mv --verbose ./Fastdebug.sh ./Modules/Debug/Fastdebug.sh
 mv --verbose ./OldConfigsArchiver.sh ./Modules/Archive/OldConfigsArchiver.sh
 mv --verbose ./OldLogsArchiver.sh ./Modules/Archive/OldLogsArchiver.sh
@@ -129,7 +129,7 @@ chmod --verbose 700 ./Modules/Backup/Fortinet-Special.sh
 chmod --verbose 700 ./Modules/Backup/DELL.sh
 chmod --verbose 700 ./Modules/Backup/HP.sh
 chmod --verbose 700 ./Modules/Backup/Cisco.sh
-chmod --verbose 700 ./Modules/Archiv/Checker.sh
+chmod --verbose 700 ./Modules/Archive/Checker.sh
 chmod --verbose 700 ./Modules/Debug/Fastdebug.sh
 chmod --verbose 700 ./Modules/Clean/BackupConfigsCleanUp.sh
 chmod --verbose 700 ./Modules/Clean/LogCleanUp.sh
