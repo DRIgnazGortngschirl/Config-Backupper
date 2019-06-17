@@ -113,7 +113,7 @@ echo "--------------------------------------------------------------------------
 echo "Set days after a config gets commpressed (.gz format) [2,5x-3,5x SMALLER] (Numbers only):"
 read archivetimearchive
 echo "--------------------------------------------------------------------------------"
-echo "find ./Archive -vf -mtime +$achivetimearchive -exec gzip -v {} +" >> ./Modules/Archive/OldConfigsArchiver.sh
+echo "find ./Archive -name "*.conf" -mtime +$achivetimearchive -exec gzip -v {} +" >> ./Modules/Archive/OldConfigsArchiver.sh
 echo "Set days after a logs gets commpressed (.gz format) [2,5x-3,5x SMALLER] (Numbers only):"
 read archivetimelogs
 echo "--------------------------------------------------------------------------------"
