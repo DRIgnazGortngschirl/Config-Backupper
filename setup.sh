@@ -117,9 +117,9 @@ echo "find ./Archive -vf -mtime +$achivetimearchive -exec gzip -v {} +" >> ./Mod
 echo "Set days after a logs gets commpressed (.gz format) [2,5x-3,5x SMALLER] (Numbers only):"
 read archivetimelogs
 echo "--------------------------------------------------------------------------------"
-echo "find ./Archive -mtime +$archivetimelogs -exec gzip -v {} +" >> ./Modules/Archiv/OldLogsArchiver.sh
+echo "find ./Archive -mtime +$archivetimelogs -exec gzip -v {} +" >> ./Modules/Archive/OldLogsArchiver.sh
 
-echo "du -sh ./Archive >> ./Log/BackupCheck/log$date.txt" >> ./Modules/Archiv/ArchiveStats.sh
+echo "du -sh ./Archive >> ./Log/BackupCheck/log$date.txt" >> ./Modules/Archive/ArchiveStats.sh
 echo "[i] : Main Launcher where created"
 
 # Phase 5 make the files executable
