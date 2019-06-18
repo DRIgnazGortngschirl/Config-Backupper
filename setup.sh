@@ -111,13 +111,22 @@ echo './Modules/Archiv/OldLogsArchiver.sh ./Log/Log/LogCompress/log$date.txt'  >
 echo './Modules/Archiv/ArchivStats.sh >> ./Log/BackupCheck/log$date.txt' >> ./Main-Launcher.sh
 echo "--------------------------------------------------------------------------------"
 echo "Set days after a config gets commpressed (.gz format) [2,5x-3,5x SMALLER] (Numbers only):"
-read archivetimearchive
+read archivetimearchivecommpress
+echo "find ./Archive -name "*.conf" -mtime +$archivetimearchivecommpress -exec gzip -v {} +" >> ./Modules/Archive/OldConfigsArchiver.sh
 echo "--------------------------------------------------------------------------------"
-echo "find ./Archive -name "*.conf" -mtime +$achivetimearchive -exec gzip -v {} +" >> ./Modules/Archive/OldConfigsArchiver.sh
+echo "Set days after a config gets deleted (Numbers only):"
+read archivetimearchivedelete
+echo "find ./Archive -name "*.conf.gz" -mtime +$archivetimearchivedelete -exec rm -v {} +" >> ./Modules/Archive/OldConfigsArchiver.sh
+echo "--------------------------------------------------------------------------------"
 echo "Set days after a logs gets commpressed (.gz format) [2,5x-3,5x SMALLER] (Numbers only):"
-read archivetimelogs
+read archivetimelogscommpress
+echo "find ./Archive -mtime +$archivetimelogscommpress -exec gzip -v {} +" >> ./Modules/Archive/OldLogsArchiver.sh
 echo "--------------------------------------------------------------------------------"
-echo "find ./Archive -mtime +$archivetimelogs -exec gzip -v {} +" >> ./Modules/Archive/OldLogsArchiver.sh
+echo "Set days after a logs gets deleted (.gz format) [2,5x-3,5x SMALLER] (Numbers only):"
+read archivetimelogsdelete
+echo "find ./Archive -mtime +$archivetimelogsdelete -exec gzip -v {} +" >> ./Modules/Archive/OldLogsArchiver.sh
+echo "--------------------------------------------------------------------------------"
+
 
 echo "du -sh ./Archive >> ./Log/BackupCheck/log$date.txt" >> ./Modules/Archive/ArchiveStats.sh
 echo "[i] : Main Launcher where created"
