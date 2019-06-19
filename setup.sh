@@ -101,10 +101,10 @@ echo "" >> ./Main-Launcher.sh
 echo "cd $installpath" >> ./Main-Launcher.sh
 echo "" >> ./Main-Launcher.sh
 echo './Modules/Backup/Fortinet.sh &>> ./Log/Fortinet/log$date.txt' >> ./Main-Launcher.sh
-echo './Modules/Backup/Fortinet-Special.sh &>> ./Log/Fortinet/log$date.txt' >> ./Main-Launcher.sh
-echo './Modules/Backup/DELL.sh &>> ./Log/DELL/log$date.txt' >> ./Main-Launcher.sh
-echo './Modules/Backup/HP.sh &>> ./Log/HP/log$date.txt' >> ./Main-Launcher.sh
-echo './Modules/Backup/Cisco.sh &>> ./Log/Cisco/log$date.txt' >> ./Main-Launcher.sh
+echo '#./Modules/Backup/Fortinet-Special.sh &>> ./Log/Fortinet/log$date.txt ### Disabled by default ###' >> ./Main-Launcher.sh
+echo '# ./Modules/Backup/DELL.sh &>> ./Log/DELL/log$date.txt ### NOT YET FUNCTIONAL! ###' >> ./Main-Launcher.sh
+echo '#./Modules/Backup/HP.sh &>> ./Log/HP/log$date.txt ### NOT YET FUNCTIONAL! ###' >> ./Main-Launcher.sh
+echo '#./Modules/Backup/Cisco.sh &>> ./Log/Cisco/log$date.txt ### NOT YET FUNCTIONAL! ###' >> ./Main-Launcher.sh
 echo "" >> ./Main-Launcher.sh
 echo './Modules/Archive/Checker.sh &>> ./Log/Backup/log$date.txt' >> ./Main-Launcher.sh
 echo './Modules/Archive/OldConfigsArchiver.sh &>> ./Log/Backup/log$date.txt' >> ./Main-Launcher.sh
@@ -127,7 +127,6 @@ echo "Set days after a logs gets deleted (.gz format) [2,5x-3,5x SMALLER] (Numbe
 read archivetimelogsdelete
 echo "find ./Log -mtime +$archivetimelogsdelete -exec gzip -v {} +" >> ./Modules/Archive/OldLogsArchiver.sh
 echo "--------------------------------------------------------------------------------"
-
 
 echo "du -sh ./Archive >> ./Log/BackupCheck/log$date.txt" >> ./Modules/Archive/ArchiveStats.sh
 echo "[i] : Main Launcher where created"
