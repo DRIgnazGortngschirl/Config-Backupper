@@ -86,7 +86,7 @@ mv --verbose ./Fastdebug.sh ./Modules/Debug/Fastdebug.sh
 mv --verbose ./OldConfigsArchiver.sh ./Modules/Archive/OldConfigsArchiver.sh
 mv --verbose ./OldLogsArchiver.sh ./Modules/Archive/OldLogsArchiver.sh
 mv --verbose ./ArchiveStats.sh ./Modules/Archive/ArchiveStats.sh
-mv --verbose ./BackupConfigsCleanUp.sh ./Modules/Clean/BackupConfigsCleanUp.sh
+mv --verbose ./ConfigsCleanUp.sh ./Modules/Clean/ConfigsCleanUp.sh
 mv --verbose ./LogCleanUp.sh ./Modules/Clean/LogCleanUp.sh
 echo "[i] : Modules where moved"
 
@@ -141,7 +141,7 @@ chmod --verbose 700 ./Modules/Backup/HP.sh
 chmod --verbose 700 ./Modules/Backup/Cisco.sh
 chmod --verbose 700 ./Modules/Archive/Checker.sh
 chmod --verbose 700 ./Modules/Debug/Fastdebug.sh
-chmod --verbose 700 ./Modules/Clean/BackupConfigsCleanUp.sh
+chmod --verbose 700 ./Modules/Clean/ConfigsCleanUp.sh
 chmod --verbose 700 ./Modules/Clean/LogCleanUp.sh
 chmod --verbose 700 ./Modules/Archive/ArchiveStats.sh
 chmod --verbose 700 ./Modules/Archive/OldConfigsArchiver.sh
