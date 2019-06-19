@@ -166,7 +166,8 @@ echo "-----END PUBLIC KEY-----"
 echo " "
 
 # Phase 8 create AutoSetup.sh
-sshkey=`cat ./SSH-Keys/Backup-SSH-Key.pub`
+search=PLACEHOLDERFORSSHKEY
+replace=`cat ./SSH-Keys/Backup-SSH-Key.pub`
 echo '#!/bin/bash' >> ./Modules/Setup/AutoSetup.sh
 echo '' >> ./Modules/Setup/AutoSetup.sh
 echo 'echo "IP Address :"' >> ./Modules/Setup/AutoSetup.sh
@@ -183,8 +184,8 @@ echo 'sshpass -p "$pass" ssh -tt $user@$device <<EOF' >> ./Modules/Setup/AutoSet
 echo '  config system admin' >> ./Modules/Setup/AutoSetup.sh
 echo '  edit backuptest' >> ./Modules/Setup/AutoSetup.sh
 echo '  set accprofile "read_only" ' >> ./Modules/Setup/AutoSetup.sh
-echo '  set ssh-public-key1 "<PLACEHOLDER-FOR-SSH-KEY>"' >> ./Modules/Setup/AutoSetup.sh
-sed -i "s/PLACEHOLDER-FOR-SSH-KEY/${sshkey}/g" ./Modules/Setup/AutoSetup.sh
+echo '  set ssh-public-key1 "<PLACEHOLDERFORSSHKEY>"' >> ./Modules/Setup/AutoSetup.sh
+sed -i "" "s|${search}|${replace}|g" ./Modules/Setup/AutoSetup.sh
 echo '  end' >> ./Modules/Setup/AutoSetup.sh
 echo '  config system global' >> ./Modules/Setup/AutoSetup.sh
 echo '  set admin-scp enable' >> ./Modules/Setup/AutoSetup.sh
