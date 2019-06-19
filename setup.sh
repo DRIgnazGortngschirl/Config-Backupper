@@ -97,15 +97,15 @@ echo "Installation path : $installpath"
 echo "[i] : Found installation path"
 echo '#!/bin/bash'  >> ./Main-Launcher.sh
 echo 'date=`date +%d%m%y`'  >> ./Main-Launcher.sh
-echo " " >> ./Main-Launcher.sh
+echo "" >> ./Main-Launcher.sh
 echo "cd $installpath" >> ./Main-Launcher.sh
-echo " " >> ./Main-Launcher.sh
+echo "" >> ./Main-Launcher.sh
 echo './Modules/Backup/Fortinet.sh &>> ./Log/Fortinet/log$date.txt' >> ./Main-Launcher.sh
 echo './Modules/Backup/Fortinet-Special.sh &>> ./Log/Fortinet/log$date.txt' >> ./Main-Launcher.sh
 echo './Modules/Backup/DELL.sh &>> ./Log/DELL/log$date.txt' >> ./Main-Launcher.sh
 echo './Modules/Backup/HP.sh &>> ./Log/HP/log$date.txt' >> ./Main-Launcher.sh
 echo './Modules/Backup/Cisco.sh &>> ./Log/Cisco/log$date.txt' >> ./Main-Launcher.sh
-echo " " >> ./Main-Launcher.sh
+echo "" >> ./Main-Launcher.sh
 echo './Modules/Archive/Checker.sh >> ./Log/Backup/log$date.txt' >> ./Main-Launcher.sh
 echo './Modules/Archive/OldConfigsArchiver.sh ./Log/Backup/log$date.txt' >> ./Main-Launcher.sh
 echo './Modules/Archive/OldLogsArchiver.sh ./Log/Backup/log$date.txt'  >> ./Main-Launcher.sh
