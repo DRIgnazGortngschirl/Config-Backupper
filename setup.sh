@@ -181,14 +181,35 @@ echo 'echo "------------------"' >> ./Modules/Setup/AutoSetup.sh
 echo 'read pass' >> ./Modules/Setup/AutoSetup.sh
 echo 'echo "------------------"' >> ./Modules/Setup/AutoSetup.sh
 echo 'sshpass -p "$pass" ssh -tt $user@$device <<EOF' >> ./Modules/Setup/AutoSetup.sh
+echo '  config global' >> ./Modules/Setup/AutoSetup.sh
+echo '    config system accprofile' >> ./Modules/Setup/AutoSetup.sh
+echo '      edit "read_only"' >> ./Modules/Setup/AutoSetup.sh
+echo '        set admingrp read' >> ./Modules/Setup/AutoSetup.sh
+echo '        set authgrp read' >> ./Modules/Setup/AutoSetup.sh
+echo '        set endpoint-control-grp read' >> ./Modules/Setup/AutoSetup.sh
+echo '        set fwgrp read' >> ./Modules/Setup/AutoSetup.sh
+echo '        set loggrp read' >> ./Modules/Setup/AutoSetup.sh
+echo '        set mntgrp read' >> ./Modules/Setup/AutoSetup.sh
+echo '        set netgrp read' >> ./Modules/Setup/AutoSetup.sh
+echo '        set routegrp read' >> ./Modules/Setup/AutoSetup.sh
+echo '        set scope global' >> ./Modules/Setup/AutoSetup.sh
+echo '        set sysgrp read' >> ./Modules/Setup/AutoSetup.sh
+echo '        set updategrp read' >> ./Modules/Setup/AutoSetup.sh
+echo '        set utmgrp read' >> ./Modules/Setup/AutoSetup.sh
+echo '        set vpngrp read' >> ./Modules/Setup/AutoSetup.sh
+echo '        set wanoptgrp read' >> ./Modules/Setup/AutoSetup.sh
+echo '        set wifi read' >> ./Modules/Setup/AutoSetup.sh
+echo '      next' >> ./Modules/Setup/AutoSetup.sh
+echo '  end' >> ./Modules/Setup/AutoSetup.sh
+echo '' >> ./Modules/Setup/AutoSetup.sh
 echo '  config system admin' >> ./Modules/Setup/AutoSetup.sh
-echo '  edit backuptest' >> ./Modules/Setup/AutoSetup.sh
-echo '  set accprofile "read_only" ' >> ./Modules/Setup/AutoSetup.sh
-echo '  set ssh-public-key1 "PLACEHOLDERFORSSHKEY"' >> ./Modules/Setup/AutoSetup.sh
+echo '    edit backup' >> ./Modules/Setup/AutoSetup.sh
+echo '      set accprofile "read_only" ' >> ./Modules/Setup/AutoSetup.sh
+echo '      set ssh-public-key1 "PLACEHOLDERFORSSHKEY"' >> ./Modules/Setup/AutoSetup.sh
 sed -i "s|${search}|${replace}|g" ./Modules/Setup/AutoSetup.sh
 echo '  end' >> ./Modules/Setup/AutoSetup.sh
 echo '  config system global' >> ./Modules/Setup/AutoSetup.sh
-echo '  set admin-scp enable' >> ./Modules/Setup/AutoSetup.sh
+echo '    set admin-scp enable' >> ./Modules/Setup/AutoSetup.sh
 echo '  end' >> ./Modules/Setup/AutoSetup.sh
 echo '  exit' >> ./Modules/Setup/AutoSetup.sh
 echo 'EOF' >> ./Modules/Setup/AutoSetup.sh
