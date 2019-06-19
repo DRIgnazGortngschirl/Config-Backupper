@@ -6,7 +6,7 @@
 echo "[i] : Setup stared"
 mkdir --verbose ./Archive
 mkdir --verbose -p ./Devices/{Fortinet,HP,Cisco,DELL}
-mkdir --verbose -p ./Modules/{Archive,Backup,Clean,Debug}
+mkdir --verbose -p ./Modules/{Archive,Backup,Clean,Debug,Setup}
 mkdir --verbose ./SSH-Keys
 mkdir --verbose -p ./Log/{Backup,Cisco,DELL,Fortinet,HP}
 echo "[i] : Directories where created"
