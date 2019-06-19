@@ -23,7 +23,7 @@ Here you can define (in days) when the archived configs get compressed*. (Recomm
 
 #### Set days after a config gets deleted (Numbers only):
 
-Here you can define (in days) when the archived configs get deleted*. (Recommended : 31)
+Here you can define (in days) when the archived configs get deleted*. (Recommended : 90)
 
 
 #### Set days after a logs gets compressed (.gz format) [2,5x-3,5x SMALLER] (Numbers only):
@@ -33,7 +33,7 @@ Here you can define (in days) when the archived logs get compressed*. (Recommend
 
 #### Set days after a logs gets deleted (Numbers only):
 
-Here you can define (in days) when the archived logs get deleted*. (Recommended : 31)
+Here you can define (in days) when the archived logs get deleted*. (Recommended : 90)
 
 
 *If you don't want to deleted/commpress the configs/logs is set it to 9999. --> No compression/deletion for 27 Years long enough...
