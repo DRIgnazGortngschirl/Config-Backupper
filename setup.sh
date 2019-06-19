@@ -184,7 +184,7 @@ echo '  config system admin' >> ./Modules/Setup/AutoSetup.sh
 echo '  edit backuptest' >> ./Modules/Setup/AutoSetup.sh
 echo '  set accprofile "read_only" ' >> ./Modules/Setup/AutoSetup.sh
 echo '  set ssh-public-key1 "<PLACEHOLDER-FOR-SSH-KEY>"' >> ./Modules/Setup/AutoSetup.sh
-sed -i 's/PLACEHOLDER-FOR-SSH-KEY/${sshkey}/g' ./Modules/Setup/AutoSetup.sh
+sed -i "s/PLACEHOLDER-FOR-SSH-KEY/${sshkey}/g" ./Modules/Setup/AutoSetup.sh
 echo '  end' >> ./Modules/Setup/AutoSetup.sh
 echo '  config system global' >> ./Modules/Setup/AutoSetup.sh
 echo '  set admin-scp enable' >> ./Modules/Setup/AutoSetup.sh
