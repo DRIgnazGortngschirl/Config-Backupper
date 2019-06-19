@@ -121,11 +121,11 @@ echo "find ./Archive -name "*.conf.gz" -mtime +$archivetimearchivedelete -exec r
 echo "--------------------------------------------------------------------------------"
 echo "Set days after a logs gets commpressed (.gz format) [2,5x-3,5x SMALLER] (Numbers only):"
 read archivetimelogscommpress
-echo "find ./Archive -mtime +$archivetimelogscommpress -exec gzip -v {} +" >> ./Modules/Archive/OldLogsArchiver.sh
+echo "find ./Log -mtime +$archivetimelogscommpress -exec gzip -v {} +" >> ./Modules/Archive/OldLogsArchiver.sh
 echo "--------------------------------------------------------------------------------"
 echo "Set days after a logs gets deleted (.gz format) [2,5x-3,5x SMALLER] (Numbers only):"
 read archivetimelogsdelete
-echo "find ./Archive -mtime +$archivetimelogsdelete -exec gzip -v {} +" >> ./Modules/Archive/OldLogsArchiver.sh
+echo "find ./Log -mtime +$archivetimelogsdelete -exec gzip -v {} +" >> ./Modules/Archive/OldLogsArchiver.sh
 echo "--------------------------------------------------------------------------------"
 
 
