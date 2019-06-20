@@ -90,22 +90,22 @@ mv --verbose ./ConfigsCleanUp.sh ./Modules/Clean/ConfigsCleanUp.sh
 mv --verbose ./LogCleanUp.sh ./Modules/Clean/LogCleanUp.sh
 echo "[i] : Modules where moved"
 
-# Phase 4 create the main lanucher for all modules
+# Phase 4 create Main-Lanucher.sh
 echo "[i] : Searching for installation path ... This can take a few moments"
 installpath=`find / -name "*Config-Backupper" 2>/dev/null`
 echo "Installation path : $installpath"
 echo "[i] : Found installation path"
 echo '#!/bin/bash'  >> ./Main-Launcher.sh
 echo 'date=`date +%d%m%y`'  >> ./Main-Launcher.sh
-echo "" >> ./Main-Launcher.sh
+echo "---------------------------------------------" >> ./Main-Launcher.sh
 echo "cd $installpath" >> ./Main-Launcher.sh
-echo "" >> ./Main-Launcher.sh
+echo "---------------------------------------------" >> ./Main-Launcher.sh
 echo './Modules/Backup/Fortinet.sh &>> ./Log/Fortinet/log$date.txt' >> ./Main-Launcher.sh
 echo '#./Modules/Backup/Fortinet-Special.sh &>> ./Log/Fortinet/log$date.txt ### Disabled by default ###' >> ./Main-Launcher.sh
 echo '# ./Modules/Backup/DELL.sh &>> ./Log/DELL/log$date.txt ### NOT YET FUNCTIONAL! ###' >> ./Main-Launcher.sh
 echo '#./Modules/Backup/HP.sh &>> ./Log/HP/log$date.txt ### NOT YET FUNCTIONAL! ###' >> ./Main-Launcher.sh
 echo '#./Modules/Backup/Cisco.sh &>> ./Log/Cisco/log$date.txt ### NOT YET FUNCTIONAL! ###' >> ./Main-Launcher.sh
-echo "" >> ./Main-Launcher.sh
+echo "---------------------------------------------" >> ./Main-Launcher.sh
 echo './Modules/Archive/Checker.sh &>> ./Log/Backup/log$date.txt' >> ./Main-Launcher.sh
 echo './Modules/Archive/OldConfigsArchiver.sh &>> ./Log/Backup/log$date.txt' >> ./Main-Launcher.sh
 echo './Modules/Archive/OldLogsArchiver.sh &>> ./Log/Backup/log$date.txt'  >> ./Main-Launcher.sh
@@ -145,6 +145,7 @@ chmod --verbose 700 ./Modules/Clean/LogCleanUp.sh
 chmod --verbose 700 ./Modules/Archive/ArchiveStats.sh
 chmod --verbose 700 ./Modules/Archive/OldConfigsArchiver.sh
 chmod --verbose 700 ./Modules/Archive/OldLogsArchiver.sh
+chmod --verbose 700 ./Modules/Setup/Fortinet-AutoSetup.sh
 echo "[i] : Modules & Lanucher where modified"
 
 # Phase 6 create SSH Key
@@ -165,54 +166,58 @@ echo "$(cat ./SSH-Keys/Backup-SSH-Key.pub)"
 echo "-----END PUBLIC KEY-----"
 echo " "
 
-# Phase 8 create AutoSetup.sh
+# Phase 8 create Fortinet-AutoSetup.sh
 search=PLACEHOLDERFORSSHKEY
 replace=`cat ./SSH-Keys/Backup-SSH-Key.pub`
-echo '#!/bin/bash' >> ./Modules/Setup/AutoSetup.sh
-echo '' >> ./Modules/Setup/AutoSetup.sh
-echo 'echo "IP Address :"' >> ./Modules/Setup/AutoSetup.sh
-echo 'echo "------------------"' >> ./Modules/Setup/AutoSetup.sh
-echo 'read device' >> ./Modules/Setup/AutoSetup.sh
-echo 'echo "User :"' >> ./Modules/Setup/AutoSetup.sh
-echo 'echo "------------------"' >> ./Modules/Setup/AutoSetup.sh
-echo 'read user' >> ./Modules/Setup/AutoSetup.sh
-echo 'echo "Password :"' >> ./Modules/Setup/AutoSetup.sh
-echo 'echo "------------------"' >> ./Modules/Setup/AutoSetup.sh
-echo 'read pass' >> ./Modules/Setup/AutoSetup.sh
-echo 'echo "------------------"' >> ./Modules/Setup/AutoSetup.sh
-echo 'sshpass -p "$pass" ssh -tt $user@$device <<EOF' >> ./Modules/Setup/AutoSetup.sh
-echo '  config global' >> ./Modules/Setup/AutoSetup.sh
-echo '    config system accprofile' >> ./Modules/Setup/AutoSetup.sh
-echo '      edit "read_only"' >> ./Modules/Setup/AutoSetup.sh
-echo '        set admingrp read' >> ./Modules/Setup/AutoSetup.sh
-echo '        set authgrp read' >> ./Modules/Setup/AutoSetup.sh
-echo '        set endpoint-control-grp read' >> ./Modules/Setup/AutoSetup.sh
-echo '        set fwgrp read' >> ./Modules/Setup/AutoSetup.sh
-echo '        set loggrp read' >> ./Modules/Setup/AutoSetup.sh
-echo '        set mntgrp read' >> ./Modules/Setup/AutoSetup.sh
-echo '        set netgrp read' >> ./Modules/Setup/AutoSetup.sh
-echo '        set routegrp read' >> ./Modules/Setup/AutoSetup.sh
-echo '        set scope global' >> ./Modules/Setup/AutoSetup.sh
-echo '        set sysgrp read' >> ./Modules/Setup/AutoSetup.sh
-echo '        set updategrp read' >> ./Modules/Setup/AutoSetup.sh
-echo '        set utmgrp read' >> ./Modules/Setup/AutoSetup.sh
-echo '        set vpngrp read' >> ./Modules/Setup/AutoSetup.sh
-echo '        set wanoptgrp read' >> ./Modules/Setup/AutoSetup.sh
-echo '        set wifi read' >> ./Modules/Setup/AutoSetup.sh
-echo '      next' >> ./Modules/Setup/AutoSetup.sh
-echo '  end' >> ./Modules/Setup/AutoSetup.sh
-echo '' >> ./Modules/Setup/AutoSetup.sh
-echo '  config system admin' >> ./Modules/Setup/AutoSetup.sh
-echo '    edit backup' >> ./Modules/Setup/AutoSetup.sh
-echo '      set accprofile "read_only" ' >> ./Modules/Setup/AutoSetup.sh
-echo '      set ssh-public-key1 "PLACEHOLDERFORSSHKEY"' >> ./Modules/Setup/AutoSetup.sh
-sed -i "s|${search}|${replace}|g" ./Modules/Setup/AutoSetup.sh
-echo '  end' >> ./Modules/Setup/AutoSetup.sh
-echo '  config system global' >> ./Modules/Setup/AutoSetup.sh
-echo '    set admin-scp enable' >> ./Modules/Setup/AutoSetup.sh
-echo '  end' >> ./Modules/Setup/AutoSetup.sh
-echo '  exit' >> ./Modules/Setup/AutoSetup.sh
-echo 'EOF' >> ./Modules/Setup/AutoSetup.sh
+echo '#!/bin/bash' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo 'echo "IP Address :"' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo 'echo "------------------"' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo 'read device' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo 'echo "##################"' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo 'echo "User :"' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo 'echo "------------------"' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo 'read user' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo 'echo "##################"' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo 'echo "Password :"' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo 'echo "------------------"' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo 'read pass' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo 'echo "##################"' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo 'echo "Auto Setup will start now!"' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo '### Fortinet Auto Setup BEGIN ###' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo 'sshpass -p "$pass" ssh -tt $user@$device <<EOF' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo '  config global' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo '    config system accprofile' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo '      edit "read_only"' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo '        set admingrp read' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo '        set authgrp read' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo '        set endpoint-control-grp read' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo '        set fwgrp read' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo '        set loggrp read' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo '        set mntgrp read' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo '        set netgrp read' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo '        set routegrp read' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo '        set scope global' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo '        set sysgrp read' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo '        set updategrp read' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo '        set utmgrp read' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo '        set vpngrp read' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo '        set wanoptgrp read' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo '        set wifi read' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo '      next' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo '  end' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo '  config system admin' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo '    edit backup' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo '      set accprofile "read_only" ' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo '      set ssh-public-key1 "PLACEHOLDERFORSSHKEY"' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+sed -i "s|${search}|${replace}|g" ./Modules/Setup/Fortinet-AutoSetup.sh
+echo '  end' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo '  config system global' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo '    set admin-scp enable' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo '  end' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo '  exit' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo 'EOF' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo '### Fortinet Auto Setup END ###' >> ./Modules/Setup/Fortinet-AutoSetup.sh
+echo '[i] : Fortinet Fortinet-AutoSetup.sh where created'
 
 # Phase 9 show e.g. for a crontab
 echo "--------------------------------------------------------------------------------"
