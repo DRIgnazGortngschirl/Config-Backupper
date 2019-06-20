@@ -88,6 +88,7 @@ mv --verbose ./OldLogsArchiver.sh ./Modules/Archive/OldLogsArchiver.sh
 mv --verbose ./ArchiveStats.sh ./Modules/Archive/ArchiveStats.sh
 mv --verbose ./ConfigsCleanUp.sh ./Modules/Clean/ConfigsCleanUp.sh
 mv --verbose ./LogCleanUp.sh ./Modules/Clean/LogCleanUp.sh
+mv --verbose ./Fortinet-AutoSetup.sh ./Modules/Setup/Fortinet-AutoSetup.sh
 echo "[i] : Modules where moved"
 
 # Phase 4 create Main-Lanucher.sh
