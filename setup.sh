@@ -46,19 +46,19 @@ echo "[i] : Main Launcher where created"
 
 # Phase 5 make the files executable
 chmod --verbose 700 ./Main-Launcher.sh
-chmod --verbose 700 ./Modules/Backup/Fortinet.sh
-chmod --verbose 700 ./Modules/Backup/Fortinet-Special.sh
-chmod --verbose 700 ./Modules/Backup/DELL.sh
-chmod --verbose 700 ./Modules/Backup/HP.sh
-chmod --verbose 700 ./Modules/Backup/Cisco.sh
+chmod --verbose 700 ./Modules/Backup/Fortinet/Fortinet.sh
+chmod --verbose 700 ./Modules/Backup/Fortinet/Fortinet-Special.sh
+chmod --verbose 700 ./Modules/Backup/DELL/DELL.sh
+chmod --verbose 700 ./Modules/Backup/HP/HP.sh
+chmod --verbose 700 ./Modules/Backup/Cisco/Cisco.sh
 chmod --verbose 700 ./Modules/Archive/Checker.sh
 chmod --verbose 700 ./Modules/Debug/Fastdebug.sh
-chmod --verbose 700 ./Modules/Clean/ConfigsCleanUp.sh
-chmod --verbose 700 ./Modules/Clean/LogCleanUp.sh
+chmod --verbose 700 ./Modules/Clean/Configs/CleanUp.sh
+chmod --verbose 700 ./Modules/Clean/Log/CleanUp.sh
 chmod --verbose 700 ./Modules/Archive/ArchiveStats.sh
-chmod --verbose 700 ./Modules/Archive/OldConfigsArchiver.sh
-chmod --verbose 700 ./Modules/Archive/OldLogsArchiver.sh
-chmod --verbose 700 ./Modules/Setup/Fortinet-AutoSetup.sh
+chmod --verbose 700 ./Modules/Archive/OldConfigs/Archiver.sh
+chmod --verbose 700 ./Modules/Archive/OldLogs/Archiver.sh
+chmod --verbose 700 ./Modules/Setup/Fortinet/AutoSetup.sh
 echo "[i] : Modules & Lanucher where modified"
 
 # Phase 6 create SSH Key
