@@ -52,9 +52,9 @@ chmod --verbose 700 ./Modules/Backup/DELL/DELL.sh
 chmod --verbose 700 ./Modules/Backup/HP/HP.sh
 chmod --verbose 700 ./Modules/Backup/Cisco/Cisco.sh
 chmod --verbose 700 ./Modules/Archive/Checker.sh
-chmod --verbose 700 ./Modules/Debug/Fastdebug.sh
+chmod --verbose 700 ./Modules/Archive/Fastdebug.sh
 chmod --verbose 700 ./Modules/Clean/Configs/CleanUp.sh
-chmod --verbose 700 ./Modules/Clean/Log/CleanUp.sh
+chmod --verbose 700 ./Modules/Clean/Logs/CleanUp.sh
 chmod --verbose 700 ./Modules/Archive/ArchiveStats.sh
 chmod --verbose 700 ./Modules/Archive/OldConfigs/Archiver.sh
 chmod --verbose 700 ./Modules/Archive/OldLogs/Archiver.sh
