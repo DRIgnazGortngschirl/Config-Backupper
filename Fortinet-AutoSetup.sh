@@ -14,9 +14,8 @@ echo "##################"
 echo "Auto Setup will start now!"
 ### Fortinet Auto Setup BEGIN ###
 sshpass -p "$pass" ssh -tt $user@$device <<EOF
-  config global
     config system accprofile
-      edit "read_only
+      edit "read_only"
         set admingrp read
         set authgrp read
         set endpoint-control-grp read
