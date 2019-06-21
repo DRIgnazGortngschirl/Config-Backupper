@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "[i] : Searching for installation path ... This can take a few moments"
+echo '[i] : Searching for installation path ... This can take a few moments'
 installpath=`find / -name "*Config-Backupper" 2>/dev/null`
 echo "[i] : Found installation path"
 echo 'Enter your path to the webserver directory e.g. "/opt/websites/SET-NAME-FOR-SUBFOLDER"'
