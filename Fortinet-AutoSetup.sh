@@ -1,17 +1,17 @@
 #!/bin/bash
-echo "IP Address :
-echo "------------------
+echo "IP Address :"
+echo "------------------"
 read device
-echo "##################
-echo "User :
-echo "------------------
+echo "##################"
+echo "User :"
+echo "------------------"
 read user
-echo "##################
-echo "Password :
-echo "------------------
+echo "##################"
+echo "Password :"
+echo "------------------"
 read pass
-echo "##################
-echo "Auto Setup will start now!
+echo "##################"
+echo "Auto Setup will start now!"
 ### Fortinet Auto Setup BEGIN ###
 sshpass -p "$pass" ssh -tt $user@$device <<EOF
   config global
