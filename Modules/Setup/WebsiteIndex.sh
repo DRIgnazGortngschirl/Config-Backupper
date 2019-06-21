@@ -23,6 +23,6 @@ if [[ $REPLY =~ ^[Y]$ ]]
                 mkdir -v -p $webserverpath
                 ln -sf $installpath $webserverpath
                 subfolder=`readlink -f $webserverpath | grep -oE '[^/]+$'`
-                echo "Open http|https://$ip/$subfolder/index.php"
+                echo "Open http|https://$ip/$subfolder/Archive/index.php"
         fi
 fi
