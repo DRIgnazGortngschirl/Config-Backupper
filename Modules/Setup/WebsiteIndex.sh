@@ -22,7 +22,7 @@ if [[ $REPLY =~ ^[Y]$ ]]
                 sleep 3
                 mkdir -v -p $webserverpath
                 ln -sf $installpath $webserverpath
-                subfolder=`readlink -f $installpath | grep -oE '[^/]+$'`
+                subfolder=`readlink -f $webserverpath | grep -oE '[^/]+$'`
                 echo "Open http|https://$ip/$subfolder/index.php"
         fi
 fi
