@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # SETUP
-
 # Phase 1 create all directorys
 echo "[i] : Setup stared"
 mkdir --verbose ./Archive
