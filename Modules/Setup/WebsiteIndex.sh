@@ -1,4 +1,5 @@
 #!/bin/bash
+ip=`ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'`
 echo '[i] : Searching for installation path ... This can take a few moments'
 installpath=`find / -name "*Config-Backupper" 2>/dev/null`
 echo "[i] : Found installation path"
@@ -21,6 +22,7 @@ if [[ $REPLY =~ ^[Y]$ ]]
                 sleep 3
                 mkdir -v -p $webserverpath
                 ln -sf $installpath $webserverpath
-                echo "Open http|https://$webserverpath/index.php"
+                subfolder=`readlink -f $installpath | grep -oE '[^/]+$'`
+                echo "Open http|https://$ip/$subfolder/index.php"
         fi
 fi
