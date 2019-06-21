@@ -21,11 +21,13 @@ sshpass -p "$pass" ssh -tt $user@$device <<EOF
         set authgrp read
         set endpoint-control-grp read
         set fwgrp read
+        set ftviewgrp read
         set loggrp read
         set mntgrp read
         set netgrp read
         set routegrp read
         set scope global
+        set secfabgrp read
         set sysgrp read
         set updategrp read
         set utmgrp read
