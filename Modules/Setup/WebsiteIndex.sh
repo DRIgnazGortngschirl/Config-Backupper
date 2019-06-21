@@ -21,7 +21,7 @@ if [[ $REPLY =~ ^[Y]$ ]]
                 echo "I will symlink them now"
                 sleep 3
                 mkdir -v -p $webserverpath
-                ln -sf $installpath/Archive $webserverpath
+                ln -sf $installpath/Archive/ $webserverpath
                 subfolder=`readlink -f $webserverpath | grep -oE '[^/]+$'`
                 echo "Open http|https://$ip/$subfolder/index.php"
         fi
