@@ -1,0 +1,14 @@
+#  ______ ____  _____ _______ _____ _   _ ______ _______    _____             _
+# |  ____/ __ \|  __ \__   __|_   _| \ | |  ____|__   __|  |  __ \           (_)
+# | |__ | |  | | |__) | | |    | | |  \| | |__     | |     | |  | | _____   ___  ___ ___  ___
+# |  __|| |  | |  _  /  | |    | | | . ` |  __|    | |     | |  | |/ _ \ \ / / |/ __/ _ \/ __|
+# | |   | |__| | | \ \  | |   _| |_| |\  | |____   | |     | |__| |  __/\ V /| | (_|  __/\__ \
+# |_|    \____/|_|  \_\ |_|  |_____|_| \_|______|  |_|     |_____/ \___| \_/ |_|\___\___||___/
+# Layout Syntax
+# ###############################
+# <IP> --> <Hostname> ### Comment ###
+# 1.1.1.1 --> CloudFlare-DNS ### Backup CloudFlare ###
+# #8.8.8.8 --> Google-DNS ### Uncommented line ###
+# Use a "#" in front of a line to uncomment a line (This will get ignored from the backup script)
+# Hostname and Comment are optional
+# Hostname will be obtained from the backup file directly
