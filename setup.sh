@@ -29,7 +29,6 @@ echo "Set days after a logs gets deleted (.gz format) [2,5x-3,5x SMALLER] (Numbe
 read archivetimelogsdelete
 echo "find ./Log -mtime +$archivetimelogsdelete -exec gzip -v {} +" >> ./Modules/Archive/OldLogs/Archiver.sh
 echo "--------------------------------------------------------------------------------"
-du -sh ./Archive >> ./Log/BackupCheck/log$date.txt" >> ./Modules/Archive/ArchiveStats.sh
 [i] : Main Launcher where created"
 
 # Phase 2 make the files executable
