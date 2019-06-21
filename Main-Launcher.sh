@@ -1,7 +1,7 @@
 #!/bin/bash
 date=`date +%d%m%y`
 ---------------------------------------------
-cd $installpath
+cd PLACEHOLDERFORINSTALATIONPATH
 ---------------------------------------------
 ./Modules/Backup/Fortinet.sh &>> ./Log/Fortinet/log$date.txt
 #./Modules/Backup/Fortinet-Special.sh &>> ./Log/Fortinet/log$date.txt ### Disabled by default ###
