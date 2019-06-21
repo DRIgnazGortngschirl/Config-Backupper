@@ -8,6 +8,10 @@ echo "[i] : Searching for installation path ... This can take a few moments"
 installpath=`find / -name "*Config-Backupper" 2>/dev/null`
 echo "Installation path : $installpath"
 echo "[i] : Found installation path"
+search=PLACEHOLDERFORINSTALLATIONPATH
+replace=$installpath
+sed -i "s|${search}|${replace}|g" ./Main-Launcher.sh
+echo '[i] : Main-Launcher.sh where configured'
 echo "--------------------------------------------------------------------------------"
 echo "Set days after a config gets commpressed (.gz format) [2,5x-3,5x SMALLER] (Numbers only):"
 read archivetimearchivecommpress
