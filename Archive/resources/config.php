@@ -3,7 +3,7 @@
 return array(
 
     // Basic settings
-    'home_label'                => 'Home',
+    'home_label'                => 'Config-Backupper',
     'hide_dot_files'            => true,
     'list_folders_first'        => true,
     'list_sort_order'           => 'natcasesort',
