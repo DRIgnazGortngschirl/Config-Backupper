@@ -1,0 +1,14 @@
+#  _    _ _____     _____             _
+# | |  | |  __ \   |  __ \           (_)
+# | |__| | |__) |  | |  | | _____   ___  ___ ___  ___
+# |  __  |  ___/   | |  | |/ _ \ \ / / |/ __/ _ \/ __|
+# | |  | | |       | |__| |  __/\ V /| | (_|  __/\__ \
+# |_|  |_|_|       |_____/ \___| \_/ |_|\___\___||___/
+# Layout Syntax' >> ./Devices/Fortinet/Fortinet-Devices.txt
+# ###############################
+# <IP> --> <Hostname> ### Comment ###
+# 1.1.1.1 --> CloudFlare-DNS ### Backup CloudFlare ###
+# #8.8.8.8 --> Google-DNS ### Uncommented line ###
+# Use a "#" in front of a line to uncomment a line (This will get ignored from the backup script)
+# Hostname and Comment are optional
+# Hostname will be obtained from the backup file directly
