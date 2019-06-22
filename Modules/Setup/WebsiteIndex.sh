@@ -3,7 +3,7 @@ ip=`ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.
 echo '[i] : Searching for installation path ... This can take a few moments'
 installpath=`find / -name "*Config-Backupper" 2>/dev/null`
 echo "[i] : Found installation path"
-echo 'Enter your path to the webserver directory e.g. "/opt/websites/SET-NAME-FOR-SUBFOLDER"'
+echo 'Enter your path to the webserver directory e.g. "/opt/websites/NAME-FOR-FOLDER"'
 echo "------------------"
 read webserverpath
 echo "##################"
@@ -21,7 +21,7 @@ if [[ $REPLY =~ ^[Y]$ ]]
                 echo "I will symlink them now"
                 sleep 3
                 mkdir -v -p $webserverpath
-                ln -sf $installpath $webserverpath
+                ln -v -sf $installpath/Archive/ $webserverpath
                 subfolder=`readlink -f $webserverpath | grep -oE '[^/]+$'`
                 echo "Open http|https://$ip/$subfolder/Archive/index.php"
         fi
