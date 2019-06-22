@@ -12,4 +12,7 @@ scp — secure copy (remote file copy program)
 sleep - delay for a specified amount of time
 ssh-keygen — authentication key generation, management and conversion
 sshpass - noninteractive ssh password provider
+
+OPTIONAL
 cron - daemon to execute scheduled commands (Vixie Cron) OR systemd, init - systemd system and service manager
+php - PHP Command Line Interface 'CLI'

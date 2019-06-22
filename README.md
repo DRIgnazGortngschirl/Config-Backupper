@@ -90,7 +90,7 @@ The script uses a <YOU-CHOOSE-IT> bit long SSH Key for authentication. That key 
   | LimitNr        | Limitation           | Reason  | Will get fixed | 
 | :-------------: |:------------- | :----- | :-----: |
 | 1  |  If you try to run the scrip more often than once a day the logs of the secound run will also be in the same log file  | Logging has not been designed for this  |
-| 2  |  |   |
+| 2  | If you try to create a bigger SSH-Key than 16384 bit it will not work tue to limitations  | There is a limit for the max key lenght in ssh-keygen if the key bits exceeds the of maximum 16384 |
 | 3 |   |   |
 
 # Facing Problems
