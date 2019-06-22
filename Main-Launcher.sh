@@ -9,7 +9,7 @@ cd PLACEHOLDERFORINSTALLATIONPATH
 #./Modules/Backup/HP.sh &>> ./Log/HP/log$date.txt ### NOT YET FUNCTIONAL! ###
 #./Modules/Backup/Cisco.sh &>> ./Log/Cisco/log$date.txt ### NOT YET FUNCTIONAL! ###
 ---------------------------------------------
-./Modules/Archive/Checker.sh &>> ./Log/Backup/log$date.txt
-./Modules/Archive/OldConfigsArchiver.sh &>> ./Log/Backup/log$date.txt
-./Modules/Archive/OldLogsArchiver.sh &>> ./Log/Backup/log$date.txt
-./Modules/Archive/ArchiveStats.sh &>> ./Log/Backup/log$date.txt
+./Modules/Archive/Checker.sh &>> ./Log/Backup/log$date.txt ### Used for config copy debugging ###
+./Modules/Archive/OldConfigsArchiver.sh &>> ./Log/Backup/log$date.txt ### Used for compression and deleteion of old configs ###
+./Modules/Archive/OldLogsArchiver.sh &>> ./Log/Backup/log$date.txt ### Used for compression and deleteion of old logs ###
+./Modules/Archive/ArchiveStats.sh &>> ./Log/Backup/log$date.txt ### Used for displaying archive stats ###
