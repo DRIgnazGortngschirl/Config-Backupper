@@ -9,11 +9,6 @@
 
 #!/bin/bash
 
-# INSTALLATION
-
-# 1. Create a user "backup" on the network device
-# 2. Add SSH Key for Authentification for the user
-
 user=backup
 
 echo "Started Backup of Config's"

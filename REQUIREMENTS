@@ -11,4 +11,8 @@ pv - monitor the progress of data through a pipe
 scp — secure copy (remote file copy program)
 sleep - delay for a specified amount of time
 ssh-keygen — authentication key generation, management and conversion
-cron - daemon to execute scheduled commands (Vixie Cron) OR systemd, init - systemd system and service manager  
+sshpass - noninteractive ssh password provider
+
+OPTIONAL
+cron - daemon to execute scheduled commands (Vixie Cron) OR systemd, init - systemd system and service manager
+php - PHP Command Line Interface 'CLI'

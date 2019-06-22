@@ -18,9 +18,25 @@ Step 4. ```./setup.sh``` --> start the setup.sh
 
 #### Set days after a config gets compressed (.gz format) [2,5x-3,5x SMALLER] (Numbers only):
 
-Here you can define (in days) when the archived configs should get compressed. (Recommended : 14)
+Here you can define (in days) when the archived configs get compressed*. (Recommended : 14)
 
-If you don't want to compress the configs is set it to 9999. --> No compression for 27 Years long enough...
+
+#### Set days after a config gets deleted (Numbers only):
+
+Here you can define (in days) when the archived configs get deleted*. (Recommended : 90)
+
+
+#### Set days after a logs gets compressed (.gz format) [2,5x-3,5x SMALLER] (Numbers only):
+
+Here you can define (in days) when the archived logs get compressed*. (Recommended : 14)
+
+
+#### Set days after a logs gets deleted (Numbers only):
+
+Here you can define (in days) when the archived logs get deleted*. (Recommended : 90)
+
+
+*If you don't want to deleted/commpress the configs/logs is set it to 9999. --> No compression/deletion for 27 Years long enough...
 
 #### Enter bit lenth (Numbers only):
 
@@ -74,7 +90,7 @@ The script uses a <YOU-CHOOSE-IT> bit long SSH Key for authentication. That key 
   | LimitNr        | Limitation           | Reason  | Will get fixed | 
 | :-------------: |:------------- | :----- | :-----: |
 | 1  |  If you try to run the scrip more often than once a day the logs of the secound run will also be in the same log file  | Logging has not been designed for this  |
-| 2  |  |   |
+| 2  | If you try to create a bigger SSH-Key than 16384 bit it will not work tue to limitations  | There is a limit for the max key lenght in ssh-keygen if the key bits exceeds the of maximum 16384 |
 | 3 |   |   |
 
 # Facing Problems

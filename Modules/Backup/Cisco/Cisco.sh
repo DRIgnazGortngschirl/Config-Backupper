@@ -9,16 +9,11 @@
 
 #!/bin/bash
 
-# INSTALLATION
-
-# 1. Create a user "backup" on the network device
-# 2. Add SSH Key for Authentification for the user
-
 user=backup
 
 echo "Started Backup of Config's"
 
-for device in `cat ./Devices/HP/HP-Devices.txt | egrep -v "^\s*(#|$)"` # Will have a look in the file "hp-devices.txt" for all HP devices
+for device in `cat ./Devices/Cisco/Cisco-Devices.txt| egrep -v "^\s*(#|$)"` # Will have a look in the file "cisco-devices.txt" for all Cisco devices
 do
 
 done
