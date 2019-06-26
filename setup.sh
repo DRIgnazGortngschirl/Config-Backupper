@@ -51,6 +51,7 @@ chmod --verbose 700 ./Modules/Archive/OldConfigs/Archiver.sh
 chmod --verbose 700 ./Modules/Archive/OldLogs/Archiver.sh
 chmod --verbose 700 ./Modules/Setup/Fortinet/AutoSetup.sh
 chmod --verbose 700 ./Modules/Setup/WebsiteIndex.sh
+chmod --verbose 700 ./Modules/FirmwareCheck/Fortinet/FirmwareChecker.sh
 echo "[i] : Modules & Lanucher where modified"
 
 # Phase 4 create SSH Key
