@@ -13,3 +13,4 @@ cd PLACEHOLDERFORINSTALLATIONPATH
 ./Modules/Archive/OldConfigsArchiver.sh &>> ./Log/Backup/log$date.txt ### Used for compression and deleteion of old configs ###
 ./Modules/Archive/OldLogsArchiver.sh &>> ./Log/Backup/log$date.txt ### Used for compression and deleteion of old logs ###
 ./Modules/Archive/ArchiveStats.sh &>> ./Log/Backup/log$date.txt ### Used for displaying archive stats ###
+#./Modules/FirmwareCheck/Fortinet/FirmwareChecker.sh > ./Devices/Firmware-Versions/Fortinet-Firmware-$date.txt ### Disabled by default ###
