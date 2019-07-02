@@ -47,10 +47,11 @@ INDEX=$(date +%H%M%S)
 DLURL="'http://${IP}/cs34055c2b/FileMgmt/stupCfg.ber?rlCopyFreeHistoryIndex=${INDEX}&&rlCopyDestinationFileType=2&&rlCopyOptionsRequestedSsdAccess=3&&redirect=/device/copyfiles.xml'"
 
 TSTAMP=$(date +%Y%m%d-%H%M%S)
-FILENAME=${IP}.new
+FILENAME=BackupConfigCisco
 
 # Actually download the file
 eval curl -s -k -b ${MYCOOKIE} -A ${USERAGENT} -e ${REF} ${DLURL} -o ${FILENAME}
+
 
 # Check if the file got downloaded by searching the output for the redirection.
 # If the redirection exists, follow the redirect
@@ -60,7 +61,7 @@ do
     DLURL="'"$(grep "This document has moved to" ${FILENAME} | sed 's/.*<a href="\([^"]*\)".*/\1/')"'"
     eval curl -s -k -b ${MYCOOKIE} -A ${USERAGENT} -e ${REF} ${DLURL} -o ${FILENAME}
 done
-
+#| grep hostname | sed 's|["?]||g' | sed 's/hostname //'
 # We were redirected to a logoff page and the output is garbage.
 if grep -qi "This document has moved to" ${FILENAME}
 then
@@ -69,3 +70,9 @@ then
 else
     echo "Saved the config for ${IP}"
 fi
+
+name=`cat $FILENAME | grep hostname | sed 's|["?]||g' | sed 's/hostname //'`
+echo $name
+cat $FILENAME
+mkdir -v Archive/$name
+mv -v $FILENAME ./Archive/$name/$name-$(date +"%H-%M_%d-%m-%Y").conf
