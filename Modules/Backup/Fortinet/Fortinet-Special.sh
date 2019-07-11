@@ -1,16 +1,29 @@
 #!/bin/bash
 
-# INSTALLATION
-
-# 1. Create a user "backup" on the network device
-# 2. Add SSH Key for Authentification for the user(No Password!!!)
-
-user=backup
-
 echo "Started Backup of Config's (Special)"
 
-# <HOSTNAME>
-scp -P <PORT>-v -i ./SSH-Keys/Backup-SSH-Key $user@$device:sys_config ./BackupConfigFortinet # Will copy to all devices in "Fortinet-Devices.txt" and copy it secure localy
-name=`pv BackupConfigFortinet | grep -m1 'set hostname' | sed 's|["?]||g' | sed 's/\<set hostname\>//g' | sed 's/ //g' | tr -dc '[:print:]'` # Will search for the host name to set create a directory and a file named like the hostname of the network device 
-mkdir -v Archive/$name
-mv -v BackupConfigFortinet ./Archive/$name/$name_$(date +"%H-%M_%d-%m-%Y").conf# Will move the copied file to the correct folder and will also rename it with the hostname
+# Repleace the <PORT> with the port number you need e.g. 1022.
+# Repleace the <IP> of the device to get the backup from.
+# Repleace the <USER> with the user that will get used to get the backup.
+
+# <HOSTNAME> or can be used for any note...
+if ping -c 3 <IP> &> /dev/null
+ then
+  echo "[i]: <IP> reachable ✓"
+  scp -P <PORT> -v -i ./SSH-Keys/Backup-SSH-Key <USER>@<IP>:sys_config ./BackupConfigFortinet
+  name=`pv BackupConfigFortinet | grep -m1 'set hostname' | sed 's|["?]||g' | sed 's/\<set hostname\>//g' | sed 's/ //g' | tr -dc '[:print:]'`
+  mkdir -v Archive/$name
+  date=`date +"%H-%M_%d-%m-%Y"`
+  mv -v BackupConfigFortinet ./Archive/$name/$name-$date.conf
+  if [ -f ./Archive/$name/$name-$date.conf ]
+   then
+    echo "[i]: File $name-$date.conf found!"
+    echo "[i]: Backup status : succeeded ✓"
+   else
+    echo "[i]: File $name-$date.conf not found!"
+    echo "[i]: Backup status : failed ✘"
+  fi
+  else
+   echo "[i]: $HOST not reachable"
+fi
+done
