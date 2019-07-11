@@ -18,6 +18,6 @@ do
   if nc $device 22 < /dev/null ; then
       echo "ssh"
   else
-      ./SG200.sh $device
+      ./sgX00.sh $device
   fi
 done
