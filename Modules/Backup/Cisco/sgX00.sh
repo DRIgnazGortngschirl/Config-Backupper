@@ -72,7 +72,6 @@ else
 fi
 
 name=`cat $FILENAME | grep hostname | sed 's|["?]||g' | sed 's/hostname //'`
-echo $name
-cat $FILENAME
 mkdir -v Archive/$name
-mv -v $FILENAME ./Archive/$name/$name-$(date +"%H-%M_%d-%m-%Y").conf
+date=`date +"%H-%M_%d-%m-%Y"`
+mv -v $FILENAME ./Archive/$name/$name-$date.conf
