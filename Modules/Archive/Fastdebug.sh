@@ -4,18 +4,18 @@ date=`date +%d%m%y`
 
 echo "Fortinet :"
 echo "----------------------------------------------------------------------------"
-cat ./Log/Fortinet/log$date.txt | grep mv -n |  awk '{print $1}' | cut -f1 -d":"
+cat ./Log/Fortinet/log$date.txt | grep '\[i]:' | tac | sed '/\[i]: Backup status : succeeded/I,+3 d' | tac | grep 'failed' | sed -e 's/\[i]: //' | sed -e 's/backup status :/-->/'
 echo "----------------------------------------------------------------------------"
 echo "Cisco :"
 echo "----------------------------------------------------------------------------"
-cat ./Log/Cisco/log$date.txt | grep mv -n |  awk '{print $1}' | cut -f1 -d":"
+cat ./Log/Cisco/log$date.txt | grep '\[i]:' | tac | sed '/\[i]: Backup status : succeeded/I,+3 d' | tac | grep 'failed' | sed -e 's/\[i]: //' | sed -e 's/backup status :/-->/'
 echo "----------------------------------------------------------------------------"
 echo "DELL :"
 echo "----------------------------------------------------------------------------"
-cat ./Log/DELL/log$date.txt | grep mv -n |  awk '{print $1}' | cut -f1 -d":"
+# cat ./Log/Cisco/log$date.txt | grep '\[i]:' | tac | sed '/\[i]: Backup status : succeeded/I,+3 d' | tac | grep 'failed' | sed -e 's/\[i]: //' | sed -e 's/backup status :/-->/'
 echo "----------------------------------------------------------------------------"
 echo "HP :"
 echo "----------------------------------------------------------------------------"
-cat ./Log/HP/log$date.txt | grep mv -n |  awk '{print $1}' | cut -f1 -d":"
+# cat ./Log/Cisco/log$date.txt | grep '\[i]:' | tac | sed '/\[i]: Backup status : succeeded/I,+3 d' | tac | grep 'failed' | sed -e 's/\[i]: //' | sed -e 's/backup status :/-->/'
 echo "----------------------------------------------------------------------------"
-echo "Have a look in the right log file at the given line/lines for the error that occurred"
+echo "Check the log file from the $date for the error that occurred"
