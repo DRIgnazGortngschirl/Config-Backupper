@@ -6,7 +6,7 @@ echo "Started Backup of Configs : FORTINET"
 
 for device in `cat ./Devices/Fortinet/Fortinet-Devices.txt | egrep -v "^\s*(#|$)" | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"`
  do
-  echo -e "Host --> $device"
+  echo -e "[i]: Host --> $device"
   if ping -c 3 $device &> /dev/null
    then
     echo "[i]: $device reachable"
