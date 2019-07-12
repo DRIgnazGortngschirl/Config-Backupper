@@ -24,6 +24,6 @@ for device in `cat ./Devices/Fortinet/Fortinet-Devices.txt | egrep -v "^\s*(#|$)
       echo "[i]: Backup status : failed"
     fi
    else
-    echo "[i]: $HOST not reachable"
+    echo "[i]: $device not reachable"
   fi
 done
