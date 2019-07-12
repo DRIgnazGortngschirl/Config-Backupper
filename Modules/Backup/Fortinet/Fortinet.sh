@@ -9,7 +9,7 @@ for device in `cat ./Devices/Fortinet/Fortinet-Devices.txt | egrep -v "^\s*(#|$)
   echo -e "Host --> $device"
   if ping -c 3 $device &> /dev/null
    then
-    echo "[i]: $device reachable ✓"
+    echo "[i]: $device reachable"
     scp -v -i ./SSH-Keys/Backup-SSH-Key $user@$device:sys_config ./BackupConfigFortinet
     name=`pv BackupConfigFortinet | grep -m1 'set hostname' | sed 's|["?]||g' | sed 's/\<set hostname\>//g' | sed 's/ //g' | tr -dc '[:print:]'`
     mkdir -v Archive/$name
@@ -18,10 +18,10 @@ for device in `cat ./Devices/Fortinet/Fortinet-Devices.txt | egrep -v "^\s*(#|$)
     if [ -f ./Archive/$name/$name-$date.conf ]
      then
       echo "[i]: File $name-$date.conf found!"
-      echo "[i]: Backup status : succeeded ✓"
+      echo "[i]: Backup status : succeeded"
      else
       echo "[i]: File $name-$date.conf not found!"
-      echo "[i]: Backup status : failed ✘"
+      echo "[i]: Backup status : failed"
     fi
    else
     echo "[i]: $HOST not reachable"
