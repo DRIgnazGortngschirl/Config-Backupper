@@ -9,7 +9,7 @@ echo "Started Backup of Config's (Special)"
 # <HOSTNAME> or can be used for any note...
 if ping -c 3 <IP> &> /dev/null
  then
-  echo "[i]: <IP> reachable ✓"
+  echo "[i]: <IP> reachable"
   scp -P <PORT> -v -i ./SSH-Keys/Backup-SSH-Key <USER>@<IP>:sys_config ./BackupConfigFortinet
   name=`pv BackupConfigFortinet | grep -m1 'set hostname' | sed 's|["?]||g' | sed 's/\<set hostname\>//g' | sed 's/ //g' | tr -dc '[:print:]'`
   mkdir -v Archive/$name
@@ -18,10 +18,10 @@ if ping -c 3 <IP> &> /dev/null
   if [ -f ./Archive/$name/$name-$date.conf ]
    then
     echo "[i]: File $name-$date.conf found!"
-    echo "[i]: Backup status : succeeded ✓"
+    echo "[i]: Backup status : succeeded"
    else
     echo "[i]: File $name-$date.conf not found!"
-    echo "[i]: Backup status : failed ✘"
+    echo "[i]: Backup status : failed"
   fi
   else
    echo "[i]: $HOST not reachable"
