@@ -9,16 +9,18 @@ for device in `cat ./Devices/Cisco/Cisco-Devices.txt| egrep -v "^\s*(#|$)"` # Wi
   echo -e "Host --> $device"
   if ping -c 3 $device &> /dev/null
    then
-    echo "[i]: $device reachable ✓"
+    echo "[i]: $device reachable"
     ./sgX00.sh $device
     date=`date +"%H-%M_%d-%m-%Y"`
     if [ -f ./Archive/$name/$name-$date.conf ]
      then
       echo "[i]: File $name-$date.conf found!"
-      echo "[i]: Backup status : succeeded ✓"
+      echo "[i]: Backup status : succeeded"
      else
       echo "[i]: File $name-$date.conf not found!"
-      echo "[i]: Backup status : failed ✘"
+      echo "[i]: Backup status : failed"
     fi
+   else
+     echo "[i]: $HOST not reachable"
  fi
 done
