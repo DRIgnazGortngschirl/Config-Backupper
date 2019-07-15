@@ -4,7 +4,7 @@ user=backup
 
 echo "Started Backup of Config's"
 
-for device in `cat ./Devices/Cisco/Cisco-Devices.txt| egrep -v "^\s*(#|$)"` # Will have a look in the file "cisco-devices.txt" for all Cisco devices
+for device in `cat ./Devices/Cisco/Cisco-Devices.txt| egrep -v "^\s*(#|$)" | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"`
  do
   echo -e "Host --> $device"
   if ping -c 3 $device &> /dev/null
