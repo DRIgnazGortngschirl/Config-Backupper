@@ -17,11 +17,11 @@ if ping -c 3 <IP> &> /dev/null
   mv -v BackupConfigFortinet ./Archive/$name/$name-$date.conf
   if [ -f ./Archive/$name/$name-$date.conf ]
    then
-    echo "[i]: File $name-$date.conf found!"
-    echo "[i]: Backup status : succeeded"
-   else
-    echo "[i]: File $name-$date.conf not found!"
-    echo "[i]: Backup status : failed"
+      echo "[i]: File $name-$date.conf found!"
+      echo "[i]: Backup of <IP> succeeded"
+     else
+      echo "[i]: File $name-$date.conf not found!"
+      echo "[i]: Backup of <IP> failed"
   fi
   else
    echo "[i]: <IP> not reachable"
