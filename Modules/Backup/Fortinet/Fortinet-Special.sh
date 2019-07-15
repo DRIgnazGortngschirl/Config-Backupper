@@ -24,6 +24,6 @@ if ping -c 3 <IP> &> /dev/null
     echo "[i]: Backup status : failed"
   fi
   else
-   echo "[i]: $device not reachable"
+   echo "[i]: <IP> not reachable"
 fi
 done
