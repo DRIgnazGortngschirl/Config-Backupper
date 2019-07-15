@@ -7,12 +7,12 @@ grep, egrep, fgrep, rgrep - print lines matching a pattern
 gzip, gunzip, zcat - compress or expand files
 mkdir - make directories
 mv - move (rename) files
+printf -- display text according to a format string
 pv - monitor the progress of data through a pipe
 scp — secure copy (remote file copy program)
 sleep - delay for a specified amount of time
 ssh-keygen — authentication key generation, management and conversion
 sshpass - noninteractive ssh password provider
-printf -- display text according to a format string
 
 OPTIONAL
 cron - daemon to execute scheduled commands (Vixie Cron) OR systemd, init - systemd system and service manager
