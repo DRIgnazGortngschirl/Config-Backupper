@@ -18,10 +18,10 @@ for device in `cat ./Devices/Fortinet/Fortinet-Devices.txt | egrep -v "^\s*(#|$)
     if [ -f ./Archive/$name/$name-$date.conf ]
      then
       echo "[i]: File $name-$date.conf found!"
-      echo "[i]: Backup status : succeeded"
+      echo "[i]: Backup of $device succeeded"
      else
       echo "[i]: File $name-$date.conf not found!"
-      echo "[i]: Backup status : failed"
+      echo "[i]: Backup of $device failed"
     fi
    else
     echo "[i]: $device not reachable"
