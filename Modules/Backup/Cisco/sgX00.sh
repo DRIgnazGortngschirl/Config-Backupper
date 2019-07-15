@@ -67,8 +67,3 @@ then
 else
     echo "Saved the config for ${IP}"
 fi
-
-name=`cat $FILENAME | grep hostname | sed 's|["?]||g' | sed 's/hostname //'`
-mkdir -v Archive/$name
-date=`date +"%H-%M_%d-%m-%Y"`
-mv -v $FILENAME ./Archive/$name/$name-$date.conf
