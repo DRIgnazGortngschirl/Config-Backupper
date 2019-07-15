@@ -1,17 +1,13 @@
 #!/bin/bash
-echo "IP Address :"
-echo "------------------"
+printf "IP Address : "
 read device
-echo "##################"
-echo "User :"
-echo "------------------"
+printf "User : "
 read user
-echo "##################"
-echo "NOTE : You will NOT see the entered password due to security reasons"
-echo "Password:"
-echo "------------------"
+echo "-------------------------"
+echo "[NOTE]: You will NOT see the entered password tue to security reasons"
+printf "Password: "
 read -s pass
-echo "##################"
+echo "-------------------------"
 echo "Auto Setup will start now!"
 ### Fortinet Auto Setup BEGIN ###
 sshpass -p "$pass" ssh -tt $user@$device <<EOF
