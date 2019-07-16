@@ -62,8 +62,8 @@ done
 # We were redirected to a logoff page and the output is garbage.
 if grep -qi "This document has moved to" ${FILENAME}
 then
-    echo "Output was trash, try again in 15 minutes."
+    echo "[i]: (sgX00.sh) Output was trash, try again in 15 minutes."
     rm -f ${FILENAME}
 else
-    echo "Saved the config for ${IP}"
+    echo "[i]: (sgX00.sh) Saved the config for ${IP}"
 fi
