@@ -18,10 +18,10 @@ if ping -c 3 <IP> &> /dev/null
   if [ -f ./Archive/$name/$name-$date.conf ]
    then
       echo "[i]: File $name-$date.conf found!"
-      echo "[i]: Backup of <IP> succeeded"
+      echo "[i]: <IP> backup succeeded"
      else
       echo "[i]: File $name-$date.conf not found!"
-      echo "[i]: Backup of <IP> failed"
+      echo "[i]: <IP> backup failed"
   fi
   else
    echo "[i]: <IP> not reachable"
