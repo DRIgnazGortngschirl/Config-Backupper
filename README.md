@@ -46,7 +46,7 @@ Use low bit key length (1024 - 2048bits) to speed up the authentication **BUT SE
 
 #### Enter passphrase (empty for no passphrase):
 
-Just press enter otherwise the script would need everytime it connects to a devices the password. Still want to have a password you will neeed to enter the password in clear text in the ./Modules/Backup module ```sshpass -p "<PASSWORD>" scp -i ...```
+Just press enter otherwise the script would need everytime it connects to a devices the password. Still want to have a password you will neeed to enter the password in clear text in the ./Modules/Backup module ```sshpass -p "<PASSWORD>" scp -i ./SSH-Keys/Backup-SSH-Key backup@<IP>:<CONFIGFILE>  ./TestConfigFile```
 
 #### Enter same passphrase again:
 
@@ -56,13 +56,28 @@ Again just enter.
 
 #### Website Archive
 
-Launch ./Modules/Setup/WebsiteIndex.sh to hook up the Archive folder to the webserver directory
+Launch ./Modules/Setup/WebsiteIndex.sh to hook up the Archive folder to the webserver directory.
 
 # How to configure
 
 ## Server side
 
-In ./Devices/\<VENDOR>/\<VENDOR>-Devices.txt you need to enter line by line all IP addresses. For more information have a look in any of these device .txt files.
+In ./Devices/\<VENDOR>/\<VENDOR>-Devices.txt you need to enter line by line all IP addresses.
+
+### Syntax
+\<IP> --> \<HOSTNAME> ### \<COMMENT>
+
+#### For example
+
+```192.168.1.1 --> AUT-VIE-Firewall-01 ### Firewall is very secure```*
+
+Use a # in front of a line to uncomment a line (This will get ignored from the backup script).
+
+```#10.0.0.1 --> AUT-VIE-Firewall-01-OLD ### Old Firewall```*
+
+*Hostname (will be obtained from the backup file directly) and a comment are optional.
+
+
 
 ## Client side (Network device)*
 
@@ -90,7 +105,7 @@ Note : Run as sudo !!!
 
 # How to test 
 
-You can test the script (Recommended) befor you run it automaticaly to get the config file with ```scp -P <PORT> -vvv -i ./SSH-Keys/Backup-SSH-Key backup@><IP>:<CONFIGFILE>  ./TestConfigFile```. If that worked and the config file is now stored as **TestConfigFile**. You can delete the **TestConfgiFile** and run the script and see what happens.
+You can test the script (Recommended) befor you run it automaticaly to get the config file with ```scp -P <PORT> -vvv -i ./SSH-Keys/Backup-SSH-Key backup@<IP>:<CONFIGFILE>  ./TestConfigFile```. If that worked and the config file is now stored as **TestConfigFile**. You can delete the **TestConfgiFile** and run the script and see what happens.
 
 ### Remote name of the config file
 
