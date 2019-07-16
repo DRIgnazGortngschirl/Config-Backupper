@@ -6,7 +6,7 @@ echo "Started Backup of Config's"
 
 for device in `cat ./Devices/Cisco/Cisco-Devices.txt | egrep -v "^\s*(#|$)" | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"`
  do
-  echo -e "Host --> $device"
+  echo -e "[i]: Host --> $device"
   if ping -c 3 $device &> /dev/null
    then
     echo "[i]: $device reachable"
@@ -18,10 +18,10 @@ for device in `cat ./Devices/Cisco/Cisco-Devices.txt | egrep -v "^\s*(#|$)" | gr
     if [ -f ./Archive/$name/$name-$date.conf ]
      then
       echo "[i]: File $name-$date.conf found!"
-      echo "[i]: Backup of $device succeeded"
+      echo "[i]: $device backup succeeded"
      else
       echo "[i]: File $name-$date.conf not found!"
-      echo "[i]: Backup of $device failed"
+      echo "[i]: $device backup failed"
     fi
    else
      echo "[i]: $device not reachable"
