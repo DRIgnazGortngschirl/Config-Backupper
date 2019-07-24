@@ -2,11 +2,11 @@
 
 date=`date +%d%m%y`
 
-echo "<h4>Backup Errors</h4>"
+echo "Backup Errors"
 echo "Fortinet:"
 echo "--------------------------------------------------------------------------------------------------"
 join <(sort ./Devices/Fortinet/Fortinet-Devices.txt) <(sort ./Log/Fortinet/log$date.txt | grep '\[i]:' | grep -e "not reachable" -e "failed" | sed -e 's/\[i]: //')
-join <(sort ./Modules/Backup/Fortinet-Special.sh | grep "#" | grep -v '#!/bin/bash' |  sed 's/# //') <(sort ./Log/Fortinet/log$date.txt| grep '\[i]:' | grep -e "not reachable" -e "failed" | sed -e 's/\[i]: //')
+# join <(sort ./Modules/Backup/Fortinet-Special.sh | grep "#" | grep -v '#!/bin/bash' |  sed 's/# //') <(sort ./Log/Fortinet/log$date.txt| grep '\[i]:' | grep -e "not reachable" -e "failed" | sed -e 's/\[i]: //')
 echo "--------------------------------------------------------------------------------------------------"
 echo "Cisco:"
 echo "--------------------------------------------------------------------------------------------------"
