@@ -123,7 +123,7 @@ The script uses a (YOU-CHOOSE-IT) bit long SSH Key for authentication. That key 
   | LimitNr        | Limitation           | Reason  | Will be fixed | 
 | :-------------: |:------------- | :----- | :-----: |
 | 1  |  If you try to run the scrip more often than once a day the logs of the secound run will also be in the same log file  | Logging has not been designed for this | No
-| 2  | If you try to create a bigger SSH-Key than 16384 bit it will not work tue to limitations  | There is a limit for the max key lenght in ssh-keygen if the key bits exceeds the of maximum 16384 | Not dependent on the script
+| 2  | If you try to create a bigger SSH-Key than 16384 bit it will not work due to limitations  | There is a limit for the max key lenght in ssh-keygen if the key bits exceeds the of maximum 16384 | Not dependent on the script
 | 3 | If you try to run the scrip/module more often than once a minute the configs will get overwritten  | Backup has not been designed for this | No
 | 4 | If you run the script more often than once in 120 minutes the output of **Current Configs in Archive** (./Modules/Archive/Checker.sh) will not be correct | Due to a settign in the modul ```configsinarchive=`find ./Archive -maxdepth 2 -type f -name "*.conf" -mmin -120 \| wc -l``` change "-mmin -120" it to a lower value e.g "-mmin -30". This can cause problems getting all configs if they are olded than the defined value (Will show say less **Current Configs in Archive** than realy backuped.)| More likely yes
 
