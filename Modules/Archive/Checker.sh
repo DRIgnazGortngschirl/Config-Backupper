@@ -5,11 +5,11 @@ hphostfilecount=`egrep -v "^\s*(#|$)" ./Devices/HP/HP-Devices.txt | grep -oE "\b
 ciscohostfilecount=`egrep -v "^\s*(#|$)" ./Devices/Cisco/Cisco-Devices.txt | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" | wc -l`
 dellhostfilecount=`egrep -v "^\s*(#|$)" ./Devices/DELL/DELL-Devices.txt | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" | wc -l`
 dirsinarchive=`find ./Archive -maxdepth 1 -type d | wc -l`
-configsinarchive=`find ./Archive -maxdepth 2 -type f -mmin -120 | wc -l`
-minus1=1 # Caused by also counting the ./Archive as a folder 
+configsinarchive=`find ./Archive -maxdepth 2 -type f -name "*.conf" -mmin -120 | wc -l`
+minus2=2 # Caused by also counting the ./Archive and ./Archive/resources as a folder
 
 total=`expr $fortinethostfilecount + $hphostfilecount + $ciscohostfilecount + $dellhostfilecount`
-dirsinachrive=`expr $dirsinachrive - $minus1`
+dirsinarchive=`expr $dirsinarchive - $minus2`
 
 echo "------------------------------------------------"
 echo "Fortinet .. : $fortinethostfilecount Hosts in Host File"
