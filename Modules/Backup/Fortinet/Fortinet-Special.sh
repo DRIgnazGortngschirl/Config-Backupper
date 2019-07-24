@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Started Backup of Config's (Special)"
+echo "[i]: Started Backup of Config's (Special)"
 
 # Repleace the <PORT> with the port number you need e.g. 1022.
 # Repleace the <IP> of the device to get the backup from.
