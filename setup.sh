@@ -85,7 +85,7 @@ echo "0 2 * * * $installpath/Main-Launcher.sh"
 echo "--------------------------------------------------------------------------------"
 
 # Phase 8 remove ./Log/<VENDOR>/DeleteMe files
-rm -v ./Log/Cisco/DeleteMe ./Log/Backup/DeleteMe ./Log/DELL/DeleteMe ./Log/Fortinet/DeleteMe ./Log/HP/DeleteMe ./SSH-Keys/DeleteMe ./Devices/Firmware-Versions/DeleteMe
+rm -v ./Log/Cisco/DeleteMe ./Log/Backup/DeleteMe ./Log/DELL/DeleteMe ./Log/Fortinet/DeleteMe ./Log/Failed/DeleteMe ./Log/HP/DeleteMe ./SSH-Keys/DeleteMe ./Devices/Firmware-Versions/DeleteMe
 echo "[i] : Removed ./Log/<VENDOR>/DeleteMe & ./SSH-Keys/ files"
 rm -v ./setup.sh
 echo "[i] : Removed ./setup.sh"
