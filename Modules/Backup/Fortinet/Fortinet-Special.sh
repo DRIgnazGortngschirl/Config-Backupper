@@ -1,12 +1,13 @@
 #!/bin/bash
 
-echo "[i]: Started Backup of Config's (Special)"
-
 # Repleace the <PORT> with the port number you need e.g. 1022.
 # Repleace the <IP> of the device to get the backup from.
 # Repleace the <USER> with the user that will get used to get the backup.
+# <HOSTNAME> or can be used for any note/comment ...
 
-# <HOSTNAME> or can be used for any note...
+echo "[i]: Started Backup of Configs : FORTINET (SPECIAL)"
+
+# mm-vie-fw-01 --> 10.0.4.20
 if ping -c 3 <IP> &> /dev/null
  then
   echo "[i]: <IP> reachable"
