@@ -1,19 +1,29 @@
-#  _    _ _   _ _____  ______ _____     _____ ____  _   _  _____ _______ _____  _    _  _____ _______ _____ ____  _   _ 
-# | |  | | \ | |  __ \|  ____|  __ \   / ____/ __ \| \ | |/ ____|__   __|  __ \| |  | |/ ____|__   __|_   _/ __ \| \ | |
-# | |  | |  \| | |  | | |__  | |__) | | |   | |  | |  \| | (___    | |  | |__) | |  | | |       | |    | || |  | |  \| |
-# | |  | | . ` | |  | |  __| |  _  /  | |   | |  | | . ` |\___ \   | |  |  _  /| |  | | |       | |    | || |  | | . ` |
-# | |__| | |\  | |__| | |____| | \ \  | |___| |__| | |\  |____) |  | |  | | \ \| |__| | |____   | |   _| || |__| | |\  |
-#  \____/|_| \_|_____/|______|_|  \_\  \_____\____/|_| \_|_____/   |_|  |_|  \_\\____/ \_____|  |_|  |_____\____/|_| \_|
-
-# Still working on this. (NOT YET FUNCTIONAL!)
-
 #!/bin/bash
 
 user=backup
 
-echo "Started Backup of Config's"
+echo "[i]: Started Backup of Configs : CISCO"
 
-for device in `cat ./Devices/Cisco/Cisco-Devices.txt| egrep -v "^\s*(#|$)"` # Will have a look in the file "cisco-devices.txt" for all Cisco devices
-do
-
+for device in `cat ./Devices/Cisco/Cisco-Devices.txt | egrep -v "^\s*(#|$)" | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"`
+ do
+  echo -e "[i]: Host --> $device"
+  if ping -c 3 $device &> /dev/null
+   then
+    echo "[i]: $device reachable"
+    ./sgX00.sh $device
+    name=`cat BackupConfigCisco | grep hostname | sed 's|["?]||g' | sed 's/hostname //'`
+    mkdir -v Archive/$name
+    date=`date +"%H-%M_%d-%m-%Y"`
+    mv -v BackupConfigCisco ./Archive/$name/$name-$date.conf
+    if [ -f ./Archive/$name/$name-$date.conf ]
+     then
+      echo "[i]: File $name-$date.conf found!"
+      echo "[i]: $device backup succeeded"
+     else
+      echo "[i]: File $name-$date.conf not found!"
+      echo "[i]: $device backup failed"
+    fi
+   else
+     echo "[i]: $device not reachable"
+ fi
 done

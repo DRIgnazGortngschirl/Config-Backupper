@@ -1,16 +1,13 @@
 #!/bin/bash
-echo "IP Address :"
-echo "------------------"
+printf "IP Address : "
 read device
-echo "##################"
-echo "User :"
-echo "------------------"
+printf "User : "
 read user
-echo "##################"
-echo "Password :"
-echo "------------------"
-read pass
-echo "##################"
+echo "-------------------------"
+echo "[NOTE]: You will NOT see the entered password tue to security reasons"
+printf "Password: "
+read -s pass
+echo "-------------------------"
 echo "Auto Setup will start now!"
 ### Fortinet Auto Setup BEGIN ###
 sshpass -p "$pass" ssh -tt $user@$device <<EOF
@@ -41,9 +38,9 @@ sshpass -p "$pass" ssh -tt $user@$device <<EOF
       set ssh-public-key1 "PLACEHOLDERFORSSHKEY"
       next
   end
-config system global
-  set admin-scp enable
-end
+  config system global
+    set admin-scp enable
+  end
 exit
 EOF
 ### Fortinet Auto Setup END ###

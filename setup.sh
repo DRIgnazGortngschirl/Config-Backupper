@@ -17,19 +17,19 @@ replace=$installpath
 sed -i "s|${search}|${replace}|g" ./Main-Launcher.sh
 echo '[i] : Main-Launcher.sh where configured'
 echo "--------------------------------------------------------------------------------"
-echo "Set days after a config gets commpressed (.gz format) [2,5x-3,5x SMALLER] (Numbers only):"
+printf "Set days after a config gets commpressed (.gz format) [2,5x-3,5x SMALLER] (Numbers only): "
 read archivetimearchivecommpress
 echo "find ./Archive -name "*.conf" -mtime +$archivetimearchivecommpress -exec gzip -v {} +" >> ./Modules/Archive/OldConfigs/Archiver.sh
 echo "--------------------------------------------------------------------------------"
-echo "Set days after a config gets deleted (Numbers only):"
+printf "Set days after a config gets deleted (Numbers only): "
 read archivetimearchivedelete
 echo "find ./Archive -name "*.conf.gz" -mtime +$archivetimearchivedelete -exec rm -v {} +" >> ./Modules/Archive/OldConfigs/Archiver.sh
 echo "--------------------------------------------------------------------------------"
-echo "Set days after a logs gets commpressed (.gz format) [2,5x-3,5x SMALLER] (Numbers only):"
+printf "Set days after a logs gets commpressed (.gz format) [2,5x-3,5x SMALLER] (Numbers only): "
 read archivetimelogscommpress
 echo "find ./Log -mtime +$archivetimelogscommpress -exec gzip -v {} +" >> ./Modules/Archive/OldLogs/Archiver.sh
 echo "--------------------------------------------------------------------------------"
-echo "Set days after a logs gets deleted (.gz format) [2,5x-3,5x SMALLER] (Numbers only):"
+printf "Set days after a logs gets deleted (.gz format) [2,5x-3,5x SMALLER] (Numbers only): "
 read archivetimelogsdelete
 echo "find ./Log -mtime +$archivetimelogsdelete -exec gzip -v {} +" >> ./Modules/Archive/OldLogs/Archiver.sh
 echo "--------------------------------------------------------------------------------"
@@ -51,6 +51,7 @@ chmod --verbose 700 ./Modules/Archive/OldConfigs/Archiver.sh
 chmod --verbose 700 ./Modules/Archive/OldLogs/Archiver.sh
 chmod --verbose 700 ./Modules/Setup/Fortinet/AutoSetup.sh
 chmod --verbose 700 ./Modules/Setup/WebsiteIndex.sh
+chmod --verbose 700 ./Modules/FirmwareCheck/Fortinet/FirmwareChecker.sh
 echo "[i] : Modules & Lanucher where modified"
 
 # Phase 4 create SSH Key
@@ -61,7 +62,7 @@ echo "4096 bit - Will be fine"
 echo "8192 bit - Are you paranoid ?"
 echo "16384 bit - What are you transferring?"
 echo "----------------------------------------"
-echo "Enter bit lenth (Numbers only):"
+printf "Enter bit lenth (Numbers only): "
 read rsakeylenth
 ssh-keygen -t rsa -b $rsakeylenth -f ./SSH-Keys/Backup-SSH-Key
 
@@ -84,7 +85,7 @@ echo "0 2 * * * $installpath/Main-Launcher.sh"
 echo "--------------------------------------------------------------------------------"
 
 # Phase 8 remove ./Log/<VENDOR>/DeleteMe files
-rm -v ./Log/Cisco/DeleteMe ./Log/DELL/DeleteMe ./Log/Fortinet/DeleteMe ./Log/HP/DeleteMe ./SSH-Keys/DeleteMe
+rm -v ./Log/Cisco/DeleteMe ./Log/Backup/DeleteMe ./Log/DELL/DeleteMe ./Log/Fortinet/DeleteMe ./Log/Failed/DeleteMe ./Log/HP/DeleteMe ./SSH-Keys/DeleteMe ./Devices/Firmware-Versions/DeleteMe
 echo "[i] : Removed ./Log/<VENDOR>/DeleteMe & ./SSH-Keys/ files"
 rm -v ./setup.sh
 echo "[i] : Removed ./setup.sh"

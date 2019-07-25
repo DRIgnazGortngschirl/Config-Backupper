@@ -7,6 +7,7 @@ grep, egrep, fgrep, rgrep - print lines matching a pattern
 gzip, gunzip, zcat - compress or expand files
 mkdir - make directories
 mv - move (rename) files
+printf -- display text according to a format string
 pv - monitor the progress of data through a pipe
 scp — secure copy (remote file copy program)
 sleep - delay for a specified amount of time
