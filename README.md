@@ -77,7 +77,22 @@ Use a # in front of a line to uncomment a line (This will get ignored from the b
 
 *Hostname (will be obtained from the backup file directly) and a comment are optional.
 
+## Enabling the modul
 
+In ./Main-Launcher.sh are modules under the section **Backup Modules** that need to enabled by uncommenting the line (removing the #)
+
+#### For example
+
+```
+...
+### Backup Modules ###
+./Modules/Backup/Fortinet/Fortinet.sh &>> ./Log/Fortinet/log$date.txt <-- Module enabled
+./Modules/Backup/Fortinet/Fortinet-Special.sh &>> ./Log/Fortinet/log$date.txt <-- Module enabled
+# ./Modules/Backup/Cisco/Cisco.sh &>> ./Log/Cisco/log$date.txt <-- Module disabled
+# ./Modules/Backup/DELL/DELL.sh &>> ./Log/DELL/log$date.txt <-- Module disabled
+# ./Modules/Backup/HP/HP.sh &>> ./Log/HP/log$date.txt <-- Module disabled
+...
+```
 
 ## Client side (Network device)*
 
