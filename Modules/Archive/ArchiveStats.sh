@@ -8,6 +8,6 @@ configsinarchive=`find ./Archive -maxdepth 2 -type f -name "*.conf" -mmin -120 |
 avglinesinconfig=`expr $totallines / $configsinarchive`
 
 echo "Current size of ./Archive: .......... $currentsizearchive"
-echo "Current configs in ./Archive: ....... $totalconfigsarchive"
+echo "Total configs in ./Archive: ....... $totalconfigsarchive"
 echo "Total lines operating firewalls: .... $totallines"
 echo "Average lines in conifig file: ...... $avglinesinconfig"
