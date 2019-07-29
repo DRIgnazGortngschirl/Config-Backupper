@@ -1,19 +1,27 @@
 cat - concatenate files and print on the standard output
+chmod - change file mode bits
 du - estimate file space usage
-echo -- display a line of text
+echo - display a line of text
 find - search for files in a directory hierarchy
 git - the stupid content tracker
-grep, egrep, fgrep, rgrep - print lines matching a pattern
+grep, egrep, fgrep, rgrep - print lines matching a pattern 
 gzip, gunzip, zcat - compress or expand files
+join - join lines of two files on a common field
+ln - make links between files
 mkdir - make directories
 mv - move (rename) files
-printf -- display text according to a format string
+ssh - OpenSSH SSH client (remote login program)
+printf - display text according to a format string
 pv - monitor the progress of data through a pipe
-scp — secure copy (remote file copy program)
+read - read line of input into variables
+rm - remove files or directories
+scp - secure copy (remote file copy program)
+sed - stream editor for filtering and transforming text
 sleep - delay for a specified amount of time
-ssh-keygen — authentication key generation, management and conversion
+ssh-keygen - authentication key generation, management and conversion
 sshpass - noninteractive ssh password provider
+tr - translate or delete characters
 
 OPTIONAL
-cron - daemon to execute scheduled commands (Vixie Cron) OR systemd, init - systemd system and service manager
+systemd, init - systemd system and service manager OR cron - daemon to execute scheduled commands (Vixie Cron)
 php - PHP Command Line Interface 'CLI'
