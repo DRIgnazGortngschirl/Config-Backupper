@@ -10,17 +10,16 @@ cd PLACEHOLDERFORINSTALLATIONPATH
 # ./Modules/Backup/DELL/DELL.sh &>> ./Log/DELL/log$date.txt ### NOT YET FUNCTIONAL! ###
 # ./Modules/Backup/HP/HP.sh &>> ./Log/HP/log$date.txt ### NOT YET FUNCTIONAL! ###
 
-### Archive Compression/Stats/Debugs & Loging ###
+### Archive Compression/Debugs & Stats ###
 
 # Compression
-./Modules/Archive/OldConfigsArchiver.sh &> ./Log/Backup/log$date.txt ### Used for compression and deleteion of old configs ###
-./Modules/Archive/OldLogsArchiver.sh &> ./Log/Backup/log$date.txt ### Used for compression and deleteion of old logs ###
-
-# Stats
-./Modules/Archive/ArchiveStats.sh &> ./Log/Backup/log$date.txt ### Used for displaying archive stats ###
-# ./Modules/FirmwareCheck/Fortinet/FirmwareChecker.sh > ./Devices/Firmware-Versions/Fortinet-Firmware-$date.txt ### Disabled by default ###
-
+./Modules/Archive/OldConfigsArchiver.sh &>> ./Log/Backup/log$date.txt ### Used for compression and deleteion of old configs ###
+./Modules/Archive/OldLogsArchiver.sh &>> ./Log/Backup/log$date.txt ### Used for compression and deleteion of old logs ###
 
 # Debug
-./Modules/Archive/Checker.sh &> ./Log/Backup/log$date.txt ### Used for config copy debugging ###
-./Modules/Archive/Fastdebug.sh > ./Log/Failed/Failed-$date.txt ### Used for check failed backup attempts 
+./Modules/Archive/Checker.sh &>> ./Log/Backup/log$date.txt ### Used for config copy debugging ###
+./Modules/Archive/Fastdebug.sh &>> ./Log/Failed/Failed-$date.txt ### Used for check failed backup attempts 
+
+# Stats
+./Modules/Archive/ArchiveStats.sh &>> ./Log/Backup/log$date.txt ### Used for displaying archive stats ###
+# ./Modules/FirmwareCheck/Fortinet/FirmwareChecker.sh &>> ./Devices/Firmware-Versions/Fortinet-Firmware-$date.txt ### Disabled by default ###
