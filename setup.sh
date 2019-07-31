@@ -42,7 +42,6 @@ chmod --verbose 700 ./Modules/Backup/Fortinet/Fortinet-Special.sh
 chmod --verbose 700 ./Modules/Backup/DELL/DELL.sh
 chmod --verbose 700 ./Modules/Backup/HP/HP.sh
 chmod --verbose 700 ./Modules/Backup/Cisco/Cisco.sh
-chmod --verbose 700 ./Modules/Archive/Checker.sh
 chmod --verbose 700 ./Modules/Archive/Fastdebug.sh
 chmod --verbose 700 ./Modules/Clean/Configs/CleanUp.sh
 chmod --verbose 700 ./Modules/Clean/Logs/CleanUp.sh
