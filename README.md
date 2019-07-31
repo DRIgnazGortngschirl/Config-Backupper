@@ -1,6 +1,13 @@
 # Config-Backupper
 This script can backup the configs from firewalls and switches.
 
+| Vendor        | Operational
+| :------------- |:------------
+| Fortinet   | Yes
+| DELL       | 
+| Cisco      | For sgX00 series
+| HP         |
+
 
 ### Packet dependencies
 Check the file **REQUIREMENTS** to see all packet dependencies.
@@ -105,13 +112,6 @@ Create or use an existing read only profile for a user named "backup" (All in sm
 | DELL       |       | Note : [SSH Key Auth on Dell PowerConnect Switches](https://eengstrom.github.io/musings/ssh-key-auth-powerconnect)  |
 | Cisco      |       |   |
 | HP         | [Configure the switch for SSH authentication](http://h22208.www2.hpe.com/eginfolib/networking/docs/switches/YA-YB/15-18/5998-8153_yayb_2530_asg/content/ch08s06.html#s_5Configuring_the_switch_for_SSH_authentication)   | Note : See step **Option B: Configuring the switch for client Public-Key SSH authentication** in order to use the client, so in our case the server sided SSH key. |
-
-| Vendor        | Operational
-| :------------- |:------------
-| Fortinet   | Yes
-| DELL       | 
-| Cisco      | For sgx00 series
-| HP         |
 
 ### *Or use the ./Modules/Setup/\<VENDOR>/AutoSetup.sh to setup the client side
 
