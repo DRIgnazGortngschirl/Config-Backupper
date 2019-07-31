@@ -151,7 +151,7 @@ The script uses a (YOU-CHOOSE-IT) bit long SSH Key for authentication. That key 
 | :------------- |:------------- | :----- |
 | ssh: connect to host \<IP-ADDRESS> port 22: Connection timed out | Check if port 22 used for SSH  | If SSH do not use the port 22 (Default) you need to place the host inside the special module of the certain vendor (Problem caused by scp because it automaticaly uses port 22 if no other port is defined) |
 | More **Directorys in Archive** than **Lines in Host file** (Can be seen in ./Log/Backup/log\<DATE>.txt)| Just leave the folders as it is or move all to the operating node | This could be caused due to a switch over form the device e.g. fw-01 to fw-02 (Cluster) |
-| 3 |   |   |
+| Less **Directorys in Archive** than **Lines in Host file** (Can be seen in ./Log/Backup/log\<DATE>.txt)| Try the backup again | You didn't got all configs listed in the host files check the ./Log/Failed/Failed-$date.txt for more infos|
 
 
 
