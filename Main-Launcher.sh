@@ -17,9 +17,8 @@ cd PLACEHOLDERFORINSTALLATIONPATH
 ./Modules/Archive/OldLogsArchiver.sh &>> ./Log/Backup/log$date.txt ### Used for compression and deleteion of old logs ###
 
 # Debug
-./Modules/Archive/Checker.sh &>> ./Log/Backup/log$date.txt ### Used for config copy debugging ###
-./Modules/Archive/Fastdebug.sh &>> ./Log/Failed/Failed-$date.txt ### Used for check failed backup attempts 
+./Modules/Archive/Fastdebug.sh &>> ./Log/Failed/Failed-$date.txt ### Used for config copy debugging ###
 
 # Stats
-./Modules/Archive/ArchiveStats.sh &>> ./Log/Backup/log$date.txt ### Used for displaying archive stats ###
+./Modules/Archive/ArchiveStats.sh &>> ./Log/Backup/log$date.txt ### Used for displaying archive and varius stats ###
 # ./Modules/FirmwareCheck/Fortinet/FirmwareChecker.sh &>> ./Devices/Firmware-Versions/Fortinet-Firmware-$date.txt ### Disabled by default ###
