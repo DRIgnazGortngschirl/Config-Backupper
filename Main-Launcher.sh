@@ -13,8 +13,8 @@ cd PLACEHOLDERFORINSTALLATIONPATH
 ### Archive Compression/Debugs & Stats ###
 
 # Compression
-./Modules/Archive/OldConfigsArchiver.sh &>> ./Log/Backup/log$date.txt ### Used for compression and deleteion of old configs ###
-./Modules/Archive/OldLogsArchiver.sh &>> ./Log/Backup/log$date.txt ### Used for compression and deleteion of old logs ###
+./Modules/Archive/OldConfigs/Archiver.sh &>> ./Log/Backup/log$date.txt ### Used for compression and deleteion of old configs ###
+./Modules/Archive/OldLogs/Archiver.sh &>> ./Log/Backup/log$date.txt ### Used for compression and deleteion of old logs ###
 
 # Debug
 ./Modules/Archive/Fastdebug.sh &>> ./Log/Failed/Failed-$date.txt ### Used for config copy debugging ###
