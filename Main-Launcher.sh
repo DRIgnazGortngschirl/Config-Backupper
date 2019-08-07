@@ -3,6 +3,9 @@ date=`date +%d%m%y`
 # ---------------------------------------------
 cd PLACEHOLDERFORINSTALLATIONPATH
 # ---------------------------------------------
+# 
+echo "[i]: Start of backup @ $(date +%H:%m)" >> ./Log/Backup/log$date.txt
+
 ### Backup Modules ###
 # ./Modules/Backup/Fortinet/Fortinet.sh &>> ./Log/Fortinet/log$date.txt ### FUNCTIONAL ###
 # ./Modules/Backup/Fortinet/Fortinet-Special.sh &>> ./Log/Fortinet/log$date.txt ### Disabled by default FUNCTIONAL ###
@@ -22,3 +25,4 @@ cd PLACEHOLDERFORINSTALLATIONPATH
 # Stats
 ./Modules/Archive/ArchiveStats.sh &>> ./Log/Backup/log$date.txt ### Used for displaying archive and varius stats ###
 # ./Modules/FirmwareCheck/Fortinet/FirmwareChecker.sh &>> ./Devices/Firmware-Versions/Fortinet-Firmware-$date.txt ### Disabled by default ###
+echo "[i}: End of backup @ $(date +%H:%m)" >> ./Log/Backup/log$date.txt
