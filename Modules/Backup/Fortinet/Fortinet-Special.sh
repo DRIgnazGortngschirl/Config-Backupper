@@ -13,18 +13,23 @@ if ping -c 3 <IP> &> /dev/null
   echo "[i]: <IP> reachable"
   scp -P <PORT> -v -i ./SSH-Keys/Backup-SSH-Key <USER>@<IP>:sys_config ./BackupConfigFortinet
   name=`pv BackupConfigFortinet | grep -m1 'set hostname' | sed 's|["?]||g' | sed 's/\<set hostname\>//g' | sed 's/ //g' | tr -dc '[:print:]'`
-  mkdir -v Archive/$name
-  date=`date +"%H-%M_%d-%m-%Y"`
-  mv -v BackupConfigFortinet ./Archive/$name/$name-$date.conf
-  if [ -f ./Archive/$name/$name-$date.conf ]
+  if [ -z "$name" ]
    then
-      echo "[i]: File $name-$date.conf found!"
-      echo "[i]: <IP> backup succeeded"
-     else
-      echo "[i]: File $name-$date.conf not found!"
-      echo "[i]: <IP> backup failed"
-  fi
+    echo "[i]: $device Name not found"
+   else
+    echo "[i]: $device Name found $name"
+    mkdir -v Archive/$name
+    mv -v BackupConfigFortinet ./Archive/$name/$name-$date.conf
+     if [ -f ./Archive/$name/$name-$date.conf ]
+      then
+       echo "[i]: File $name-$date.conf found"
+       echo "[i]: $device backup succeeded"
+      else
+       echo "[i]: File $name-$date.conf not found"
+       echo "[i]: $device backup failed"
+     fi
+   fi
   else
-   echo "[i]: <IP> not reachable"
-fi
+   echo "[i]: $device not reachable"
+ fi
 done
