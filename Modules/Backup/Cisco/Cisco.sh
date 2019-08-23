@@ -17,8 +17,8 @@ for device in `egrep -v "^\s*(#|$)" ./Devices/Cisco/Cisco-Devices.txt | grep -oE
       echo "[i]: $device Name not found"
      else
       echo "[i]: $device Name found $name"
-      mkdir -v Archive/$name
-      mv -v BackupConfigCisco ./Archive/$name/$name-$date.conf
+      mkdir -v ./Archive/$name
+      mv -v ./BackupConfigCisco ./Archive/$name/$name-$date.conf
       if [ -f ./Archive/$name/$name-$date.conf ]
        then
         echo "[i]: File $name-$date.conf found"
