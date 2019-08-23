@@ -1,9 +1,9 @@
 #!/bin/bash
 echo '[i] : Searching for IP Address'
-ip=`ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'`
+ip=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1')
 echo '[i] : Found IP Address'
 echo '[i] : Searching for installation path ... This can take a few moments'
-installpath=`find / -name "*Config-Backupper" 2>/dev/null`
+installpath=$(find / -name "*Config-Backupper" 2>/dev/null)
 echo "[i] : Found installation path"
 echo 'Enter your path to the webserver directory e.g. "/opt/websites/NAME-FOR-FOLDER"'
 echo "------------------"
@@ -24,7 +24,7 @@ if [[ $REPLY =~ ^[Y]$ ]]
                 sleep 3
                 mkdir -v -p $webserverpath
                 ln -v -sf $installpath/Archive/ $webserverpath
-                subfolder=`readlink -f $webserverpath | grep -oE '[^/]+$'`
+                subfolder=$(readlink -f $webserverpath | grep -oE '[^/]+$')
                 echo "Open http|https://$ip/$subfolder/Archive/index.php"
         fi
 fi
