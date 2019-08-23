@@ -9,7 +9,7 @@ echo "[i] : Removed ./.git"
 
 # Phase 2 create Main-Lanucher.sh
 echo "[i] : Searching for installation path ... This can take a few moments"
-installpath=`find / -name "*Config-Backupper" 2>/dev/null`
+installpath=$(find / -name "*Config-Backupper" 2>/dev/null)
 echo "Installation path : $installpath"
 echo "[i] : Found installation path"
 search=PLACEHOLDERFORINSTALLATIONPATH
@@ -77,7 +77,7 @@ echo " "
 
 # Phase 6 configure Fortinet-AutoSetup.sh
 search=PLACEHOLDERFORSSHKEY
-replace=`cat ./SSH-Keys/Backup-SSH-Key.pub`
+replace=$(cat ./SSH-Keys/Backup-SSH-Key.pub)
 sed -i "s|${search}|${replace}|g" ./Modules/Setup/Fortinet/AutoSetup.sh
 echo '[i] : Fortinet Fortinet-AutoSetup.sh where configured'
 
