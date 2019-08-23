@@ -4,14 +4,14 @@ user=backup
 
 echo "[i]: Started Backup of Configs : CISCO"
 
-for device in `cat ./Devices/Cisco/Cisco-Devices.txt | egrep -v "^\s*(#|$)" | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"`
+for device in `egrep -v "^\s*(#|$)" ./Devices/Cisco/Cisco-Devices.txt | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"`
  do
   echo -e "[i]: Host --> $device"
   if ping -c 3 $device &> /dev/null
    then
     echo "[i]: $device reachable"
     ./sgX00.sh $device
-    name=`cat BackupConfigCisco | grep hostname | sed 's|["?]||g' | sed 's/hostname //'`
+    name=$(grep hostname ./BackupConfigCisco | sed 's|["?]||g' | sed 's/hostname //')
     if [ -z "$name" ]
      then
       echo "[i]: $device Name not found"
