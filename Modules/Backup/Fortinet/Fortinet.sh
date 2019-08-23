@@ -4,7 +4,7 @@ user=backup
 
 echo "[i]: Started Backup of Configs : FORTINET"
 
-for device in `egrep -v "^\s*(#|$)" ./Devices/Fortinet/Fortinet-Devices.txt | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"`
+for device in $(egrep -v "^\s*(#|$)" ./Devices/Fortinet/Fortinet-Devices.txt | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b")
  do
   echo -e "[i]: Host --> $device"
   if ping -c 3 $device &> /dev/null
