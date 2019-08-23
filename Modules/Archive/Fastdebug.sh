@@ -5,12 +5,12 @@ date=`date +%d%m%y`
 echo "Backup Errors"
 echo "Fortinet:"
 echo "--------------------------------------------------------------------------------------------------"
-join <(sort ./Devices/Fortinet/Fortinet-Devices.txt | grep -v '#' | sed '/^$/d' ) <(sort ./Log/Fortinet/log$date.txt | grep '\[i]:' | grep -e "Name not found" -e "not reachable" -e "failed" | sed -e 's/\[i]: //')
-# join <(sort ./Modules/Backup/Fortinet-Special.sh | grep "#" | sed '/^$/d' | grep -v '#!/bin/bash' |  sed 's/# //') <(sort ./Log/Fortinet/log$date.txt| grep '\[i]:' | grep -e "Name not found" -e "not reachable" -e "failed" | sed -e 's/\[i]: //')
+join <(sort ./Devices/Fortinet/Fortinet-Devices.txt | egrep -v "^\s*(#|$)") <(sort ./Log/Fortinet/log$date.txt | grep '\[i]:' | grep -e "Name not found" -e "not reachable" -e "backup failed" | sed -e 's/\[i]: //')
+# join <(sort ./Modules/Backup/Fortinet-Special.sh | grep '#' | grep -v '#!/bin/bash' | sed 's/# //') <(sort ./Log/Fortinet/log$date.txt | grep '\[i]:' | grep -e "Name not found" -e "not reachable" -e "backup failed" | sed -e 's/\[i]: //'
 echo "--------------------------------------------------------------------------------------------------"
 echo "Cisco:"
 echo "--------------------------------------------------------------------------------------------------"
-join <(sort ./Devices/Cisco/Cisco-Devices.txt | grep -v '#' | sed '/^$/d' ) <(sort ./Log/Cisco/log$date.txt | grep '\[i]:' | grep -e "Name not found" -e "not reachable" -e "failed" | sed -e 's/\[i]: //')
+join <(sort ./Devices/Cisco/Cisco-Devices.txt | egrep -v "^\s*(#|$)") <(sort ./Log/Cisco/log$date.txt | grep '\[i]:' | grep -e "Name not found" -e "not reachable" -e "backup failed" | sed -e 's/\[i]: //')
 echo "--------------------------------------------------------------------------------------------------"
 #echo "DELL :"
 #echo "----------------------------------------------------------------------------"
