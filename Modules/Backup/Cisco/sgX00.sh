@@ -43,7 +43,6 @@ REF="'http://${IP}/cs34055c2b/FileMgmt/maintenance_file_fileUpload_m.htm'"
 INDEX=$(date +%H%M%S)
 DLURL="'http://${IP}/cs34055c2b/FileMgmt/stupCfg.ber?rlCopyFreeHistoryIndex=${INDEX}&&rlCopyDestinationFileType=2&&rlCopyOptionsRequestedSsdAccess=3&&redirect=/device/copyfiles.xml'"
 
-TSTAMP=$(date +%Y%m%d-%H%M%S)
 FILENAME=BackupConfigCisco
 
 # Actually download the file
