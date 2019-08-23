@@ -12,7 +12,7 @@ if ping -c 3 <IP> &> /dev/null
  then
   echo "[i]: <IP> reachable"
   scp -P <PORT> -v -i ./SSH-Keys/Backup-SSH-Key <USER>@<IP>:sys_config ./BackupConfigFortinet
-  name=$(pv BackupConfigFortinet | grep -m1 'set hostname' | sed 's|["?]||g' | sed 's/\<set hostname\>//g' | sed 's/ //g' | tr -dc '[:print:]')
+  name=$(grep -m1 'set hostname' ./BackupConfigFortinet| sed 's|["?]||g' | sed 's/\<set hostname\>//g' | sed 's/ //g' | tr -dc '[:print:]')
   if [ -z "$name" ]
    then
     echo "[i]: $device Name not found"
