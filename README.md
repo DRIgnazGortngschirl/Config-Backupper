@@ -1,12 +1,12 @@
 # Config-Backupper
 This script can backup the configs from firewalls and switches.
 
-| Vendor        | Operational
+| Vendor        | Operational |
 | :------------- |:------------
-| Fortinet   | Yes
-| DELL       | 
-| Cisco      | For sgX00 series
-| HP         |
+| Fortinet   | Yes              |
+| DELL       |                  |
+| Cisco      | For sgX00 series |
+| HP         |                  |
 
 
 ### Packet dependencies
@@ -127,7 +127,7 @@ You can test the script (Recommended) befor you run it automaticaly to get the c
 | Name     | File  |  Note | 
 | :------------- |:------------- | :----- |
 | Fortinet| sys_config or fgt-config | [Backup over SCP](https://forum.fortinet.com/tm.aspx?m=114055) |
-| 2  |  |   |
+| 2 |   |   |
 | 3 |   |   |
 
 # About 
@@ -137,10 +137,10 @@ The script uses a (YOU-CHOOSE-IT) bit long SSH Key for authentication. That key 
   # Limitaions
   | LimitNr        | Limitation           | Reason  | Will be fixed | 
 | :-------------: |:------------- | :----- | :-----: |
-| 1  |  If you try to run the scrip more often than once a day the logs of the secound run will also be in the same log file  | Logging has not been designed for this | No
-| 2  | If you try to create a bigger SSH-Key than 16384 bit it will not work due to limitations  | There is a limit for the max key lenght in ssh-keygen if the key bits exceeds the of maximum 16384 | Not dependent on the script
-| 3 | If you try to run the scrip/module more often than once a minute the configs will get overwritten | Backup has not been designed for this. Timestamp do not have seconds See in any ./Modules/Backup/\<VENDOR>/\<VENDOR>.sh ```date=`date +"%H-%M_%d-%m-%Y"` ``` will create file like **AUT-VIE-Firewall-01-HH-MM_DD-MM-YYYY.conf** | No
-| 4 | If you run the script more often than once in 120 minutes the output of ./Modules/Archive/ArchiveStats.sh **Current Configs in Archive** will not be correct | Due to a setting in the modul. Change ```-mmin -120``` to a lower value e.g ```-mmin -30```. This can cause problems getting all configs if they are olded than the defined value (Will show say less **Current Configs in Archive** than realy backuped.)| More likely yes
+| 1  |  If you try to run the scrip more often than once a day the logs of the secound run will also be in the same log file  | Logging has not been designed for this | No |
+| 2  | If you try to create a bigger SSH-Key than 16384 bit it will not work due to limitations  | There is a limit for the max key lenght in ssh-keygen if the key bits exceeds the of maximum 16384 | Not dependent on the script | 
+| 3 | If you try to run the scrip/module more often than once a minute the configs will get overwritten | Backup has not been designed for this. Timestamp do not have seconds See in any ./Modules/Backup/\<VENDOR>/\<VENDOR>.sh ```date=`date +"%H-%M_%d-%m-%Y"` ``` will create file like **AUT-VIE-Firewall-01-HH-MM_DD-MM-YYYY.conf** | No |
+| 4 | If you run the script more often than once in 120 minutes the output of ./Modules/Archive/ArchiveStats.sh **Current Configs in Archive** will not be correct | Due to a setting in the modul. Change ```-mmin -120``` to a lower value e.g ```-mmin -30```. This can cause problems getting all configs if they are olded than the defined value (Will show say less **Current Configs in Archive** than realy backuped.)| More likely yes |
 | 5 | If the backup process takes more than 120 minutes the output of ./Modules/Archive/ArchiveStats.sh will not be correct | Due to settings in the modules. Change ```-mmin -120``` to a higher value e.g ```-mmin -360``` to fix in ./Modules/Archive/ArchiveStats.sh **Total lines operating firewalls** and **Average lines in conifig file** in ./Modules/Archive/ArchiveStats.sh will **Current Configs in Archive** get fixed and will be displayed correctly | No (Can be fixed manually) |
 
 # Facing Problems
@@ -151,7 +151,7 @@ The script uses a (YOU-CHOOSE-IT) bit long SSH Key for authentication. That key 
 | :------------- |:------------- | :----- |
 | ssh: connect to host \<IP-ADDRESS> port 22: Connection timed out | Check if port 22 used for SSH  | If SSH do not use the port 22 (Default) you need to place the host inside the special module of the certain vendor (Problem caused by scp because it automaticaly uses port 22 if no other port is defined) |
 | More **Directorys in Archive** than **Lines in Host file** (Can be seen in ./Log/Backup/log\<DATE>.txt)| Just leave the folders as it is or move all to the operating node | This could be caused due to a switch over form the device e.g. fw-01 to fw-02 (Cluster) |
-| Less **Directorys in Archive** than **Lines in Host file** (Can be seen in ./Log/Backup/log\<DATE>.txt)| Try the backup again | You didn't got all configs listed in the host files check the ./Log/Failed/Failed-$date.txt for more infos|
+| Less **Directorys in Archive** than **Lines in Host file** (Can be seen in ./Log/Backup/log\<DATE>.txt)| Try the backup again | You didn't got all configs listed in the host files check the ./Log/Failed/Failed-$date.txt for more infos |
 
 
 
@@ -160,7 +160,7 @@ The script uses a (YOU-CHOOSE-IT) bit long SSH Key for authentication. That key 
 | Problem     | Solution  |  Description | 
 | :------------- |:------------- | :----- |
 | Sink: 501-Permission Denied 501-Permission Denied | Check if enabled SCP on the Fortinet Device | The script can connect but has problems with the rights to copy the config file. If you don't enable SCP you can run into this problem. |
-| 2  |  |   |
+| 2 |   |   |
 | 3 |   |   |
 
   
