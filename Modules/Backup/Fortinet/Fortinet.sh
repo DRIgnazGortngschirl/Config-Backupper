@@ -11,14 +11,14 @@ for device in `egrep -v "^\s*(#|$)" ./Devices/Fortinet/Fortinet-Devices.txt | gr
    then
     echo "[i]: $device reachable"
     scp -v -i ./SSH-Keys/Backup-SSH-Key $user@$device:sys_config ./BackupConfigFortinet
-    name=$(pv BackupConfigFortinet | grep -m1 'set hostname' | sed 's|["?]||g' | sed 's/\<set hostname\>//g' | sed 's/ //g' | tr -dc '[:print:]')
+    name=$(grep -m1 'set hostname' ./BackupConfigFortinet | sed 's|["?]||g' | sed 's/\<set hostname\>//g' | sed 's/ //g' | tr -dc '[:print:]')
     if [ -z "$name" ]
      then
       echo "[i]: $device Name not found"
      else
       echo "[i]: $device Name found $name"
-      mkdir -v Archive/$name
-      mv -v BackupConfigFortinet ./Archive/$name/$name-$date.conf
+      mkdir -v ./Archive/$name
+      mv -v ./BackupConfigFortinet ./Archive/$name/$name-$date.conf
       if [ -f ./Archive/$name/$name-$date.conf ]
        then
         echo "[i]: File $name-$date.conf found"
