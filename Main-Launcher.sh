@@ -1,5 +1,5 @@
 #!/bin/bash
-date=`date +%d%m%y`
+date=$(date +%d%m%y)
 # ---------------------------------------------
 cd PLACEHOLDERFORINSTALLATIONPATH
 # ---------------------------------------------
