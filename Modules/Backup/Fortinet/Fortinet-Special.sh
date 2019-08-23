@@ -12,14 +12,14 @@ if ping -c 3 <IP> &> /dev/null
  then
   echo "[i]: <IP> reachable"
   scp -P <PORT> -v -i ./SSH-Keys/Backup-SSH-Key <USER>@<IP>:sys_config ./BackupConfigFortinet
-  name=$(grep -m1 'set hostname' ./BackupConfigFortinet| sed 's|["?]||g' | sed 's/\<set hostname\>//g' | sed 's/ //g' | tr -dc '[:print:]')
+  name=$(grep -m1 'set hostname' ./BackupConfigFortinet | sed 's|["?]||g' | sed 's/\<set hostname\>//g' | sed 's/ //g' | tr -dc '[:print:]')
   if [ -z "$name" ]
    then
     echo "[i]: $device Name not found"
    else
     echo "[i]: $device Name found $name"
-    mkdir -v Archive/$name
-    mv -v BackupConfigFortinet ./Archive/$name/$name-$date.conf
+    mkdir -v ./Archive/$name
+    mv -v ./BackupConfigFortinet ./Archive/$name/$name-$date.conf
      if [ -f ./Archive/$name/$name-$date.conf ]
       then
        echo "[i]: File $name-$date.conf found"
