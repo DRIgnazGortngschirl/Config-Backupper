@@ -1,5 +1,4 @@
 #!/bin/bash
-date=$(date +%d%m%y)
 
 # Stats
 currentsizearchive=$(du -sh ./Archive --exclude=./Archive/resources | awk '{print $1}')B
