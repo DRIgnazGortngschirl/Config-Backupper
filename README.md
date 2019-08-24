@@ -1,3 +1,5 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4a40b08c61e64e598dca919d22a9eee5)](https://app.codacy.com/app/MrMarioMichel/Config-Backupper?utm_source=github.com&utm_medium=referral&utm_content=MrMarioMichel/Config-Backupper&utm_campaign=Badge_Grade_Dashboard)
+
 # Config-Backupper
 This script can backup the configs from firewalls and switches.
 
