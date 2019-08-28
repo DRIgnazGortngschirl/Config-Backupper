@@ -8,7 +8,7 @@ for device in $(egrep -v "^\s*(#|$)" ./Devices/Cisco/Cisco-Devices.txt | grep -o
   if ping -c 3 $device &> /dev/null
    then
     echo "[i]: $device reachable"
-    ./sgX00.sh $device
+    ./Modules/Backup/Cisco/sgX00.sh $device
     name=$(grep hostname ./BackupConfigCisco | sed 's|["?]||g' | sed 's/hostname //')
     if [ -z "$name" ]
      then
