@@ -19,6 +19,7 @@ if ping -c 3 <IP> &> /dev/null
    else
     echo "[i]: $device Name found $name"
     mkdir -v ./Archive/$name
+    date=$(date +"%H-%M_%d-%m-%Y")
     mv -v ./BackupConfigFortinet ./Archive/$name/$name-$date.conf
      if [ -f ./Archive/$name/$name-$date.conf ]
       then
