@@ -165,4 +165,15 @@ The script uses a (YOU-CHOOSE-IT) bit long SSH Key for authentication. That key 
 | 2 |   |   |
 | 3 |   |   |
 
+
+### Cisco :
+
+| Problem     | Solution  |  Description | 
+| :------------- |:------------- | :----- |
+| [i]: (sgX00.sh) Output was trash, try again in 15 minutes | Check the credentials and also if the switch uses http or httpss | Wrong credentials, http or https connection method can be the reason. This can be changed in ./Modules/Backup/Cisco/sgX00.sh |
+| 2 |   |   |
+| 3 |   |   |
+
+
+
   
