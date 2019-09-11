@@ -13,8 +13,8 @@ if [ -z ${IP} ]; then
     exit
 fi
 
-# USERNAME=cisco
-# PASSWORD=XXXXXXPASSWORDXXXXXX
+USERNAME="cisco"
+PASSWORD=XXXXXXPASSWORDXXXXXX
 
 USERAGENT="'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.124 Safari/537.36'"
 
