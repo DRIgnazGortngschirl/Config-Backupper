@@ -4,7 +4,7 @@ user="dell"
 passwd="XXXXXXPASSWORDXXXXXX"
 
 echo "[i]: Started Backup of Configs : DELL (nXXXX.sh)"
-for device in `cat ./Devices/DELL/DELL-Nxxxx.txt | egrep -v "^\s*(#|$)" | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"`
+for device in `cat ./Devices/DELL/Nxxxx.txt | egrep -v "^\s*(#|$)" | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"`
  do
   echo -e "[i]: Host --> $device"
   sshpass -p "$passwd" \ssh -v $user@$device <<EOF > BackupConfigDELLTEMP1 
