@@ -24,5 +24,5 @@ echo "[i]: Start of backup @ $(date +%H:%m)" >> ./Log/Backup/log$date.txt
 
 # Stats
 ./Modules/Archive/ArchiveStats.sh &>> ./Log/Backup/log$date.txt ### Used for displaying archive and varius stats ###
-# ./Modules/FirmwareCheck/Fortinet/FirmwareChecker.sh &>> ./Devices/Firmware-Versions/Fortinet-Firmware-$date.txt ### Disabled by default ###
+# ./Modules/FirmwareCheck/Fortinet/FirmwareChecker.sh ### Disabled by default ###
 echo "[i}: End of backup @ $(date +%H:%m)" >> ./Log/Backup/log$date.txt
