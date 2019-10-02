@@ -10,7 +10,8 @@ join <(sort ./Devices/Fortinet/Fortinet-Devices.txt | egrep -v "^\s*(#|$)") <(so
 echo "--------------------------------------------------------------------------------------------------"
 echo "Cisco:"
 echo "--------------------------------------------------------------------------------------------------"
-join <(sort ./Devices/Cisco/Cisco-Devices.txt | egrep -v "^\s*(#|$)") <(sort ./Log/Cisco/log$date.txt | grep '\[i]:' | grep -e "Name not found" -e "not reachable" -e "backup failed" | sed -e 's/\[i]: //')
+join <(sort ./Devices/Cisco/Cisco-sgX00.txt | egrep -v "^\s*(#|$)") <(sort ./Log/Cisco/log$date.txt | grep '\[i]:' | grep -e "Name not found" -e "not reachable" -e "backup failed" | sed -e 's/\[i]: //')
+join <(sort ./Devices/Cisco/Cisco-n3XXX-txt | egrep -v "^\s*(#|$)") <(sort ./Log/Cisco/log$date.txt | grep '\[i]:' | grep -e "Name not found" -e "not reachable" -e "backup failed" | sed -e 's/\[i]: //')
 echo "--------------------------------------------------------------------------------------------------"
 #echo "DELL :"
 #echo "----------------------------------------------------------------------------"
