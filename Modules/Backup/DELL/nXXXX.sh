@@ -14,10 +14,10 @@ for device in `egrep -v "^\s*(#|$)" ./Devices/DELL/NXXXX.txt | grep -oE "\b([0-9
    exit
    exit
 EOF
-name=`grep "hostname" BackupConfigDELLTEMP1 | sed 's|["?]||g' | sed 's/hostname //' |  tr -dc '[:print:]'`
-cat BackupConfigDELLTEMP1 | grep -v "$name>" | grep -v "$name#"> BackupConfigDELL
+name=$(grep "hostname" BackupConfigDELLTEMP1 | sed 's|["?]||g' | sed 's/hostname //' |  tr -dc '[:print:]')
+grep -v "$name>" BackupConfigDELLTEMP1 | grep -v "$name#"> BackupConfigDELL
 mkdir -v Archive/$name
-date=`date +"%H-%M_%d-%m-%Y"`
+date=$(date +"%H-%M_%d-%m-%Y")
 mv -v BackupConfigDELL ./Archive/$name/$name-$date.conf
 rm BackupConfigDELLTEMP1
 if [ -f ./Archive/$name/$name-$date.conf ]
