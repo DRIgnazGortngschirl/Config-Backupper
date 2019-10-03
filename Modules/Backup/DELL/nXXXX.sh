@@ -4,7 +4,7 @@ user="dell"
 passwd="XXXXXXPASSWORDXXXXXX"
 
 echo "[i]: Started Backup of Configs : DELL (nXXXX.sh)"
-for device in `cat ./Devices/DELL/NXXXX.txt | egrep -v "^\s*(#|$)" | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"`
+for device in `egrep -v "^\s*(#|$)" ./Devices/DELL/NXXXX.txt | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"`
  do
   echo -e "[i]: Host --> $device"
   sshpass -p "$passwd" \ssh -v $user@$device <<EOF > BackupConfigDELLTEMP1 
@@ -14,7 +14,7 @@ for device in `cat ./Devices/DELL/NXXXX.txt | egrep -v "^\s*(#|$)" | grep -oE "\
    exit
    exit
 EOF
-name=`cat BackupConfigDELLTEMP1 | grep hostname | sed 's|["?]||g' | sed 's/hostname //' |  tr -dc '[:print:]'`
+name=`grep "hostname" BackupConfigDELLTEMP1 | sed 's|["?]||g' | sed 's/hostname //' |  tr -dc '[:print:]'`
 cat BackupConfigDELLTEMP1 | grep -v "$name>" | grep -v "$name#"> BackupConfigDELL
 mkdir -v Archive/$name
 date=`date +"%H-%M_%d-%m-%Y"`
