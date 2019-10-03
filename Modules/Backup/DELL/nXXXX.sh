@@ -14,18 +14,18 @@ for device in $(egrep -v "^\s*(#|$)" ./Devices/DELL/NXXXX.txt | grep -oE "\b([0-
    exit
    exit
 EOF
-name=$(grep "hostname" BackupConfigDELLTEMP1 | sed 's|["?]||g' | sed 's/hostname //' |  tr -dc '[:print:]')
-grep -v "$name>" BackupConfigDELLTEMP1 | grep -v "$name#"> BackupConfigDELL
-mkdir -v Archive/$name
-date=$(date +"%H-%M_%d-%m-%Y")
-mv -v BackupConfigDELL ./Archive/$name/$name-$date.conf
-rm BackupConfigDELLTEMP1
-if [ -f ./Archive/$name/$name-$date.conf ]
- then
-  echo "[i]: File $name-$date.conf found!"
-  echo "[i]: $device backup succeeded"
- else
-  echo "[i]: File $name-$date.conf not found!"
-  echo "[i]: $device backup failed"
-fi
+   name=$(grep "hostname" BackupConfigDELLTEMP1 | sed 's|["?]||g' | sed 's/hostname //' |  tr -dc '[:print:]')
+   grep -v "$name>" BackupConfigDELLTEMP1 | grep -v "$name#"> BackupConfigDELL
+   mkdir -v Archive/$name
+   date=$(date +"%H-%M_%d-%m-%Y")
+   mv -v BackupConfigDELL ./Archive/$name/$name-$date.conf
+   rm BackupConfigDELLTEMP1
+   if [ -f ./Archive/$name/$name-$date.conf ]
+    then
+     echo "[i]: File $name-$date.conf found!"
+     echo "[i]: $device backup succeeded"
+    else
+     echo "[i]: File $name-$date.conf not found!"
+     echo "[i]: $device backup failed"
+   fi
 done
