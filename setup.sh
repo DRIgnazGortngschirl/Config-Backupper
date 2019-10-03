@@ -19,23 +19,27 @@ echo '[i] : Main-Launcher.sh where configured'
 echo "--------------------------------------------------------------------------------"
 printf "Set days after a config gets commpressed (.gz format) [2,5x-3,5x SMALLER] (Numbers only): "
 read archivetimearchivecommpress
-echo 'echo "[i]: Compress configs Started"' >> ./Modules/Archive/OldConfigs/Archiver.sh
+echo 'echo "[i]: Compressing configs Started"' >> ./Modules/Archive/OldConfigs/Archiver.sh
 echo "find ./Archive -name "*.conf" -mtime +$archivetimearchivecommpress -exec gzip -v {} +" >> ./Modules/Archive/OldConfigs/Archiver.sh
+echo 'echo "[i]: Compressing configs End"' >> ./Modules/Archive/OldConfigs/Archiver.sh
 echo "--------------------------------------------------------------------------------"
 printf "Set days after a config gets deleted (Numbers only): "
 read archivetimearchivedelete
+echo 'echo "[i]: Deleting configs Started"' >> ./Modules/Archive/OldConfigs/Archiver.sh
 echo "find ./Archive -name "*.conf.gz" -mtime +$archivetimearchivedelete -exec rm -v {} +" >> ./Modules/Archive/OldConfigs/Archiver.sh
-echo 'echo "[i]: Compress configs End"' >> ./Modules/Archive/OldConfigs/Archiver.sh
+echo 'echo "[i]: Deleting configs End"' >> ./Modules/Archive/OldConfigs/Archiver.sh
 echo "--------------------------------------------------------------------------------"
 printf "Set days after a logs gets commpressed (.gz format) [2,5x-3,5x SMALLER] (Numbers only): "
 read archivetimelogscommpress
-echo 'echo "[i]: Compress logs Started"' >> ./Modules/Archive/OldLogs/Archiver.sh
+echo 'echo "[i]: Compressing logs Started"' >> ./Modules/Archive/OldLogs/Archiver.sh
 echo "find ./Log -mtime +$archivetimelogscommpress -exec gzip -v {} +" >> ./Modules/Archive/OldLogs/Archiver.sh
+echo 'echo "[i]: Compressing logs End"' >> ./Modules/Archive/OldLogs/Archiver.sh
 echo "--------------------------------------------------------------------------------"
 printf "Set days after a logs gets deleted (.gz format) [2,5x-3,5x SMALLER] (Numbers only): "
 read archivetimelogsdelete
+echo 'echo "[i]: Deleting logs Started"' >> ./Modules/Archive/OldLogs/Archiver.sh
 echo "find ./Log -mtime +$archivetimelogsdelete -exec gzip -v {} +" >> ./Modules/Archive/OldLogs/Archiver.sh
-echo 'echo "[i]: Compress logs End"' >> ./Modules/Archive/OldLogs/Archiver.sh
+echo 'echo "[i]: Deleting logs End"' >> ./Modules/Archive/OldLogs/Archiver.sh
 echo "--------------------------------------------------------------------------------"
 echo "[i] : Main Launcher where created"
 
