@@ -17,7 +17,7 @@ for device in $(egrep -v "^\s*(#|$)" ./Devices/Cisco/Cisco-N3xxx-txt | grep -oE 
     exit
 EOF
     name=$(grep hostname ./BackupConfigCiscoTEMP1 | sed 's|["?]||g' | sed 's/hostname //' |  tr -dc '[:print:]')
-    cat BackupConfigCiscoTEMP1 | grep -v "$name#" | sed 's/terminal length 0//g' | sed 's/show startup-config//g' | sed 's/exit//g' > BackupConfigCisco
+    grep -v "$name#" BackupConfigCiscoTEMP1 | sed 's/terminal length 0//g' | sed 's/show startup-config//g' | sed 's/exit//g' > BackupConfigCisco
     if [ -z "$name" ]
      then
       echo "[i]: $device Name not found"
