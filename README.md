@@ -5,9 +5,9 @@ This script can backup the configs from firewalls and switches.
 
 | Vendor        | Operational |
 | :------------- |:------------
-| Fortinet   | Yes              |
-| DELL       |                  |
-| Cisco      | For sgX00 & n3XXX.sh series |
+| Fortinet   | Yes |
+| DELL       | For nXXXX series |
+| Cisco      | For sgX00 & n3XXX series |
 | HP         |                  |
 
 
