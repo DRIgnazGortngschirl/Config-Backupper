@@ -56,7 +56,7 @@ Use low bit key length (1024 - 2048bits) to speed up the authentication **BUT SE
 
 #### Enter passphrase (empty for no passphrase):
 
-Just press enter otherwise the script would need everytime it connects to a devices the password. Still want to have a password you will neeed to enter the password in clear text in the ./Modules/Backup module ```sshpass -p "<PASSWORD>" scp -i ./SSH-Keys/Backup-SSH-Key backup@<IP>:<CONFIGFILE>  ./TestConfigFile```
+Just press enter otherwise the script would need everytime it connects to a devices the password. Still want to have a password you will neeed to enter the password in clear text in the ./Modules/Backup/\<VENDOR>/\<MODUDLE>.sh module ```sshpass -p "<PASSWORD>" scp -i ./SSH-Keys/Backup-SSH-Key backup@<IP>:<CONFIGFILE>  ./TestConfigFile```
 
 #### Enter same passphrase again:
 
@@ -140,7 +140,7 @@ Use a # in front of a line to uncomment a line (This will get ignored from the b
 
 *Hostname (will be obtained from the backup file directly) and a comment are optional.
 
-## Enabling the modul
+## Enabling the module
 
 In ./Main-Launcher.sh are modules under the section **Backup Modules** that need to enabled by uncommenting the line (removing the #)
 
@@ -212,7 +212,7 @@ The script uses a (YOU-CHOOSE-IT) bit long SSH Key for authentication. That key 
 | 1  |  If you try to run the scrip more often than once a day the logs of the secound run will also be in the same log file  | Logging has not been designed for this | No |
 | 2  | If you try to create a bigger SSH-Key than 16384 bit it will not work due to limitations  | There is a limit for the max key lenght in ssh-keygen if the key bits exceeds the of maximum 16384 | Not dependent on the script | 
 | 3 | If you try to run the scrip/module more often than once a minute the configs will get overwritten | Backup has not been designed for this. Timestamp do not have seconds See in any ./Modules/Backup/\<VENDOR>/\<VENDOR>.sh ```date=`date +"%H-%M_%d-%m-%Y"` ``` will create file like **AUT-VIE-Firewall-01-HH-MM_DD-MM-YYYY.conf** | No |
-| 4 | If you run the script more often than once in 120 minutes the output of ./Modules/Archive/ArchiveStats.sh **Current Configs in Archive** will not be correct | Due to a setting in the modul. Change ```-mmin -120``` to a lower value e.g ```-mmin -30```. This can cause problems getting all configs if they are olded than the defined value (Will show say less **Current Configs in Archive** than realy backuped.)| More likely yes |
+| 4 | If you run the script more often than once in 120 minutes the output of ./Modules/Archive/ArchiveStats.sh **Current Configs in Archive** will not be correct | Due to a setting in the module. Change ```-mmin -120``` to a lower value e.g ```-mmin -30```. This can cause problems getting all configs if they are olded than the defined value (Will show say less **Current Configs in Archive** than realy backuped.)| More likely yes |
 | 5 | If the backup process takes more than 120 minutes the output of ./Modules/Archive/ArchiveStats.sh will not be correct | Due to settings in the modules. Change ```-mmin -120``` to a higher value e.g ```-mmin -360``` to fix in ./Modules/Archive/ArchiveStats.sh **Total lines operating firewalls** and **Average lines in conifig file** in ./Modules/Archive/ArchiveStats.sh will **Current Configs in Archive** get fixed and will be displayed correctly | No (Can be fixed manually) |
 
 # Facing Problems
