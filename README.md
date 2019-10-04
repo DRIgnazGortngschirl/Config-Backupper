@@ -1,6 +1,7 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/4a40b08c61e64e598dca919d22a9eee5)](https://app.codacy.com/app/MrMarioMichel/Config-Backupper?utm_source=github.com&utm_medium=referral&utm_content=MrMarioMichel/Config-Backupper&utm_campaign=Badge_Grade_Dashboard)
 
 # Config-Backupper
+
 This script can backup the configs from firewalls and switches.
 
 | Vendor        | Operational |
@@ -148,14 +149,30 @@ In ./Main-Launcher.sh are modules under the section **Backup Modules** that need
 ```
 ...
 ### Backup Modules ###
-./Modules/Backup/Fortinet/Fortinet.sh &>> ./Log/Fortinet/log$date.txt <-- Module enabled
-./Modules/Backup/Fortinet/Fortinet-Special.sh &>> ./Log/Fortinet/log$date.txt <-- Module enabled
-# ./Modules/Backup/Cisco/Cisco.sh &>> ./Log/Cisco/log$date.txt <-- Module disabled
-# ./Modules/Backup/DELL/DELL.sh &>> ./Log/DELL/log$date.txt <-- Module disabled
-# ./Modules/Backup/HP/HP.sh &>> ./Log/HP/log$date.txt <-- Module disabled
+./Modules/Backup/Fortinet/Fortinet.sh &>> ./Log/Fortinet/log$date.txt             <-- Module enabled
+./Modules/Backup/Fortinet/Fortinet-Special.sh &>> ./Log/Fortinet/log$date.txt     <-- Module enabled
+# ./Modules/Backup/Cisco/Cisco.sh &>> ./Log/Cisco/log$date.txt                    <-- Module disabled
+# ./Modules/Backup/DELL/DELL.sh &>> ./Log/DELL/log$date.txt                       <-- Module disabled
+# ./Modules/Backup/HP/HP.sh &>> ./Log/HP/log$date.txt                             <-- Module disabled
 ...
 ```
 
+## Sub Modules
+
+./Modules/Backup/\<VENDOR>/\<VENDOR>.sh are sub modules and under the section **Sub Backup Modules**  you need to enable the sub backup moudles by uncommenting the line (removing the #)
+  
+#### For example
+```
+#!/bin/bash
+
+echo "[i]: Started Backup of Configs : CISCO"
+
+...
+### Backup Modules ###
+./Modules/Backup/Cisco/sgX00.sh            <-- Module enabled
+# ./Modules/Backup/Cisco/n3XXX.sh          <-- Module disabled
+...
+```
 ## Client side (Network device)*
 
 Create or use an existing read only profile for a user named "backup" (All in small letters, all togther, no spaces) on the device. This user should get only read rights for highest security. Also add the ./SSH-Keys/Backup-SSH-Key.pub to the user that this key pair can be used to login. See table **Use SSH-Key for Authenictaion** how to do that for each vendor.
