@@ -4,7 +4,7 @@
 
     <head>
 
-        <title>Directory listing of <?php echo $lister->getListedPath(); ?></title>
+        <title>Config-Backupper <?php echo $lister->getListedPath(); ?></title>
         <link rel="shortcut icon" href="<?php echo THEMEPATH; ?>/img/folder.png">
 
         <!-- STYLES -->

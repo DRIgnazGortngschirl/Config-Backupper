@@ -1,16 +1,17 @@
 #!/bin/bash
 
-date=`date +%d%m%y`
+date=$(date +%d%m%y)
 
 echo "Backup Errors"
 echo "Fortinet:"
 echo "--------------------------------------------------------------------------------------------------"
-join <(sort ./Devices/Fortinet/Fortinet-Devices.txt) <(sort ./Log/Fortinet/log$date.txt | grep '\[i]:' | grep -e "not reachable" -e "failed" | sed -e 's/\[i]: //')
-# join <(sort ./Modules/Backup/Fortinet-Special.sh | grep "#" | grep -v '#!/bin/bash' |  sed 's/# //') <(sort ./Log/Fortinet/log$date.txt| grep '\[i]:' | grep -e "not reachable" -e "failed" | sed -e 's/\[i]: //')
+join <(sort ./Devices/Fortinet/Fortinet-Devices.txt | egrep -v "^\s*(#|$)") <(sort ./Log/Fortinet/log$date.txt | grep '\[i]:' | grep -e "Name not found" -e "not reachable" -e "backup failed" | sed -e 's/\[i]: //')
+# join <(sort ./Modules/Backup/Fortinet-Special.sh | grep '#' | grep -v '#!/bin/bash' | sed 's/# //') <(sort ./Log/Fortinet/log$date.txt | grep '\[i]:' | grep -e "Name not found" -e "not reachable" -e "backup failed" | sed -e 's/\[i]: //')
 echo "--------------------------------------------------------------------------------------------------"
 echo "Cisco:"
 echo "--------------------------------------------------------------------------------------------------"
-join <(sort ./Devices/Cisco/Cisco-Devices.txt) <(sort ./Log/Cisco/log$date.txt | grep '\[i]:' | grep -e "not reachable" -e "failed" | sed -e 's/\[i]: //')
+join <(sort ./Devices/Cisco/Cisco-sgX00.txt | egrep -v "^\s*(#|$)") <(sort ./Log/Cisco/log$date.txt | grep '\[i]:' | grep -e "Name not found" -e "not reachable" -e "backup failed" | sed -e 's/\[i]: //')
+join <(sort ./Devices/Cisco/Cisco-n3XXX-txt | egrep -v "^\s*(#|$)") <(sort ./Log/Cisco/log$date.txt | grep '\[i]:' | grep -e "Name not found" -e "not reachable" -e "backup failed" | sed -e 's/\[i]: //')
 echo "--------------------------------------------------------------------------------------------------"
 #echo "DELL :"
 #echo "----------------------------------------------------------------------------"
