@@ -137,11 +137,11 @@ In ./Devices/\<VENDOR>/\<VENDOR>-Devices.txt you need to enter line by line all 
 
 #### For example
 
-```192.168.1.1 --> AUT-VIE-Firewall-01 ### Firewall is very secure```*
+```192.168.1.1 --> mm-vie-fw-01 ### Firewall is very secure```*
 
 Use a # in front of a line to uncomment a line (This will get ignored from the backup script).
 
-```#10.0.0.1 --> AUT-VIE-Firewall-01-OLD ### Old Firewall```*
+```#10.0.0.1 --> mm-vie-fw-01-old ### Old Firewall```*
 
 *Hostname (will be obtained from the backup file directly) and a comment are optional.
 
@@ -168,10 +168,6 @@ In ./Main-Launcher.sh are modules under the section **Backup Modules** that need
   
 #### For example
 ```
-#!/bin/bash
-
-echo "[i]: Started Backup of Configs : CISCO"
-
 ...
 ### Backup Modules ###
 ./Modules/Backup/Cisco/sgX00.sh            <-- Module enabled
