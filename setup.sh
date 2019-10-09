@@ -16,34 +16,36 @@ search=PLACEHOLDERFORINSTALLATIONPATH
 replace=$installpath
 sed -i "s|${search}|${replace}|g" ./Main-Launcher.sh
 echo '[i] : Main-Launcher.sh where configured'
+
+# Phase 3 configure old files commpress&deletion time
 echo "--------------------------------------------------------------------------------"
 printf "Set days after a config gets commpressed (.gz format) [2,5x-3,5x SMALLER] (Numbers only): "
 read archivetimearchivecommpress
-echo 'echo "[i]: Compressing configs Started"' >> ./Modules/Archive/OldConfigs/Archiver.sh
-echo "find ./Archive -name "*.conf" -mtime +$archivetimearchivecommpress -exec gzip -v {} +" >> ./Modules/Archive/OldConfigs/Archiver.sh
-echo 'echo "[i]: Compressing configs End"' >> ./Modules/Archive/OldConfigs/Archiver.sh
+search=PLACEHOLDERFORARCHIVETIMEARCHIVECOMMPRESS
+replace=$archivetimearchivecommpress
+sed -i "s|${search}|${replace}|g" ./Modules/Archive/OldConfigs/Archiver.sh
 echo "--------------------------------------------------------------------------------"
 printf "Set days after a config gets deleted (Numbers only): "
 read archivetimearchivedelete
-echo 'echo "[i]: Deleting configs Started"' >> ./Modules/Archive/OldConfigs/Archiver.sh
-echo "find ./Archive -name "*.conf.gz" -mtime +$archivetimearchivedelete -exec rm -v {} +" >> ./Modules/Archive/OldConfigs/Archiver.sh
-echo 'echo "[i]: Deleting configs End"' >> ./Modules/Archive/OldConfigs/Archiver.sh
+search=PLACEHOLDERFORARCHIVETIMEARCHIVEDELETE
+replace=$archivetimearchivedelete
+sed -i "s|${search}|${replace}|g" ./Modules/Archive/OldConfigs/Archiver.sh
 echo "--------------------------------------------------------------------------------"
 printf "Set days after a logs gets commpressed (.gz format) [2,5x-3,5x SMALLER] (Numbers only): "
 read archivetimelogscommpress
-echo 'echo "[i]: Compressing logs Started"' >> ./Modules/Archive/OldLogs/Archiver.sh
-echo "find ./Log -mtime +$archivetimelogscommpress -exec gzip -v {} +" >> ./Modules/Archive/OldLogs/Archiver.sh
-echo 'echo "[i]: Compressing logs End"' >> ./Modules/Archive/OldLogs/Archiver.sh
+search=PLACEHOLDERFORARCHIVETIMELOGSCOMMPRESS
+replace=$archivetimelogscommpress
+sed -i "s|${search}|${replace}|g" ./Modules/Archive/OldLogs/Archiver.sh
 echo "--------------------------------------------------------------------------------"
 printf "Set days after a logs gets deleted (.gz format) [2,5x-3,5x SMALLER] (Numbers only): "
 read archivetimelogsdelete
-echo 'echo "[i]: Deleting logs Started"' >> ./Modules/Archive/OldLogs/Archiver.sh
-echo "find ./Log -mtime +$archivetimelogsdelete -exec gzip -v {} +" >> ./Modules/Archive/OldLogs/Archiver.sh
-echo 'echo "[i]: Deleting logs End"' >> ./Modules/Archive/OldLogs/Archiver.sh
+search=PLACEHOLDERFORARCHIVETIMELOGSDELETE
+replace=$archivetimelogsdelete
+sed -i "s|${search}|${replace}|g" ./Modules/Archive/OldLogs/Archiver.sh
 echo "--------------------------------------------------------------------------------"
 echo "[i] : Main Launcher where created"
 
-# Phase 3 make the files executable
+# Phase 4 make the files executable
 chmod --verbose 700 ./Main-Launcher.sh
 chmod --verbose 700 ./Modules/Backup/Fortinet/Fortinet.sh
 chmod --verbose 700 ./Modules/Backup/Fortinet/Fortinet-Special.sh
@@ -61,7 +63,7 @@ chmod --verbose 700 ./Modules/Setup/WebsiteIndex.sh
 chmod --verbose 700 ./Modules/FirmwareCheck/Fortinet/FirmwareChecker.sh
 echo "[i] : Modules & Lanucher where modified"
 
-# Phase 4 create SSH Key
+# Phase 5 create SSH Key
 echo "----------------------------------------"
 echo '1024 bit - ONLY FOR TESTING'
 echo '2048 bit - It is "secure" until 2030!'
@@ -73,25 +75,25 @@ printf "Enter bit lenth (Numbers only): "
 read rsakeylenth
 ssh-keygen -t rsa -b $rsakeylenth -f ./SSH-Keys/Backup-SSH-Key
 
-# Phase 5 show the new created Public SSH-Key
+# Phase 6 show the new created Public SSH-Key
 echo "-----BEGIN PUBLIC KEY-----"
 echo "$(cat ./SSH-Keys/Backup-SSH-Key.pub)"
 echo "-----END PUBLIC KEY-----"
 echo " "
 
-# Phase 6 configure Fortinet-AutoSetup.sh
+# Phase 7 configure Fortinet-AutoSetup.sh
 search=PLACEHOLDERFORSSHKEY
 replace=$(cat ./SSH-Keys/Backup-SSH-Key.pub)
 sed -i "s|${search}|${replace}|g" ./Modules/Setup/Fortinet/AutoSetup.sh
 echo '[i] : Fortinet Fortinet-AutoSetup.sh where configured'
 
-# Phase 7 show e.g. for a crontab
+# Phase 8 show e.g. for a crontab
 echo "--------------------------------------------------------------------------------"
 echo "Create a crontab to run the backup every day @ 2:00 enter this line in crontab"
 echo "0 2 * * * $installpath/Main-Launcher.sh"
 echo "--------------------------------------------------------------------------------"
 
-# Phase 8 remove ./Log/<VENDOR>/DeleteMe files
+# Phase 9 remove ./Log/<VENDOR>/DeleteMe files
 rm -v ./Log/Cisco/DeleteMe ./Log/Backup/DeleteMe ./Log/DELL/DeleteMe ./Log/Fortinet/DeleteMe ./Log/Failed/DeleteMe ./Log/HP/DeleteMe ./SSH-Keys/DeleteMe ./Devices/Firmware-Versions/DeleteMe
 echo "[i] : Removed ./Log/<VENDOR>/DeleteMe & ./SSH-Keys/ files"
 rm -v ./setup.sh
