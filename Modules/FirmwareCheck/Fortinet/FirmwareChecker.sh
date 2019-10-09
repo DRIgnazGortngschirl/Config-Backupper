@@ -4,7 +4,7 @@ find ./Archive/ -name "*.conf" -mtime 0 -exec head -n 100 {} + | grep -e '#confi
 awk '{ print $2}' ./Devices/Firmware-Versions/Fortinet-Firmware-Versions.txt | cut -d "-" -f2 | sort | uniq -c | sed  's/^ *//' | sed 's/ / x FortiOS /g' > ./Devices/Firmware-Versions/Fortinet-Firmware-Count.txt
 
 
-### Display on a Website ###  
+### Display on a website ###  
 
 # Can be used to create a "okay" looking list of ./Devices/Firmware-Versions/Fortinet-Firmware-Versions.txt to display it e.g. on a website. Will be placed in ./Devices/Firmware-Versions/
 # sed -i ./Devices/Firmware-Versions/Fortinet-Firmware-Versions.txt 's/ /\&nbsp;\&nbsp;\&nbsp;\&nbsp;\&nbsp;\&nbsp;\&nbsp;\&nbsp;\&nbsp;\&nbsp;/g' |  > ./Devices/Firmware-Versions/Fortinet-Firmware-Versions.html
