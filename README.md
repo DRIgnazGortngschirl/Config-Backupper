@@ -145,7 +145,7 @@ Use a # in front of a line to uncomment a line (This will get ignored from the b
 
 *Hostname (will be obtained from the backup file directly) and a comment are optional.
 
-## Enabling the module
+## Enabling the Main Modules
 
 In ./Main-Launcher.sh are modules under the section **Backup Modules** that need to enabled by uncommenting the line (removing the #). Check with ```./Modules/Setup/ModuleChecker.sh``` if all needed modules has been enabled correctly.
 
@@ -155,14 +155,13 @@ In ./Main-Launcher.sh are modules under the section **Backup Modules** that need
 ...
 ### Backup Modules ###
 ./Modules/Backup/Fortinet/Fortinet.sh &>> ./Log/Fortinet/log$date.txt             <-- Module enabled
-./Modules/Backup/Fortinet/Fortinet-Special.sh &>> ./Log/Fortinet/log$date.txt     <-- Module enabled
-# ./Modules/Backup/Cisco/Cisco.sh &>> ./Log/Cisco/log$date.txt                    <-- Module disabled
+./Modules/Backup/Cisco/Cisco.sh &>> ./Log/Cisco/log$date.txt                      <-- Module enabled
 # ./Modules/Backup/DELL/DELL.sh &>> ./Log/DELL/log$date.txt                       <-- Module disabled
 # ./Modules/Backup/HP/HP.sh &>> ./Log/HP/log$date.txt                             <-- Module disabled
 ...
 ```
 
-## Sub Modules
+## Enabling the Submodules
 
 ./Modules/Backup/\<VENDOR>/\<VENDOR>.sh are sub modules and under the section **Sub Backup Modules**  you need to enable the sub backup moudles by uncommenting the line (removing the #). Check with ```./Modules/Setup/ModuleChecker.sh``` if all needed modules has been enabled correctly.
   
@@ -174,6 +173,19 @@ In ./Main-Launcher.sh are modules under the section **Backup Modules** that need
 # ./Modules/Backup/Cisco/n3XXX.sh          <-- Module disabled
 ...
 ```
+
+### Submodules (Login credentials)
+
+In each* submodule you will find a section on the top that looks like that. in this section you need to define the credencals 
+
+```
+...
+user="<VENDOR>"
+passwd="XXXXXXPASSWORDXXXXXX"
+...
+```
+
+*Fortigates are working with the SSH key. No password required.
 
 ## Client side (Network device)*
 
