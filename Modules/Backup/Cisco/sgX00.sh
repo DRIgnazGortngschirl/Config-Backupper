@@ -2,7 +2,7 @@
 
 echo "[i]: Started Backup of Configs : Cisco (sgX00.sh)"
 
-for device in $(egrep -v "^\s*(#|$)" ./Devices/Cisco/Cisco-Devices.txt | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b")
+for device in $(egrep -v "^\s*(#|$)" ./Devices/Cisco/sgX00.txt | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b")
  do
   echo -e "[i]: Host --> $device"
   if ping -c 3 $device &> /dev/null
