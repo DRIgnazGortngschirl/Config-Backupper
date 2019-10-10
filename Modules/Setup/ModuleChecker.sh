@@ -3,9 +3,9 @@
 fortinetmodule=$(egrep -v "^\s*(#|$)"  Main-Launcher.sh | grep Fortinet.sh)
 if [ -z "$fortinetmodule" ]
  then
-  echo "[i]: Fortinet Main Module disabled"
+  echo "[i]:  Fortinet Main Module disabled"
  else
-  echo "[i]: Fortinet Main Module enabled"
+  echo "[i]:  Fortinet Main Module enabled"
   fortinetsubmodulefortigateX=$(egrep -v "^\s*(#|$)" ./Modules/Backup/Fortinet/Fortinet.sh | grep fortigateX.sh)
   if [ -z "$fortinetsubmodulefortigateX" ]
    then
@@ -27,9 +27,9 @@ echo ""
 ciscomodule=$(egrep -v "^\s*(#|$)"  Main-Launcher.sh | grep Cisco.sh)
 if [ -z "$ciscomodule" ]
  then
-  echo "[i]: Cisco Main Module disabled"
+  echo "[i]:  Cisco Main Module disabled"
  else
-  echo "[i]: Cisco Main Module enabled"
+  echo "[i]:  Cisco Main Module enabled"
   ciscosubmodulen3XXX=$(egrep -v "^\s*(#|$)" ./Modules/Backup/Cisco/Cisco.sh | grep n3XXX.sh)
   if [ -z "$ciscosubmodulen3XXX" ]
    then
@@ -58,9 +58,9 @@ echo ""
 dellmodule=$(egrep -v "^\s*(#|$)" Main-Launcher.sh | grep DELL.sh)
 if [ -z "$dellmodule" ]
  then   
-  echo "[i]: DELL Main Module disabled"
+  echo "[i]:  DELL Main Module disabled"
   else
-   echo "[i]: DELL Main Module enaabled"
+   echo "[i]:  DELL Main Module enaabled"
    dellsubmodulenXXXX=$(egrep -v "^\s*(#|$)"  ./Modules/Backup/DELL/DELL.sh | grep nXXXX.sh)
    if [ -z "$dellsubmodulenXXXX" ]
     then
