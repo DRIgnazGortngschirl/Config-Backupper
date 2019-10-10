@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "[i]: Started Backup of Configs : CISCO (sgX00.sh)"
+echo "[i]: Started Backup of Configs : Cisco (sgX00.sh)"
 
 for device in $(egrep -v "^\s*(#|$)" ./Devices/Cisco/Cisco-Devices.txt | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b")
  do
