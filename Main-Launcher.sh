@@ -1,15 +1,16 @@
 #!/bin/bash
 date=$(date +%d%m%y)
+
 # ---------------------------------------------
 cd PLACEHOLDERFORINSTALLATIONPATH
 # ---------------------------------------------
-# 
+
 echo "[i]: Start of backup @ $(date +%H:%m)" >> ./Log/Backup/log$date.txt
 
 ### Backup Modules ###
 # ./Modules/Backup/Fortinet/Fortinet.sh &>> ./Log/Fortinet/log$date.txt ### FUNCTIONAL ###
 # ./Modules/Backup/Fortinet/Fortinet-Special.sh &>> ./Log/Fortinet/log$date.txt ### Disabled by default FUNCTIONAL ###
-# ./Modules/Backup/Cisco/Cisco.sh &>> ./Log/Cisco/log$date.txt ### Only for sgx00 & n3XXX series working ###
+# ./Modules/Backup/Cisco/Cisco.sh &>> ./Log/Cisco/log$date.txt ### Only for sgx00 & n3XXX & wsc3650 series working ###
 # ./Modules/Backup/DELL/DELL.sh &>> ./Log/DELL/log$date.txt ### Only for nXXXX series working ###
 # ./Modules/Backup/HP/HP.sh &>> ./Log/HP/log$date.txt ### NOT YET FUNCTIONAL! ###
 
