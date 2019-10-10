@@ -2,7 +2,7 @@
 
 user=backup
 
-echo "[i]: Started Backup of Configs : fortigateX"
+echo "[i]: Started Backup of Configs : Fortigate (fortigateX.sh)"
 
 for device in $(egrep -v "^\s*(#|$)" ./Devices/Fortinet/fortigateX.txt | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b")
  do
