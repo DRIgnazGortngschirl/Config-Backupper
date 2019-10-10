@@ -22,6 +22,8 @@ if [ -z "$fortinetmodule" ]
   fi
 fi
 
+echo ""
+
 ciscomodule=$(egrep -v "^\s*(#|$)"  Main-Launcher.sh | grep Cisco.sh)
 if [ -z "$ciscomodule" ]
  then
@@ -43,6 +45,8 @@ if [ -z "$ciscomodule" ]
     echo " |--> Cisco Sub Module sgX00.sh enabled" 
   fi     
 fi
+
+echo ""
 
 dellmodule=$(egrep -v "^\s*(#|$)" Main-Launcher.sh | grep DELL.sh)
 if [ -z "$dellmodule" ]
