@@ -35,7 +35,7 @@ if [ -z "$ciscomodule" ]
    then
      echo " |--> Cisco Sub Module n3XXX.sh disabled"
    else
-    echo " |-->  Cisco Sub Module n3XXX.sh enabled" 
+    echo " |--> Cisco Sub Module n3XXX.sh enabled" 
   fi
   ciscosubmodulewsc3650=$(egrep -v "^\s*(#|$)" ./Modules/Backup/Cisco/Cisco.sh | grep wsc3650.sh)
   if [ -z "$ciscosubmodulewsc3650" ]
