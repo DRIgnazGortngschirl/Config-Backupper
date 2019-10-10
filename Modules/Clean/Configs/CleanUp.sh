@@ -11,7 +11,6 @@ if [[ $REPLY =~ ^[Y]$ ]]
             then
                 echo "I will DELETE now ALL Backuped Configs."
                 sleep 3
-                rm ./Archive -v -Rf
-                mkdir ./Archive -v
+                find ./Archive ! -name 'index.php' ! -name 'DirectoryLister.php' ! -name '*js' ! -name '*css' ! -name '*.php' ! -name '*png' ! -name '*img'  ! -name 'bootstrap' ! -name 'themes'  ! -name 'resources' ! -name 'Archive' -exec rm -v  -Rf {} +
         fi
 fi

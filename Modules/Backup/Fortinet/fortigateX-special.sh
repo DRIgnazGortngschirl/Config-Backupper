@@ -6,7 +6,7 @@
 
 
 
-echo "[i]: Started Backup of Configs : FORTINET (SPECIAL)"
+echo "[i]: Started Backup of Configs : Fortinet (fortigateX-special.sh)"
 
 # A "#" infornt of a line can be used for any note/comment 
 # e.g.

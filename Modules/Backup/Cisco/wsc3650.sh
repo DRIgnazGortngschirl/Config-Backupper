@@ -3,15 +3,14 @@
 user="cisco"
 passwd="XXXXXXPASSWORDXXXXXX"
 
-echo "[i]: Started Backup of Configs : Cisco (n3XXX.sh)"
-
-for device in $(egrep -v "^\s*(#|$)" ./Devices/Cisco/n3xxx-txt | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b")
+echo "[i]: Started Backup of Configs : Cisco (wsc3650.sh)"
+for device in $(egrep -v "^\s*(#|$)" ./Devices/Cisco/wsc3650.txt | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b")
  do
   echo -e "[i]: Host --> $device"
   if ping -c 3 $device &> /dev/null
    then
     echo "[i]: $device reachable"
-    sshpass -p "$passwd" ssh -tt $user@$device <<EOF > BackupConfigCiscoTEMP1 
+    sshpass -p "$passwd" ssh -tt $user@$device <<EOF > BackupConfigCiscoTEMP1
     terminal length 0
     show startup-config
     exit
