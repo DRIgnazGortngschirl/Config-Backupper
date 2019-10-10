@@ -147,7 +147,7 @@ Use a # in front of a line to uncomment a line (This will get ignored from the b
 
 ## Enabling the module
 
-In ./Main-Launcher.sh are modules under the section **Backup Modules** that need to enabled by uncommenting the line (removing the #)
+In ./Main-Launcher.sh are modules under the section **Backup Modules** that need to enabled by uncommenting the line (removing the #). Check with ```./Modules/Setup/ModuleChecker.sh``` if all needed modules has been enabled correctly.
 
 #### For example
 
@@ -164,7 +164,7 @@ In ./Main-Launcher.sh are modules under the section **Backup Modules** that need
 
 ## Sub Modules
 
-./Modules/Backup/\<VENDOR>/\<VENDOR>.sh are sub modules and under the section **Sub Backup Modules**  you need to enable the sub backup moudles by uncommenting the line (removing the #)
+./Modules/Backup/\<VENDOR>/\<VENDOR>.sh are sub modules and under the section **Sub Backup Modules**  you need to enable the sub backup moudles by uncommenting the line (removing the #). Check with ```./Modules/Setup/ModuleChecker.sh``` if all needed modules has been enabled correctly.
   
 #### For example
 ```
@@ -174,6 +174,7 @@ In ./Main-Launcher.sh are modules under the section **Backup Modules** that need
 # ./Modules/Backup/Cisco/n3XXX.sh          <-- Module disabled
 ...
 ```
+
 ## Client side (Network device)*
 
 Create or use an existing read only profile for a user named "backup" (All in small letters, all togther, no spaces) on the device. This user should get only read rights for highest security. Also add the ./SSH-Keys/Backup-SSH-Key.pub to the user that this key pair can be used to login. See table **Use SSH-Key for Authenictaion** how to do that for each vendor.
