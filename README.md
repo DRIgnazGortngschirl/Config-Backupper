@@ -6,7 +6,7 @@ This script can backup the configs from firewalls and switches.
 
 | Vendor        | Operational |
 | :------------- |:------------
-| Fortinet   | Yes |
+| Fortinet   | For fortigateX series |
 | DELL       | For nXXXX series |
 | Cisco      | For sgX00 & n3XXX & wsc3650 series |
 | HP         |                  |
@@ -130,7 +130,7 @@ In ./Modules/FirmwareCheck/Fortinet/FirmwareChecker.sh under the section **Displ
 
 ## Server side
 
-In ./Devices/\<VENDOR>/\<VENDOR>-Devices.txt you need to enter line by line all IP addresses.
+In ./Devices/\<VENDOR>/\<DEVICE-MODEL>.txt you need to enter line by line all IP addresses.
 
 ### Syntax
 \<IP> --> \<HOSTNAME> ### \<COMMENT>
@@ -145,7 +145,7 @@ Use a # in front of a line to uncomment a line (This will get ignored from the b
 
 *Hostname (will be obtained from the backup file directly) and a comment are optional.
 
-## Enabling the module
+## Enabling the Main Modules
 
 In ./Main-Launcher.sh are modules under the section **Backup Modules** that need to enabled by uncommenting the line (removing the #). Check with ```./Modules/Setup/ModuleChecker.sh``` if all needed modules has been enabled correctly.
 
@@ -155,16 +155,15 @@ In ./Main-Launcher.sh are modules under the section **Backup Modules** that need
 ...
 ### Backup Modules ###
 ./Modules/Backup/Fortinet/Fortinet.sh &>> ./Log/Fortinet/log$date.txt             <-- Module enabled
-./Modules/Backup/Fortinet/Fortinet-Special.sh &>> ./Log/Fortinet/log$date.txt     <-- Module enabled
-# ./Modules/Backup/Cisco/Cisco.sh &>> ./Log/Cisco/log$date.txt                    <-- Module disabled
+./Modules/Backup/Cisco/Cisco.sh &>> ./Log/Cisco/log$date.txt                      <-- Module enabled
 # ./Modules/Backup/DELL/DELL.sh &>> ./Log/DELL/log$date.txt                       <-- Module disabled
 # ./Modules/Backup/HP/HP.sh &>> ./Log/HP/log$date.txt                             <-- Module disabled
 ...
 ```
 
-## Sub Modules
+## Enabling the Submodules
 
-./Modules/Backup/\<VENDOR>/\<VENDOR>.sh are sub modules and under the section **Sub Backup Modules**  you need to enable the sub backup moudles by uncommenting the line (removing the #). Check with ```./Modules/Setup/ModuleChecker.sh``` if all needed modules has been enabled correctly.
+./Modules/Backup/\<VENDOR>/\<DEVICE-MODEL>.sh are sub modules and under the section **Sub Backup Modules**  you need to enable the sub backup moudles by uncommenting the line (removing the #). Check with ```./Modules/Setup/ModuleChecker.sh``` if all needed modules has been enabled correctly.
   
 #### For example
 ```
@@ -174,6 +173,19 @@ In ./Main-Launcher.sh are modules under the section **Backup Modules** that need
 # ./Modules/Backup/Cisco/n3XXX.sh          <-- Module disabled
 ...
 ```
+
+### Submodules (Login credentials)
+
+In each* submodule you will find a section on the top that looks like that. in this section you need to define the credencals 
+
+```
+...
+user="<VENDOR>"
+passwd="XXXXXXPASSWORDXXXXXX"
+...
+```
+
+*Fortigates are working with the SSH key. No password required.
 
 ## Client side (Network device)*
 
@@ -213,9 +225,9 @@ The script uses a (YOU-CHOOSE-IT) bit long SSH Key for authentication. That key 
 | :-------------: |:------------- | :----- | :-----: |
 | 1  |  If you try to run the scrip more often than once a day the logs of the secound run will also be in the same log file  | Logging has not been designed for this | No |
 | 2  | If you try to create a bigger SSH-Key than 16384 bit it will not work due to limitations  | There is a limit for the max key lenght in ssh-keygen if the key bits exceeds the of maximum 16384 | Not dependent on the script | 
-| 3 | If you try to run the scrip/module more often than once a minute the configs will get overwritten | Backup has not been designed for this. Timestamp do not have seconds See in any ./Modules/Backup/\<VENDOR>/\<VENDOR>.sh ```date=`date +"%H-%M_%d-%m-%Y"` ``` will create file like **AUT-VIE-Firewall-01-HH-MM_DD-MM-YYYY.conf** | No |
-| 4 | If you run the script more often than once in 120 minutes the output of ./Modules/Archive/ArchiveStats.sh **Current Configs in Archive** will not be correct | Due to a setting in the module. Change ```-mmin -120``` to a lower value e.g ```-mmin -30```. This can cause problems getting all configs if they are olded than the defined value (Will show say less **Current Configs in Archive** than realy backuped.)| More likely yes |
-| 5 | If the backup process takes more than 120 minutes the output of ./Modules/Archive/ArchiveStats.sh will not be correct | Due to settings in the modules. Change ```-mmin -120``` to a higher value e.g ```-mmin -360``` to fix in ./Modules/Archive/ArchiveStats.sh **Total lines operating firewalls** and **Average lines in conifig file** in ./Modules/Archive/ArchiveStats.sh will **Current Configs in Archive** get fixed and will be displayed correctly | No (Can be fixed manually) |
+| 3 | If you try to run the scrip/module more often than once a minute the configs will get overwritten | Backup has not been designed for this. Timestamp do not have seconds See in any ./Modules/Backup/\<VENDOR>/\<DEVICE-MODEL>.sh ```date=$(date +"%H-%M_%d-%m-%Y") ``` will create file like **mm-vie-fw-01-HH-MM_DD-MM-YYYY.conf** | No |
+| 4 | If you run the script more often than once in 120 minutes the output of ./Modules/Archive/ArchiveStats.sh **Current Configs in Archive** will not be correct | Due to a setting in the module. Change ```-mmin -120``` to a lower value e.g ```-mmin -30```. This can cause problems getting all configs if they are oder than the defined value (Will show say less **Current Configs in Archive** than realy backuped.)| More likely yes |
+| 5 | If the backup process takes more than 120 minutes the output of ./Modules/Archive/ArchiveStats.sh will not be correct | Due to settings in the modules. Change ```-mmin -120``` to a higher value e.g ```-mmin -360``` to fix in ./Modules/Archive/ArchiveStats.sh **Total lines operating devices** and **Average lines in conifig file** in ./Modules/Archive/ArchiveStats.sh will **Current Configs in Archive** get fixed and will be displayed correctly | No (Can be fixed manually) |
 
 # Facing Problems
 
@@ -242,7 +254,7 @@ The script uses a (YOU-CHOOSE-IT) bit long SSH Key for authentication. That key 
 
 | Problem     | Solution  |  Description | 
 | :------------- |:------------- | :----- |
-| [i]: (sgX00.sh) Output was trash, try again in 15 minutes | Check the credentials and also if the switch uses http or httpss | Wrong credentials, http or https connection method can be the reason. This can be changed in ./Modules/Backup/Cisco/sgX00.sh |
+| [i]: (sgX00.sh) Output was trash, try again in 15 minutes | Check the credentials and also if the switch uses http or https | Wrong credentials, http or https connection method can be the reason. This can be changed in ./Modules/Backup/Cisco/sgX00.sh |
 | 2 |   |   |
 | 3 |   |   |
 
