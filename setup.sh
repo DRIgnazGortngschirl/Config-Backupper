@@ -46,22 +46,48 @@ echo "--------------------------------------------------------------------------
 echo "[i] : Main Launcher where created"
 
 # Phase 4 make the files executable
+
+### Launcher ###
 chmod --verbose 700 ./Main-Launcher.sh
+
+###./Modules/Backup/ ###
+## Main
 chmod --verbose 700 ./Modules/Backup/Fortinet/Fortinet.sh
-chmod --verbose 700 ./Modules/Backup/Fortinet/Fortinet-Special.sh
 chmod --verbose 700 ./Modules/Backup/DELL/DELL.sh
 chmod --verbose 700 ./Modules/Backup/HP/HP.sh
 chmod --verbose 700 ./Modules/Backup/Cisco/Cisco.sh
-chmod --verbose 700 ./Modules/Archive/Fastdebug.sh
-chmod --verbose 700 ./Modules/Clean/Configs/CleanUp.sh
-chmod --verbose 700 ./Modules/Clean/Logs/CleanUp.sh
-chmod --verbose 700 ./Modules/Archive/ArchiveStats.sh
+
+## Sub
+# Fortinet
+chmod --verbose 700 ./Modules/Backup/Fortinet/fortigateX-special.sh
+chmod --verbose 700 ./Modules/Backup/Fortinet/fortigateX.sh
+# Cisco
+chmod --verbose 700 ./Modules/Backup/Cisco/n3XXX.sh
+chmod --verbose 700 ./Modules/Backup/Cisco/sgX00.sh
+chmod --verbose 700 ./Modules/Backup/Cisco/wsc3650.sh
+# DELL
+chmod --verbose 700 ./Modules/Backup/DELL/nXXXX.sh
+
+###./Modules/Archive/ ###
+## Archiving
 chmod --verbose 700 ./Modules/Archive/OldConfigs/Archiver.sh
 chmod --verbose 700 ./Modules/Archive/OldLogs/Archiver.sh
-chmod --verbose 700 ./Modules/Setup/Fortinet/AutoSetup.sh
+chmod --verbose 700 ./Modules/Archive/ArchiveStats.sh
+# Other
+chmod --verbose 700 ./Modules/Archive/Fastdebug.sh
+
+##./Modules/Clean/
+chmod --verbose 700 ./Modules/Clean/Configs/CleanUp.sh
+chmod --verbose 700 ./Modules/Clean/Logs/CleanUp.sh
+
+##./Modules/Setup/
 chmod --verbose 700 ./Modules/Setup/WebsiteIndex.sh
-chmod --verbose 700 ./Modules/FirmwareCheck/Fortinet/FirmwareChecker.sh
+chmod --verbose 700 ./Modules/Setup/Fortinet/AutoSetup.sh
 chmod --verbose 700 ./Modules/Setup/ModuleChecker.sh
+
+### Other
+chmod --verbose 700 ./Modules/FirmwareCheck/Fortinet/FirmwareChecker.sh
+
 echo "[i] : Modules & Lanucher where modified"
 
 # Phase 5 create SSH Key
