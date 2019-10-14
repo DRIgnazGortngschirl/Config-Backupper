@@ -16,8 +16,8 @@ minus1=1 # Caused by also counting the./Archive/resources/config.php as a .conf 
 
 # Do some Quick Math 2 + 2 = 4 - 1 = 3 
 avglinesinconfig=$((expr $totallines / $configsinarchive))
-fortinethostfilecounttotal$((expr $fortinethostfilecount + fortinetspecialhostfilecount))
-total=$((expr $fortinethostfilecounttotal + $ + $hphostfilecount + $ciscohostfilecount + $dellhostfilecount))
+fortinethostfilecounttotal$((expr $fortinethostfilecount + $fortinetspecialhostfilecount))
+total=$((expr $fortinethostfilecounttotal + $hphostfilecount + $ciscohostfilecount + $dellhostfilecount))
 dirsinarchive=$((expr $dirsinarchive - $minus2))
 totalconfigsarchive=$((expr $totalconfigsarchive - $minus1))
 
