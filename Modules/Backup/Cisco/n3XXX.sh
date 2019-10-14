@@ -35,7 +35,7 @@ EOF
         echo "[i]: $device backup failed"
       fi
     fi
-    rm BackupConfigCiscoTEMPn3XXX
+    rm -v BackupConfigCiscoTEMPn3XXX
     else
     echo "[i]: $device not reachable"
  fi
