@@ -8,7 +8,7 @@ awk '{ print $2}' ./Devices/Firmware-Versions/Fortinet/Firmware-Versions.txt | c
 
 ## Fortinet 
 # Can be used to create a "okay" looking list of ./Devices/Firmware-Versions/Fortinet/Firmware-Versions.txt to display it e.g. on a website. Will be placed in ./Devices/Firmware-Versions/Fortinet/
-# sed 's/ /\&nbsp;\&nbsp;\&nbsp;\&nbsp;\&nbsp;\&nbsp;\&nbsp;\&nbsp;\&nbsp;\&nbsp;/g' ./Devices/Firmware-Versions/Fortinet/Firmware-Versions.txt > ./Devices/Firmware-Versions/Fortinet/Firmware-Versions.html 
+# sed 's/ /\&nbsp;\&nbsp;\&nbsp;\&nbsp;\&nbsp;\&nbsp;\&nbsp;\&nbsp;\&nbsp;\&nbsp;/g' ./Devices/Firmware-Versions/Fortinet/Firmware-Versions.txt | sed ':a;N;$!ba;s/\n/<br>/g' > ./Devices/Firmware-Versions/Fortinet/Firmware-Versions.html 
 
 # Can be used to create a list of ./Devices/Firmware-Versions/Fortinet/Firmware-Count.txt to display it e.g. on a website. Will be placed in ./Devices/Firmware-Versions/Fortinet/
 #  awk '{ print $2}' ./Devices/Firmware-Versions/Fortinet/Firmware-Versions.txt | cut -d "-" -f2 | sort | uniq -c | sed  's/^ *//' | sed 's/ / x FortiOS /g' | sed ':a;N;$!ba;s/\n/<br>/g' > ./Devices/Firmware-Versions/Fortinet/Firmware-Count.html
