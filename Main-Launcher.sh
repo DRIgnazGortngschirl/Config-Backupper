@@ -5,11 +5,11 @@ date=$(date +%d%m%y)
 cd PLACEHOLDERFORINSTALLATIONPATH
 # ---------------------------------------------
 
-echo "[i]: Start of backup @ $(date +%H:%m)" >> ./Log/Backup/log$date.txt
+echo "[i]: Start of backup @ $(date +%H:%M)" >> ./Log/Backup/log$date.txt
 
 ### Backup Modules ###
-# ./Modules/Backup/Fortinet/Fortinet.sh &>> ./Log/Fortinet/log$date.txt ### FUNCTIONAL ###
-# ./Modules/Backup/Fortinet/Fortinet-Special.sh &>> ./Log/Fortinet/log$date.txt ### Disabled by default FUNCTIONAL ###
+# ./Modules/Backup/Fortinet/Fortinet.sh &>> ./Log/Fortinet/log$date.txt ### Only for fortigateX series working ###
+# ./Modules/Backup/Fortinet/Fortinet-Special.sh &>> ./Log/Fortinet/log$date.txt ### Only for fortigateX series working ###
 # ./Modules/Backup/Cisco/Cisco.sh &>> ./Log/Cisco/log$date.txt ### Only for sgx00 & n3XXX & wsc3650 series working ###
 # ./Modules/Backup/DELL/DELL.sh &>> ./Log/DELL/log$date.txt ### Only for nXXXX series working ###
 # ./Modules/Backup/HP/HP.sh &>> ./Log/HP/log$date.txt ### NOT YET FUNCTIONAL! ###
@@ -25,5 +25,5 @@ echo "[i]: Start of backup @ $(date +%H:%m)" >> ./Log/Backup/log$date.txt
 
 # Stats
 ./Modules/Archive/ArchiveStats.sh &>> ./Log/Backup/log$date.txt ### Used for displaying archive and varius stats ###
-# ./Modules/FirmwareCheck/Fortinet/FirmwareChecker.sh ### Disabled by default ###
-echo "[i}: End of backup @ $(date +%H:%m)" >> ./Log/Backup/log$date.txt
+# ./Modules/FirmwareCheck/Fortinet/FirmwareChecker.sh ### Used for creating lists of firmwareversions of fortigateX firewalls ###
+echo "[i}: End of backup @ $(date +%H:%M)" >> ./Log/Backup/log$date.txt
