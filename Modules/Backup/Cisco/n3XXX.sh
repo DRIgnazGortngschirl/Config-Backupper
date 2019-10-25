@@ -5,7 +5,7 @@ passwd="XXXXXXPASSWORDXXXXXX"
 
 echo "[i]: Started Backup of Configs : Cisco (n3XXX.sh)"
 
-for device in $(egrep -v "^\s*(#|$)" ./Devices/Cisco/n3xxx-txt | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b")
+for device in $(egrep -v "^\s*(#|$)" ./Devices/Cisco/n3XXX-txt | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b")
  do
   echo -e "[i]: Host --> $device"
   if ping -c 3 $device &> /dev/null
