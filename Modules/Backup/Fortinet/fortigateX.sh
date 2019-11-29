@@ -1,41 +1,35 @@
 #!/bin/bash
-HOST=0 # Create HOST variable
-packages=1
-recheckpackages=3
 
-checkinterval=10
-recheckinterval=3
+user=backup
 
-while true; do
-    for HOST in $(cat hosts.txt | egrep -v "^\s*(#|$)"); do
-        echo -e -n "Checking Host: \e[35m$HOST\e[39m"
-        sleep $checkinterval
-        if ping -c $packages $HOST &>/dev/null; then
-            echo -e " \e[32mUP\e[39m"
-        else
-            echo -e " \e[33mFlapping\e[39m"
-            if ping -c 3 $HOST &>/dev/null; then
-                echo -e -n " \e[32mUP\e[39m"
-            else
-                echo -e "Checking Host: \e[35m$HOST\e[39m \e[31mDOWN\e[39m"
-                date=$(date +%d-%m-%Y_%H:%M:%S)
-                PING=$(ping $HOST -c 10 -W 1 | grep "packet loss" | awk '{print $6}' | sed 's/%//g')
-                printf "Host : $HOST\nState : DOWN\nPercent package loss : $PING\nTime : $date" | telegram-send --stdin
-                telegram-send ""
-                DOWN=1
-                while [ "$DOWN" -eq 1 ]; do
-                    if ping -c $recheckpackages $HOST &>/dev/null; then
-                        DOWN=0
-                        date=$(date +%d-%m-%Y_%H:%M:%S)
-                        echo -e "Host \e[35m$HOST\e[39m \e[32mUP\e[39m"
-                        printf "Host : $HOST\nState : UP\nTime : $date" | telegram-send --stdin
-                    else
-                        sleep $checkinterval
-                        DOWN=1
-                        echo -e "Host \e[35m$HOST\e[39m \e[31mDOWN\e[39m"
-                    fi
-                done
-            fi
-        fi
-    done
+echo "[i]: Started Backup of Configs : Fortigate (fortigateX.sh)"
+
+for device in $(egrep -v "^\s*(#|$)" ./Devices/Fortinet/fortigateX.txt | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b")
+ do
+  echo -e "[i]: Host --> $device"
+  if ping -c 3 $device &> /dev/null
+   then
+    echo "[i]: $device reachable"
+    scp -v -i ./SSH-Keys/Backup-SSH-Key $user@$device:sys_config ./BackupConfigFortinet
+    name=$(grep -m1 'set hostname' ./BackupConfigFortinet | sed 's|["?]||g' | sed 's/\<set hostname\>//g' | sed 's/ //g' | tr -dc '[:print:]')
+    if [ -z "$name" ]
+     then
+      echo "[i]: $device Name not found"
+     else
+      echo "[i]: $device Name found $name"
+      mkdir -v ./Archive/$name
+      date=$(date +"%H-%M_%d-%m-%Y")
+      mv -v ./BackupConfigFortinet ./Archive/$name/$name-$date.conf
+      if [ -f ./Archive/$name/$name-$date.conf ]
+       then
+        echo "[i]: File $name-$date.conf found"
+        echo "[i]: $device backup succeeded"
+       else
+        echo "[i]: File $name-$date.conf not found"
+        echo "[i]: $device backup failed"
+      fi
+    fi
+    else
+    echo "[i]: $device not reachable"
+ fi
 done
