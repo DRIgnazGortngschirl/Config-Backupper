@@ -21,7 +21,7 @@ echo "[i]: Start of backup @ $(date +%H:%M)" >> ./Log/Backup/log$date.txt
 ./Modules/Archive/OldLogs/Archiver.sh &>> ./Log/Backup/log$date.txt ### Used for compression and deleteion of old logs ###
 
 # Debug
-./Modules/Archive/Fastdebug.sh &>> ./Log/Failed/Failed-$date.txt ### Used for config copy debugging ###
+./Modules/Archive/Fastdebug.sh &>> ./Log/Failed/log$date.txt ### Used for config copy debugging ###
 
 # Stats
 ./Modules/Archive/ArchiveStats.sh &>> ./Log/Backup/log$date.txt ### Used for displaying archive and varius stats ###
