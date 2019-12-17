@@ -8,5 +8,5 @@ if [ -z $FILE ]; then
 fi
 
 ./backend.sh $FILE > switch-vlan-checker-temp
-cat switch-vlan-checker-temp | sed '/^$/d'
+sed '/^$/d' switch-vlan-checker-temp 
 rm switch-vlan-checker-temp
