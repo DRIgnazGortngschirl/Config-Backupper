@@ -2,7 +2,7 @@
 
 file=$1
 
-cat $file | sed -n '/config switch-controller managed-switch/,/end/ p' switch-vlan-checker-temp-config >switch-vlan-checker-temp-config
+sed -n '/config switch-controller managed-switch/,/end/ p' $file > switch-vlan-checker-temp-config
 
 name=$(sed -n '/config switch-controller managed-switch/,/end/ p' switch-vlan-checker-temp-config | grep name | sed 's/set name //g' | sed 's/"//g' | tr -d " \t")
 
