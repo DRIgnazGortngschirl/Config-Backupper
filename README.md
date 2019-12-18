@@ -10,10 +10,10 @@ This script can backup the configs from firewalls and switches.
 | Cisco          | For sgX00 & n3XXX & wsc3650 series |
 | HP             |                                    |
 
-### Packet dependencies
+## Packet dependencies
 Check the file **REQUIREMENTS** to see all packet dependencies.
 
-# How to install 
+## How to install 
 Step 1. ``` git clone https://github.com/MrMarioMichel/Config-Backupper ```  --> this branch should work otherwise download one of  the [newest release](https://github.com/MrMarioMichel/Config-Backupper/releases)
 
 Step 2. ```cd ./Config-Backupper``` --> enter the downloaded repository
@@ -22,34 +22,34 @@ Step 3. ```chmod 700 ./setup.sh``` --> make the setup.sh executable
 
 Step 4. ```./setup.sh``` --> start the setup.sh
 
-# How to setup
+## How to setup
 
-#### Set days after a config gets compressed (.gz format) [2,5x-3,5x SMALLER] (Numbers only):
+#### Set days after a config gets compressed (.gz format) [2,5x-3,5x SMALLER] (Numbers only)
 Here you can define (in days) when the archived configs get compressed*. (Recommended : 14)
 
 #### Set days after a config gets deleted (Numbers only):
 Here you can define (in days) when the archived configs get deleted*. (Recommended : 90)
 
-#### Set days after a logs gets compressed (.gz format) [2,5x-3,5x SMALLER] (Numbers only):
+#### Set days after a logs gets compressed (.gz format) [2,5x-3,5x SMALLER] (Numbers only)
 Here you can define (in days) when the archived logs get compressed*. (Recommended : 14)
 
-#### Set days after a logs gets deleted (Numbers only):
+#### Set days after a logs gets deleted (Numbers only)
 Here you can define (in days) when the archived logs get deleted*. (Recommended : 90)
 
 *If you don't want to deleted/commpress the configs/logs is set it to 9999. --> No compression/deletion for 27 Years long enough...
 
-#### Enter bit lenth (Numbers only):
+#### Enter bit lenth (Numbers only)
 Here you can define the SSH Key used to authenticate at the devices. (Recommended : 4096 or higher)
 
 Use low bit key length (1024 - 2048bits) to speed up the authentication **BUT SECURITY SUFFERS FROM IT !!!**.
 
-#### Enter passphrase (empty for no passphrase):
+#### Enter passphrase (empty for no passphrase)
 Just press enter otherwise the script would need everytime it connects to a devices the password. Still want to have a password you will neeed to enter the password in clear text in the ./Modules/Backup/\<VENDOR>/\<MODUDLE>.sh module ```sshpass -p "<PASSWORD>" scp -i ./SSH-Keys/Backup-SSH-Key backup@<IP>:<CONFIGFILE>  ./TestConfigFile```
 
 #### Enter same passphrase again:
-Again just enter.
+Again just enter or see "Enter passphrase"
 
-### OPTIONAL Setup
+##### OPTIONAL Setup
 
 #### Hook ./Archive to a website 
 Launch ./Modules/Setup/WebsiteIndex.sh to hook up the Archive folder to the webserver directory.
@@ -111,8 +111,8 @@ umg-gu-fw-01 FWF60E-6.0.4-FW-build0231-190107
 #### Hook stats to a website
 In ./Modules/FirmwareCheck/Fortinet/FirmwareChecker.sh under the section **Display on a website** you can enable a command that will create you html files by uncommenting the line (removing the #). All infos in the module.
 
-# How to configure
-## Server side
+## How to configure
+### Server side
 In ./Devices/\<VENDOR>/\<DEVICE-MODEL>.txt you need to enter line by line all IP addresses.
 
 ### Syntax
@@ -130,7 +130,7 @@ Use a # in front of a line to uncomment a line (This will get ignored from the b
 ## Enabling the Main Modules
 In ./Main-Launcher.sh are modules under the section **Backup Modules** that need to enabled by uncommenting the line (removing the #). Check with ```./Modules/Setup/ModuleChecker.sh``` if all needed modules has been enabled correctly.
 
-#### For example
+### For example
 
 ```
 ...
@@ -145,7 +145,7 @@ In ./Main-Launcher.sh are modules under the section **Backup Modules** that need
 ## Enabling the Submodules
 ./Modules/Backup/\<VENDOR>/\<DEVICE-MODEL>.sh are sub modules and under the section **Sub Backup Modules**  you need to enable the sub backup moudles by uncommenting the line (removing the #). Check with ```./Modules/Setup/ModuleChecker.sh``` if all needed modules has been enabled correctly.
   
-#### For example
+### For example
 ```
 ...
 ### Backup Modules ###
@@ -180,7 +180,7 @@ Create or use an existing read only profile for a user named "backup" (All in sm
 ### *Or use the ./Modules/Setup/\<VENDOR>/AutoSetup.sh to setup the client side
 Note : Run as sudo !!!
 
-# How to test 
+## How to test 
 You can test the script (Recommended) befor you run it automaticaly to get the config file with ```scp -P <PORT> -vvv -i ./SSH-Keys/Backup-SSH-Key backup@<IP>:<CONFIGFILE>  ./TestConfigFile```. If that worked and the config file is now stored as **TestConfigFile**. You can delete the **TestConfgiFile** and run the script and see what happens.
 
 ### Remote name of the config file
@@ -190,10 +190,10 @@ You can test the script (Recommended) befor you run it automaticaly to get the c
 | 2              |                          |                                                                |
 | 3              |                          |                                                                |
 
-# About 
+## About 
 The script uses a (YOU-CHOOSE-IT) bit long SSH Key for authentication. That key must be added to all devices at the user backup in order for the script to get the configs. In the directory ./Log will be all output generated by the script for each day and each vendor.
   
-# Limitaions
+## Limitaions
 | LimitNr        | Limitation           | Reason  | Will be fixed | 
 | :-------------: |:------------- | :----- | :-----: |
 | 1  |  If you try to run the scrip more often than once a day the logs of the secound run will also be in the same log file  | Logging has not been designed for this | No |
@@ -202,7 +202,7 @@ The script uses a (YOU-CHOOSE-IT) bit long SSH Key for authentication. That key 
 | 4 | If you run the script more often than once in 120 minutes the output of ./Modules/Archive/ArchiveStats.sh **Current Configs in Archive** will not be correct | Due to a setting in the module. Change ```-mmin -120``` to a lower value e.g ```-mmin -30```. This can cause problems getting all configs if they are oder than the defined value (Will show say less **Current Configs in Archive** than realy backuped.)| More likely yes |
 | 5 | If the backup process takes more than 120 minutes the output of ./Modules/Archive/ArchiveStats.sh will not be correct | Due to settings in the modules. Change ```-mmin -120``` to a higher value e.g ```-mmin -360``` to fix in ./Modules/Archive/ArchiveStats.sh **Total lines operating devices** and **Average lines in conifig file** in ./Modules/Archive/ArchiveStats.sh will **Current Configs in Archive** get fixed and will be displayed correctly | No (Can be fixed manually) |
 
-# Facing Problems
+## Facing Problems
 ### General :
 | Problem     | Solution  |  Description | 
 | :------------- |:------------- | :----- |
